@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { fetchResumes } from '../services/api';
 
-function Resume({resume, onEdit, onDelete}) {
+function Resume({ id }) {
+  const [resume, setResume] = useState(null);
+
+  useEffect(() => {
+    fetchResumes(id).then(setResume);
+  }, [id]);
+
+  if (!resume) {
+    return 'Loading...';
+  }
+
   return (
     <div>
-      <h2>{resume.title}</h2>
-      <p>{resume.description}</p>
-      <button onClick={onEdit}>Edit</button>
-      <button onClick={onDelete}>Delete</button>
+      <h1>{resume.title}</h1>
+      {/* other resume fields here */}
     </div>
   );
 }

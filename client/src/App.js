@@ -1,13 +1,22 @@
-// client/src/App.js
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ResumeDashboard from './components/ResumeDashboard';
+import Resume from './components/Resume';
+import ResumeForm from './components/ResumeForm';
+import ResumeSectionForm from './components/ResumeSectionForm';
 
 function App() {
   return (
-    <div className="App">
-      <ResumeDashboard />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<ResumeDashboard />} />
+          <Route path="/resumes/new" element={<ResumeForm />} />
+          <Route path="/resumes/:id" element={<Resume />} />
+          <Route path="/sections/new" element={<ResumeSectionForm />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

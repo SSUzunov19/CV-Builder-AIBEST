@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const resumesController = require('../controllers/ResumesController');
 
-router.get('/api/resumes', resumesController.getAllResumes);
-router.post('/api/resumes', resumesController.createResume);
-router.put('/api/resumes/:id', resumesController.updateResume);
-router.delete('/api/resumes/:id', resumesController.deleteResume);
+router.get('/', resumesController.getAllResumes);
+router.post('/', resumesController.createResume);
+router.put('/:id', resumesController.updateResume);
+router.delete('/:id', resumesController.deleteResume);
 
 module.exports = router;
