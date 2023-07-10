@@ -6,8 +6,28 @@ export const Login = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
-    }
+        
+        if (!validateEmail(email)) {
+            console.log('Invalid email');
+            return;
+        }
+        
+        if (!validatePassword(pass)) {
+            console.log('Invalid password');
+            return;
+        }
+        
+        // registerUser(email, pass);
+        console.log("Logged in");
+    };
+      
+    const validateEmail = (email) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+    
+    const validatePassword = (password) => {
+        return password.length >= 8;
+    };
 
     return (
         <div className="auth-form-container">
@@ -19,7 +39,7 @@ export const Login = (props) => {
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="password" name="password" /> <br /> <br />
                 <button className="Log-In-btn" type="submit">Log In</button> <br /> <br />
                 <a href="#">Forgot Password?</a>
-            <p> Don't have an account? Click <a href='#' onClick={() => props.onFormSwitch('register')}>here</a> to sign up</p>
+            <p> Don't have an account? Click here to <a href='#' onClick={() => props.onFormSwitch('register')}>sign up</a></p>
             </form>
         </div>
     )
