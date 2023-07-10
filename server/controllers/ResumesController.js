@@ -1,9 +1,18 @@
 const Resume = require('../models/Resume');
 
+exports.getResumeById = async (req, res) => {
+  const resume = await Resume.findByPk(req.params.id);
+  if (resume) {
+    res.json(resume);
+  } else {
+    res.status(404).json({ error: 'Resume not found' });
+  }
+};
+
 exports.getAllResumes = async (req, res) => {
   const resumes = await Resume.findAll();
   res.json(resumes);
-};
+}; 
 
 exports.createResume = async (req, res) => {
   const newResume = await Resume.create(req.body);
