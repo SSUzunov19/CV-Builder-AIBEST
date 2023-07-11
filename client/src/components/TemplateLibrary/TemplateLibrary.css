@@ -1,0 +1,14 @@
+.templates-wrapper{
+    margin-top: 164px;
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 283px);
+    gap: 28px;
+} 
+
+.template{
+    width: 200px;
+    height: 283px;
+    background-color: #D9D9D9;
+    border-radius: 15px;
+}
