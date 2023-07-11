@@ -9,11 +9,13 @@ const ResumeSectionList = ({ sections, onDelete, onUpdate }) => {
           key={section.id} 
           section={section}
           onDelete={onDelete}
-          onUpdate={onUpdate} 
+          onUpdate={(updatedSection) => onUpdate(section.id, updatedSection)} 
+          // Call onUpdate with the section id and the updated section data
         />
       ))}
     </div>
   );
-}
+};
 
 export default ResumeSectionList;
+

@@ -1,26 +1,53 @@
 import React, { useState } from 'react';
-import { createResume } from '../services/api';
+import { TextField, Box, Button } from '@mui/material';
+import { updateSection } from '../services/api';
 
-function ResumeForm() {
-  const [title, setTitle] = useState('');
+const ResumeSectionForm = ({ section }) => {
+  const [type, setType] = useState(section.type || '');
+  const [content, setContent] = useState(section.content || '');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createResume({ title }).then((resume) => {
-      // do something with the new resume
-      console.log(resume);
-    });
+
+    const sectionData = {
+      type: type,
+      content: content,
+    };
+  
+    updateSection(section.id, sectionData)
+      .then(updatedSection => {
+        console.log('Updated section:', updatedSection);
+      })
+      .catch(error => {
+        console.error('Failed to update section:', error);
+      });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Title:
-        <input value={title} onChange={(e) => setTitle(e.target.value)} />
-      </label>
-      <button type="submit">Create</button>
-    </form>
-  );
-}
+    <Box component="form" onSubmit={handleSubmit}>
+      <TextField
+        variant="outlined"
+        fullWidth
+        value={type}
+        onChange={(e) => setType(e.target.value)}
+        placeholder="Type"
+      />
 
-export default ResumeForm;
+      <TextField
+        variant="outlined"
+        fullWidth
+        multiline
+        rows={4}
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+        placeholder="Content"
+      />
+
+      <Button variant="contained" color="primary" type="submit">
+        ari 
+      </Button>
+    </Box>
+  );
+};
+
+export default ResumeSectionForm;

@@ -16,9 +16,25 @@ export const fetchResumes = () => {
     });
 };
 
+export const getResumeById = (id) => {
+  return api.get(`/api/resumes/${id}`)
+    .then((res) => {
+      console.log(res.data); // Check the response data
+      return res.data;
+    })
+    .catch((error) => {
+      console.error(`Error fetching resume with id ${id}:`, error);
+      throw error;
+    });
+};
+
 export const createResume = (resume) => {
-  return api.post('/api/resumes', resume);
-}
+  return api.post('/api/resumes', resume)
+    .then((response) => {
+      console.log('createResume response', response.data);
+      return response.data;
+    });
+};
 
 export const updateResume = (id, updatedResume) => {
   return api.put(`/api/resumes/${id}`, updatedResume);

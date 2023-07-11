@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import {Typography } from '@mui/material';
 import { fetchResumes, deleteResume } from '../services/api';
-import Resume from './Resume';
 import ResumeForm from './ResumeForm';
 
 function ResumeDashboard() {
@@ -21,7 +22,10 @@ function ResumeDashboard() {
       <ResumeForm />
       {resumes.map((resume) => (
         <div key={resume.id}>
-          <Resume id={resume.id} />
+          <Typography variant="h5" component="h5">
+            {resume.title}
+          </Typography>
+          <Link to={`/resumes/${resume.id}`}>Open</Link>
           <button onClick={() => handleDelete(resume.id)}>Delete</button>
         </div>
       ))}
