@@ -1,29 +1,38 @@
 const templateData = [
     {
+        number: 1,
         tags : ['modern', 'creative', 'clean']
     },
     {
+        number: 2,
         tags : ['functional', 'timeless', 'sharp']
     },
     {
+        number: 3,
         tags : ['minimal', 'clean', 'modern']
     },
     {
+        number: 4,
         tags : ['creative', 'timeless', 'minimal']
     },
     {
+        number: 5,
         tags : ['clean', 'functional', 'sharp']
     },
     {
+        number: 6,
         tags : ['modern', 'timeless', 'creative']
     },
     {
+        number: 7,
         tags : ['minimal', 'functional', 'clean']
     },
     {
+        number: 8,
         tags : ['creative', 'sharp', 'modern']
     },
     {
+        number: 9,
         tags : ['modern', 'minimal', 'functional']
     }
 ]

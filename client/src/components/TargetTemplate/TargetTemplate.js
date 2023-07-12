@@ -1,9 +1,7 @@
 import React from "react";
-import { useState } from "react";
 import "./TargetTemplate.css"
 
-export default function TargetTemplate(template) {
-    const [selectedTemplate, setSelectedTemplate] = useState(1)
+export default function TargetTemplate({ selectedTemplate }) {
 
     function getImageFilePath(){
         return require(`../../images/templates/template${selectedTemplate.toString()}.png`);

@@ -9,7 +9,7 @@
 .template{
     width: 200px;
     height: 283px;
-    background-color: #D9D9D9;
+    background-color: transparent;
     border-radius: 15px;
 }
 
@@ -17,4 +17,9 @@
     width: 200px;
     height: 283px;
     border-radius: 15px;
+}
+
+.template-image:hover{
+    cursor: pointer;
+    border: 5px solid transparent;
 }
