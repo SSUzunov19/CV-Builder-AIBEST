@@ -1,47 +1,29 @@
 const templateData = [
     {
-        id : '0',
-        URL : '',
         tags : ['modern', 'creative', 'clean']
     },
     {
-        id : '1',
-        URL : '',
         tags : ['functional', 'timeless', 'sharp']
     },
     {
-        id : '2',
-        URL : '',
         tags : ['minimal', 'clean', 'modern']
     },
     {
-        id : '3',
-        URL : '',
         tags : ['creative', 'timeless', 'minimal']
     },
     {
-        id : '4',
-        URL : '',
         tags : ['clean', 'functional', 'sharp']
     },
     {
-        id : '5',
-        URL : '',
         tags : ['modern', 'timeless', 'creative']
     },
     {
-        id : '6',
-        URL : '',
         tags : ['minimal', 'functional', 'clean']
     },
     {
-        id : '7',
-        URL : '',
         tags : ['creative', 'sharp', 'modern']
     },
     {
-        id : '8',
-        URL : '',
         tags : ['modern', 'minimal', 'functional']
     }
 ]

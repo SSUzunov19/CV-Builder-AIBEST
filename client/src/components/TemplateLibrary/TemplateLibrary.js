@@ -1,19 +1,21 @@
 import React from "react";
-// import { templateData as templateCards } from "./TemplateData";
+import { templateData } from "../TemplateData/TemplateData"
 import "./TemplateLibrary.css"
 
+
 export default function TemplateLibrary() {
-    return(
+    function getImageFilePath(str){
+        return require(`../../images/templates/template${str}.png`);
+    }
+
+    return (
         <div className="templates-wrapper">
-            <div className="template"></div>
-            <div className="template"></div>
-            <div className="template"></div>
-            <div className="template"></div>
-            <div className="template"></div>
-            <div className="template"></div>
-            <div className="template"></div>
-            <div className="template"></div>
-            <div className="template"></div>
+            {
+                templateData.map((data, index) => (
+                <div key={index} className="template">
+                    <img src={getImageFilePath((index+1).toString())} alt={"template"+(index+1).toString()} className="template-image"/>
+                </div>))
+            }
         </div>
     );
 }
