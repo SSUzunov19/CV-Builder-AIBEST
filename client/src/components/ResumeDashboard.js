@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { fetchResumes, deleteResume } from '../services/api';
 import ResumeForm from './ResumeForm';
 

@@ -4,7 +4,7 @@ import { Card, CardContent, Typography, Box, Grid } from '@mui/material';
 import SetEmpty from "../UI Components/SetEmpty";
 import SetSample from "../UI Components/SetSample";
 
-const SettingMain = () => {
+const Helper = () => {
     return (
         <AnimatePresence>
             <motion.div layout className="cardStyle">
@@ -28,4 +28,4 @@ const SettingMain = () => {
     );
 };
 
-export default SettingMain;
+export default Helper;

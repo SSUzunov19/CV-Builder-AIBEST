@@ -1,4 +1,5 @@
 import axios from 'axios';
+import LS from '../utils/browser.utils';
 
 const api = axios.create({
   baseURL: 'http://localhost:9000',
@@ -32,9 +33,14 @@ export const createResume = (resume) => {
   return api.post('/api/resumes', resume)
     .then((response) => {
       console.log('createResume response', response.data);
+
+      // Also save the resume data in localStorage
+      LS.set({ key: 'resume', payload: response.data });
+
       return response.data;
     });
 };
+
 
 export const updateResume = (id, updatedResume) => {
   return api.put(`/api/resumes/${id}`, updatedResume);

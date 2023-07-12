@@ -5,6 +5,7 @@ import ResumeDashboard from './components/ResumeDashboard';
 import Resume from './components/Resume';
 import ResumeForm from './components/ResumeForm';
 import ResumeSectionForm from './components/ResumeSectionForm';
+import Home from './pages/index';
 
 const theme = createTheme({
   palette: {
@@ -24,6 +25,7 @@ function App() {
         <div className="App">
           <Routes>
             <Route path="/" element={<ResumeDashboard />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/resumes/new" element={<ResumeForm />} />
             <Route path="/resumes/:id" element={<Resume />} />
             <Route path="/sections/new" element={<ResumeSectionForm />} />
