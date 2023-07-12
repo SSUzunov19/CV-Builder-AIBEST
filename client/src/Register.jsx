@@ -27,9 +27,9 @@ export const Register = (props) => {
         }
 
         const user = {
-            name,
-            email,
-            pass,
+            username: name,
+            email: email,
+            password: pass,
         };
 
         console.log(name, email, pass);

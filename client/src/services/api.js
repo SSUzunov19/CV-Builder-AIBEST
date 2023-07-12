@@ -5,7 +5,7 @@ const api = axios.create({
 });
 
 export const fetchUsers = () => {
-  return api.get('/users')
+  return api.get('/api/users')
   .then((res) => {
     console.log(res.data); // Check the response data
     return res.data;
@@ -17,13 +17,13 @@ export const fetchUsers = () => {
 }
   
 export const createUser = (user) => {
-  return api.post('/users', user);
+  return api.post('/api/users', user);
 };
   
 export const updateUser = (id, updatedUser) => {
-  return api.put(`/users/${id}`, updatedUser);
+  return api.put(`/api/users/${id}`, updatedUser);
 }
 
 export const deleteUser = (id) => {
-  return api.delete(`/users/${id}`);
+  return api.delete(`/api/users/${id}`);
 }
