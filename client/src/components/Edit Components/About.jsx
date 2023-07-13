@@ -26,7 +26,9 @@ const About = () => {
             alignItems="center"
             className="w-full cursor-pointer text-lg"
           >
-            <Typography variant="h6">About Yourself</Typography>
+            <Box textAlign = "center">
+              <Typography variant="h6" style={{ textAlign: "center" }}>About Yourself</Typography>
+            </Box>
             <motion.div
               className="inline-block items-end"
               animate={{ rotate: isOpen ? 90 : 0 }}
@@ -50,11 +52,13 @@ const About = () => {
                 }}
                 transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
               >
-                <CheckBox
-                  title="Display Image"
-                  value={cv.displayImage}
-                  keyChange="displayImage"
-                />
+                <div style={{ marginLeft: "20px" }}>
+                  <CheckBox
+                    title="Display Image"
+                    value={cv.displayImage}
+                    keyChange="displayImage"
+                  />
+                </div>
 
                 {cv.displayImage ? (
                   <motion.div
