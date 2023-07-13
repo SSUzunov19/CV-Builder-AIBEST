@@ -34,13 +34,11 @@ export const createResume = (resume) => {
     .then((response) => {
       console.log('createResume response', response.data);
 
-      // Also save the resume data in localStorage
       LS.set({ key: 'resume', payload: response.data });
 
       return response.data;
     });
 };
-
 
 export const updateResume = (id, updatedResume) => {
   return api.put(`/api/resumes/${id}`, updatedResume);
