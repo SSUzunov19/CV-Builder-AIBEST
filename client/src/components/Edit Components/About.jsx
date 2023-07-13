@@ -94,38 +94,41 @@ const About = () => {
                   </motion.div>
                 ) : null}
 
-                <Inputs
-                  title="Name & Surname"
-                  value={cv.name}
-                  placeholder="Your name"
-                  keyChange="name"
-                />
-                <Inputs
-                  title="Job"
-                  value={cv.jobTitle}
-                  placeholder="What is your job?"
-                  keyChange="jobTitle"
-                />
-                <Inputs
-                  title="Location"
-                  value={cv.location}
-                  placeholder="Where do you live?"
-                  keyChange="location"
-                />
-                <TextArea
-                  title="About"
-                  value={cv.about}
-                  placeholder="A few sentences about yourself"
-                  keyChange="about"
-                />
+                <div style={{ textAlign: "center" }}>
+                  <Inputs
+                    title="Name & Surname"
+                    value={cv.name}
+                    placeholder="Your name"
+                    keyChange="name"
+                  />
+                  <Inputs
+                    title="Job"
+                    value={cv.jobTitle}
+                    placeholder="What is your job?"
+                    keyChange="jobTitle"
+                  />
+                  <Inputs
+                    title="Location"
+                    value={cv.location}
+                    placeholder="Where do you live?"
+                    keyChange="location"
+                  />
+                  <TextArea
+                    title="About"
+                    value={cv.about}
+                    placeholder="A few sentences about yourself"
+                    keyChange="about"
+                  />
+                </div>
 
                 <Typography
                   layout
                   className="projectAndExperienceTitle mt-5 text-lg"
+                  style={{ textAlign: "center" }}
                 >
                   Social
                 </Typography>
-                <Box layout display="flex" flexWrap="wrap">
+                <Box layout display="flex" flexWrap="wrap" justifyContent="center">
                   <CheckBox
                     title="Mail"
                     value={cv.displayMail}
@@ -163,6 +166,7 @@ const About = () => {
                   />
                 </Box>
 
+                <div style={{ textAlign: "center" }}>
                 {cv.displayMail ? (
                   <Inputs
                     title="Mail"
@@ -225,6 +229,7 @@ const About = () => {
                     keyChange="facebook"
                   />
                 ) : null}
+              </div>
               </motion.div>
             )}
           </AnimatePresence>
