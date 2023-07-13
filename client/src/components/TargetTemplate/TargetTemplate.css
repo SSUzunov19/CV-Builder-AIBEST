@@ -13,6 +13,8 @@
     width: 934px;
     height: 1321px;
     background-color: transparent;
+    margin-left: 140px;
+    margin-right: 140px;
     border-radius: 15px;
     box-shadow: 10px 10px 10px #21222A;
 }
@@ -22,3 +24,26 @@
     height: 1321px;
     border-radius: 15px;
 }
+
+#back-button{
+    transition: filter 0.5s ease-in-out;
+    align-self:flex-start;
+    margin-top: 59px;
+    border: 2px solid white ;
+    border-radius: 50px;    
+}
+
+#confirm-button{
+    transition: filter 0.5s ease-in-out;
+    align-self: flex-end;
+    margin-bottom: 59px;
+    border: 2px solid white ;
+    border-radius: 50px;  
+}
+
+#confirm-button:hover, #back-button:hover{
+    cursor: pointer;
+    filter: invert(100%);
+    border-color: transparent;
+    scale: 1.05;
+} 

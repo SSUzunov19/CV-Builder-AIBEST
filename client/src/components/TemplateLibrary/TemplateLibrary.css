@@ -21,5 +21,5 @@
 
 .template-image:hover{
     cursor: pointer;
-    border: 5px solid transparent;
+    scale: 1.05;
 }
