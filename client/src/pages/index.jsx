@@ -1,5 +1,7 @@
+import React from 'react';
 import CV from "../components/CV";
 import Settings from "../components/Settings";
+import PageButtons from "../components/PageButtons";
 import { useState, useEffect, useRef } from "react";
 import { CvContext } from "../hooks/CvContext";
 import { cvData } from "../data/cvData";
@@ -12,7 +14,18 @@ import {
 import LS from "../utils/browser.utils";
 
 import { Helmet } from 'react-helmet';
-import { Container, Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
+import { CssBaseline } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import StyledContainer from './StyledContainer';
+
+const theme = createTheme({
+    palette: {
+        background: {
+            default: "#edf0ee" // Use any gray color code you want
+        }
+    }
+});
 
 export default function Home() {
     const [cv, setCv] = useState(cvData);
@@ -75,12 +88,6 @@ export default function Home() {
         LS.set({ key: "cv", payload: emptyCv });
     };
 
-    const [template, setTemplate] = useState(1);
-
-    const selectTemplate = (e) => {
-        setTemplate(e.target.value);
-    };
-
     const updateCv = (key, value) => {
         const newCv = { ...cv, [key]: value };
         setCv(newCv);
@@ -106,7 +113,6 @@ export default function Home() {
         }
     };
 
-    //when click on delete button, remove the tag from the array
     const removeTag = (key, value) => {
         const newCv = { ...cv, [key]: cv[key].filter((tag) => tag !== value) };
         setCv(newCv);
@@ -131,7 +137,6 @@ export default function Home() {
         LS.set({ key: "cv", payload: newCv });
     };
 
-    //when dag and drop or click and upload image in the settings page, update the cv image, and save it in the local storage
     const uploadImage = (e) => {
         // For XSS attack from HTML injection
         const allowedFiles = ["image/png", "image/jpg", "image/jpeg"];
@@ -165,7 +170,6 @@ export default function Home() {
     };
 
     useEffect(() => {
-        //create cvLocal in localStorage if it doesn't exist
         const cvLocal = LS.get("cv");
         if (cvLocal) {
             setCv((currentCv) => ({ ...currentCv, ...cvLocal }));
@@ -198,7 +202,8 @@ export default function Home() {
     const componentRef = useRef();
 
     return (
-        <>
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
             <Helmet>
                 <title>CV Builder</title>
                 <meta
@@ -218,10 +223,10 @@ export default function Home() {
                     removeTag,
                     setEmptyCv,
                     setCV,
+                    scale,
                     scaleUp,
                     scaleDown,
                     ifScaleUpOrDown,
-                    selectTemplate,
                     addEducation,
                     templateSwitch,
                 }}
@@ -231,7 +236,7 @@ export default function Home() {
                     justifyContent="space-between"
                     alignItems="center"
                     height="100vh"
-                    padding="0 10rem"  // padding added to ensure the boxes aren't stuck to the screen edges
+                    padding="0 10rem"
                 >
                     <Box alignItems="center" height="100%">
                         <Box component="section" className="settings">
@@ -241,15 +246,15 @@ export default function Home() {
 
                     <Box position="relative">
                         <Box component="section">
-                            <Container maxWidth="sm" className="template-container">
+                            <StyledContainer ref={componentRef} style={{ transform: `scale(${scale})` }}>
                                 {templateSwitch()}
-                            </Container>
+                            </StyledContainer>
+                            <PageButtons onPrint={handlePrint} />
                         </Box>
                     </Box>
                 </Box>
 
-
             </CvContext.Provider>
-        </>
+        </ThemeProvider>
     );
 };

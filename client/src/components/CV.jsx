@@ -1,3 +1,4 @@
+import React from "react";
 import ReactMarkdown from "react-markdown";
 import {
   HiOutlineMail,
@@ -12,7 +13,7 @@ import { TbBrandTwitter } from "react-icons/tb";
 import { useContext } from "react";
 import { CvContext } from "../hooks/CvContext";
 
-const CV = () => {
+const CV = React.forwardRef((props, ref) => {
   const items = "flex items-center mr-3 mt-2 ";
   const itemsSVG = "h-4 w-4 text-gray-700 mr-1";
   const paragraphSize = "text-[0.705rem] mt-1 text-gray-700 ";
@@ -20,7 +21,8 @@ const CV = () => {
   const cv = useContext(CvContext);
 
   return (
-    <div className="w-full h-full" id="cv">
+    <div className="w-full h-full" ref={ref} id="cv"> 
+      {/* attach the ref here */}
       {[cv.cv].map((item, index) => {
         return (
           <div key={index}>
@@ -137,6 +139,6 @@ const CV = () => {
       })}
     </div>
   );
-};
+});
 
 export default CV;
