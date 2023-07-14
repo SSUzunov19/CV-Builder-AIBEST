@@ -53,6 +53,7 @@ export default function Home() {
             name: "",
             image: "",
             jobTitle: "",
+            phone: "",
             location: "",
             email: "",
             linkedin: "",

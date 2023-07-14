@@ -26,8 +26,10 @@ const About = () => {
             alignItems="center"
             className="w-full cursor-pointer text-lg"
           >
-            <Box textAlign = "center">
-              <Typography variant="h6" style={{ textAlign: "center" }}>About Yourself</Typography>
+            <Box textAlign="center">
+              <Typography variant="h6" style={{ textAlign: "center" }}>
+                About Yourself
+              </Typography>
             </Box>
             <motion.div
               className="inline-block items-end"
@@ -112,6 +114,12 @@ const About = () => {
                     keyChange="jobTitle"
                   />
                   <Inputs
+                    title="Phone"
+                    value={cv.phone}
+                    placeholder="Your phone number"
+                    keyChange="phone"
+                  />
+                  <Inputs
                     title="Location"
                     value={cv.location}
                     placeholder="Where do you live?"
@@ -171,69 +179,69 @@ const About = () => {
                 </Box>
 
                 <div style={{ textAlign: "center" }}>
-                {cv.displayMail ? (
-                  <Inputs
-                    title="Mail"
-                    value={cv.email}
-                    placeholder="example@mail.com"
-                    keyChange="email"
-                  />
-                ) : null}
+                  {cv.displayMail ? (
+                    <Inputs
+                      title="Mail"
+                      value={cv.email}
+                      placeholder="example@mail.com"
+                      keyChange="email"
+                    />
+                  ) : null}
 
-                {cv.displayWebSite ? (
-                  <Inputs
-                    title="Portfolio"
-                    value={cv.website}
-                    placeholder="Site Link without ' https:// '"
-                    keyChange="website"
-                  />
-                ) : null}
+                  {cv.displayWebSite ? (
+                    <Inputs
+                      title="Portfolio"
+                      value={cv.website}
+                      placeholder="Site Link without ' https:// '"
+                      keyChange="website"
+                    />
+                  ) : null}
 
-                {cv.displayGithub ? (
-                  <Inputs
-                    title="Github"
-                    value={cv.github}
-                    placeholder="Only Username"
-                    keyChange="github"
-                  />
-                ) : null}
+                  {cv.displayGithub ? (
+                    <Inputs
+                      title="Github"
+                      value={cv.github}
+                      placeholder="Only Username"
+                      keyChange="github"
+                    />
+                  ) : null}
 
-                {cv.displayTwitter ? (
-                  <Inputs
-                    title="Twitter"
-                    value={cv.twitter}
-                    placeholder="Only Username without @"
-                    keyChange="twitter"
-                  />
-                ) : null}
+                  {cv.displayTwitter ? (
+                    <Inputs
+                      title="Twitter"
+                      value={cv.twitter}
+                      placeholder="Only Username without @"
+                      keyChange="twitter"
+                    />
+                  ) : null}
 
-                {cv.displayLinkedIn ? (
-                  <Inputs
-                    title="LinkedIn"
-                    value={cv.LinkedIn}
-                    placeholder="Only Username"
-                    keyChange="linkedIn"
-                  />
-                ) : null}
+                  {cv.displayLinkedIn ? (
+                    <Inputs
+                      title="LinkedIn"
+                      value={cv.LinkedIn}
+                      placeholder="Only Username"
+                      keyChange="linkedIn"
+                    />
+                  ) : null}
 
-                {cv.displayInstagram ? (
-                  <Inputs
-                    title="Instagram"
-                    value={cv.Instagram}
-                    placeholder="Only Username"
-                    keyChange="instagram"
-                  />
-                ) : null}
+                  {cv.displayInstagram ? (
+                    <Inputs
+                      title="Instagram"
+                      value={cv.Instagram}
+                      placeholder="Only Username"
+                      keyChange="instagram"
+                    />
+                  ) : null}
 
-                {cv.displayFacebook ? (
-                  <Inputs
-                    title="Facebook"
-                    value={cv.Facebook}
-                    placeholder="Only Username"
-                    keyChange="facebook"
-                  />
-                ) : null}
-              </div>
+                  {cv.displayFacebook ? (
+                    <Inputs
+                      title="Facebook"
+                      value={cv.Facebook}
+                      placeholder="Only Username"
+                      keyChange="facebook"
+                    />
+                  ) : null}
+                </div>
               </motion.div>
             )}
           </AnimatePresence>

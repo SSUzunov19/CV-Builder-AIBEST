@@ -2,6 +2,7 @@ export const cvData = {
     name: "Stas Uzunov",
     image: "",
     jobTitle: "Software Engineer",
+    phone: "0888888888",
     location: "Burgas, Bulgaria",
     email: "stas.uzunov@email.com",
     linkedIn: "",

@@ -1,9 +1,10 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import {
-  HiOutlineMail,
+  HiOutlineMail
 } from "react-icons/hi";
 import {
+  AiOutlinePhone,
   AiFillGithub,
   AiOutlineLinkedin,
   AiOutlineInstagram,
@@ -18,10 +19,10 @@ const CV = React.forwardRef((props, ref) => {
   const itemsSVG = "h-4 w-4 text-gray-700 mr-1";
   const paragraphSize = "text-[0.705rem] mt-1 text-gray-700 ";
 
-  const cv = useContext(CvContext);
+  const  cv  = useContext(CvContext);
 
   return (
-    <div className="w-full h-full" ref={ref} id="cv"> 
+    <div className="w-full h-full" ref={ref} id="cv">
       {/* attach the ref here */}
       {[cv.cv].map((item, index) => {
         return (
@@ -52,7 +53,15 @@ const CV = React.forwardRef((props, ref) => {
                   </h4>
                 </div>
               </div>
-              <div className="flex flex-wrap text-xs mt-1 items-center align-middle  ">
+              <div className="flex flex-wrap text-xs mt-1 items-center align-middle">
+              { item.phone && item.displayPhone ? (
+                  <div className={items}>
+                    <AiOutlinePhone className={itemsSVG} />
+                    <span>{item.phone}</span>
+                  </div>
+                ) : null}
+
+
                 {item.email && item.displayMail ? (
                   <div className={items}>
                     <HiOutlineMail className={itemsSVG} />
@@ -62,7 +71,6 @@ const CV = React.forwardRef((props, ref) => {
                 {item.github && item.displayGithub ? (
                   <div className={items}>
                     <AiFillGithub className={itemsSVG} />
-
                     <a
                       href={`https://github.com/${item.github}`}
                       target="_blank"
@@ -134,7 +142,7 @@ const CV = React.forwardRef((props, ref) => {
               </section>
             ) : null}
             {/* ABOUT TEXT END */}
-            </div>
+          </div>
         );
       })}
     </div>
