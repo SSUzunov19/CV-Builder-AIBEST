@@ -32,6 +32,7 @@ export const useBuilderLogic = () => {
             name: "",
             image: "",
             jobTitle: "",
+            phone: "",
             location: "",
             email: "",
             linkedin: "",
