@@ -1,30 +1,39 @@
 import React from "react";
-import { templateData } from "../TemplateData/TemplateData"
+import { motion, AnimatePresence } from "framer-motion";
 import "./TemplateLibrary.css"
 
+export default function TemplateLibrary({ tData, setSelectedTemplate }) {
+  function getImageFilePath(str) {
+    return require(`../../images/templates/template${str}.png`);
+  }
 
-export default function TemplateLibrary({ setSelectedTemplate }) {
-    function getImageFilePath(str){
-        return require(`../../images/templates/template${str}.png`);
-    }
+  function handleImageClick(index) {
+    setSelectedTemplate(index + 1);
+  }
 
-    function handleImageClick(index) {
-        setSelectedTemplate(index + 1);
-    }
-
-    return (
-        <div className="templates-wrapper">
-            {
-                templateData.map((data, index) => (
-                <div key={index} className="template">
-                    <img 
-                        src={getImageFilePath((data.number).toString())} 
-                        alt={"template"+(data.number).toString()} 
-                        className="template-image"
-                        onClick={() => handleImageClick(index)}
-                    />
-                </div>))
-            }
-        </div>
-    );
+  return (
+    <div className="templates-wrapper">
+      <AnimatePresence>
+        {
+          tData.map((data, index) => {
+            const noTagsSelected = tData.every(template => template.relativity === 0);
+            return (noTagsSelected || data.relativity >= 1) && (
+              <motion.div key={index} className="template"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+              >
+                <img
+                  src={getImageFilePath(data.number.toString())}
+                  alt={"template" + data.number.toString()}
+                  className="template-image"
+                  onClick={() => handleImageClick(index)}
+                />
+              </motion.div>
+            );
+          })
+        }
+      </AnimatePresence>
+    </div>
+  );
 }

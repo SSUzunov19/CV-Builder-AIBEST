@@ -5,28 +5,41 @@ import TemplateTags from "../TemplateTags/TemplateTags";
 import searchIcond from "../../images/searchIcon.svg";
 import "./SearchBar.css";
 
-export default function SearchBar() {
-    const [input, setInput] = useState('')
-    const [selectedTags, setSelectedTags] = useState([])
+export default function SearchBar({tData, setTData}) {
+    const [input, setInput] = useState('');
+    const [selectedTags, setSelectedTags] = useState([]);
+
+    const UpdateTemplateRelativity = (newSelectedTags) => {
+        let tempData = [...tData];
+    
+        tempData.forEach(template => {
+            template.relativity = newSelectedTags.every(tag => template.tags.includes(tag)) ? 1 : 0;
+        });
+    
+        setTData(tempData);
+    }
 
     const handleChange = (value) => {
         setInput(value);
 
-        const userInput = document.getElementById("user-input");
         let temp = value;
+        let newSelectedTags = [...selectedTags];
 
-        for (let i = 0; i < tagTypes.length; i++) {
-            if (value.includes(tagTypes[i].type)) {
-                temp = temp.replace(tagTypes[i].type, "");
-
-                if(!selectedTags.includes(tagTypes[i].type)){
-                    const update = [...selectedTags, tagTypes[i].type];
-                    setSelectedTags(update);
+        tagTypes.forEach(tagType => {
+            if (temp.includes(tagType.type)) {
+                temp = temp.replace(tagType.type, "");
+                if(!newSelectedTags.includes(tagType.type)){
+                    newSelectedTags.push(tagType.type);
                 }
             }
+        });
+
+        if (newSelectedTags.length !== selectedTags.length) {
+            setSelectedTags(newSelectedTags);
+            UpdateTemplateRelativity(newSelectedTags);
         }
-        
-        userInput.value = temp;
+
+        document.getElementById("user-input").value = temp;
     }
 
     return (
