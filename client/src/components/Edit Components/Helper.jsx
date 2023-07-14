@@ -4,13 +4,13 @@ import { Card, CardContent, Typography, Box, Grid } from '@mui/material';
 import SetEmpty from "../UI Components/SetEmpty";
 import SetSample from "../UI Components/SetSample";
 
-const Helper = () => {
+const Helper = ({resume}) => {
     return (
         <AnimatePresence>
             <motion.div layout className="cardStyle">
                 <Card>
                     <CardContent>
-                        <Typography variant="h3" component="div">CV Builder</Typography>
+                        <Typography variant="h3" component="div">{resume?.title || 'Loading...'}</Typography>
                         <Box mt={4}>
                             <Grid container spacing={2}>
                                 <Grid item>

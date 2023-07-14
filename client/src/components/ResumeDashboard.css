@@ -1,0 +1,22 @@
+.card-container {
+    margin: 20px;
+    flex-basis: calc(33% - 40px);
+    /* 33% for three items per row, 40px for margin */
+    box-sizing: border-box;
+    /* include padding and border in element's total width and height */
+}
+
+.action-button {
+    margin-right: 10px;
+}
+
+.cards-wrapper {
+    display: flex;
+    /* align children inline */
+    flex-wrap: wrap;
+    /* wrap children to the next line when current line is full */
+    justify-content: space-between;
+    /* distribute cards evenly along the line */
+    padding: 20px;
+    /* padding around the cards wrapper */
+}

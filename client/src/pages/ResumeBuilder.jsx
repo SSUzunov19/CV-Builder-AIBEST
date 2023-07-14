@@ -3,6 +3,7 @@ import CV from "../components/CV";
 import Settings from "../components/Settings";
 import PageButtons from "../components/PageButtons";
 import { useState, useEffect, useRef } from "react";
+import { useParams } from 'react-router-dom';
 import { CvContext } from "../hooks/CvContext";
 import { cvData } from "../data/cvData";
 import { useReactToPrint } from "react-to-print";
@@ -13,11 +14,12 @@ import {
 } from "../constants/message-result.constants";
 import LS from "../utils/browser.utils";
 
-import { Helmet } from 'react-helmet';
 import { Box } from '@mui/material';
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import StyledContainer from './StyledContainer';
+
+import { getResumeById } from '../services/api';
 
 const theme = createTheme({
     palette: {
@@ -30,6 +32,16 @@ const theme = createTheme({
 export default function Home() {
     const [cv, setCv] = useState(cvData);
     const [scale, setScale] = useState(1);
+
+    const { id } = useParams();
+    const [resume, setResume] = useState(null);
+
+    useEffect(() => {
+        getResumeById(id).then((response) => {
+            console.log('Response:', response); // Check the entire response
+            setResume(response);
+        });
+    }, [id]);
 
     const setCV = () => {
         setCv(cvData);
@@ -204,14 +216,7 @@ export default function Home() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Helmet>
-                <title>CV Builder</title>
-                <meta
-                    name="Cv Builder"
-                    content="Beautifully designed cv builder where you can see the changes at the same time"
-                />
-                <link rel="icon" href="/fav.png" />
-            </Helmet>
+
             <CvContext.Provider
                 value={{
                     cv,
@@ -240,7 +245,7 @@ export default function Home() {
                 >
                     <Box alignItems="center" height="100%">
                         <Box component="section" className="settings">
-                            <Settings />
+                            <Settings resume={resume}/>
                         </Box>
                     </Box>
 

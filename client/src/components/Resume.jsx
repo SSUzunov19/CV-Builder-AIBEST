@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Typography, Box, Button } from '@mui/material';
+import { Container, Typography, Button } from '@mui/material';
 import { getResumeById, updateResume, updateSection, deleteSection } from '../services/api';
-import ResumeSectionForm from './ResumeSectionForm';
-import ResumeSectionList from './ResumeSectionList';
 
 function Resume() {
   const { id } = useParams();
@@ -74,12 +72,6 @@ function Resume() {
       <Typography variant="h4" component="h1" gutterBottom>
         {resume.title}
       </Typography>
-
-      <ResumeSectionList 
-        sections={resume.sections}
-        onDelete={handleDelete}
-        onUpdate={handleUpdate}
-      />
 
       <Button variant="contained" color="primary" onClick={handleSave}>
         Save

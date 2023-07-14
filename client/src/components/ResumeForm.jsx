@@ -16,7 +16,7 @@ function ResumeForm() {
     };
 
     createResume(newResume).then((resume) => {
-      navigate(`/resumes/${resume.id}`);
+      navigate(`/builder/${resume.id}`);
     });
   };
 
