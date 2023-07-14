@@ -12,6 +12,19 @@ import { Box, Typography, Paper } from "@mui/material";
 const About = () => {
   const { cv, uploadImage } = useContext(CvContext);
   const [isOpen, setIsOpen] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState(false);
+
+  const validatePhone = () => {
+    const phoneRegex = /^\d{10}$/; // Assuming a 10-digit phone number format
+    return phoneRegex.test(phone);
+  };
+
+  const handlePhoneChange = (event) => {
+    const newPhone = event.target.value;
+    setPhone(newPhone);
+    setPhoneError(!validatePhone(newPhone));
+  };
 
   return (
     <AnimatePresence initial={false}>
@@ -118,6 +131,9 @@ const About = () => {
                     value={cv.phone}
                     placeholder="Your phone number"
                     keyChange="phone"
+                    error={phoneError}
+                    onChange={handlePhoneChange}
+                    helperText={phoneError ? "Invalid phone number" : ""}
                   />
                   <Inputs
                     title="Location"

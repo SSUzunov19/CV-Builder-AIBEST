@@ -65,6 +65,7 @@ export const cvData = {
         },
     ],
     displayImage: true,
+    displayPhone: true,
     displayMail: true,
     displayWebSite: true,
     displayLinkedIn: false,

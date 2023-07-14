@@ -1,10 +1,11 @@
+
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import PhoneIcon from '@mui/icons-material/Phone';
 import {
   HiOutlineMail
 } from "react-icons/hi";
 import {
-  AiOutlinePhone,
   AiFillGithub,
   AiOutlineLinkedin,
   AiOutlineInstagram,
@@ -19,7 +20,7 @@ const CV = React.forwardRef((props, ref) => {
   const itemsSVG = "h-4 w-4 text-gray-700 mr-1";
   const paragraphSize = "text-[0.705rem] mt-1 text-gray-700 ";
 
-  const  cv  = useContext(CvContext);
+  const cv = useContext(CvContext);
 
   return (
     <div className="w-full h-full" ref={ref} id="cv">
@@ -54,14 +55,12 @@ const CV = React.forwardRef((props, ref) => {
                 </div>
               </div>
               <div className="flex flex-wrap text-xs mt-1 items-center align-middle">
-              { item.phone && item.displayPhone ? (
+                {item.phone && item.displayPhone ? (
                   <div className={items}>
-                    <AiOutlinePhone className={itemsSVG} />
+                    <PhoneIcon sx={{ fontSize: 'medium' }} className={itemsSVG} />
                     <span>{item.phone}</span>
                   </div>
                 ) : null}
-
-
                 {item.email && item.displayMail ? (
                   <div className={items}>
                     <HiOutlineMail className={itemsSVG} />
