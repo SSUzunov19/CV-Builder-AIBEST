@@ -9,7 +9,6 @@ var cors=require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var resumesRouter = require('./routes/resumes');
-var sectionsRouter = require('./routes/sections');
 var app = express();
 
 // view engine setup
@@ -26,7 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/resumes', resumesRouter);
-app.use('/api/sections', sectionsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

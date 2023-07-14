@@ -1,19 +1,14 @@
-const { Resume, ResumeSection } = require('../models');
+const Resume = require('../models/Resume');
 
 exports.getResumeById = async (req, res) => {
-  const id = req.params.id;
-
-  const resume = await Resume.findByPk(id, {
-    include: [{ model: ResumeSection, as: 'sections' }]
-  });
-
+  const resume = await Resume.findByPk(req.params.id);
   if (resume) {
-    console.log('Da resume:', resume);
     res.json(resume);
   } else {
     res.status(404).json({ error: 'Resume not found' });
   }
 };
+
 
 exports.getAllResumes = async (req, res) => {
   const resumes = await Resume.findAll();

@@ -1,7 +1,8 @@
+/*
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Typography, Button } from '@mui/material';
-import { getResumeById, updateResume, updateSection, deleteSection } from '../services/api';
+import { getResumeById, updateResume } from '../services/api';
 
 function Resume() {
   const { id } = useParams();
@@ -81,3 +82,4 @@ function Resume() {
 }
 
 export default Resume;
+*/

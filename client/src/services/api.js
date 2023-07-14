@@ -47,19 +47,3 @@ export const updateResume = (id, updatedResume) => {
 export const deleteResume = (id) => {
   return api.delete(`/api/resumes/${id}`);
 }
-
-export const fetchSections = () => {
-  return api.get('/api/sections');
-}
-
-export const createSection = (section) => {
-  return api.post('/api/sections', section);
-}
-
-export const updateSection = (id, updatedSection) => {
-  return api.put(`/api/sections/${id}`, updatedSection);
-}
-
-export const deleteSection = (id) => {
-  return api.delete(`/api/sections/${id}`);
-}
