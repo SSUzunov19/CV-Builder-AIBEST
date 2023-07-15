@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { createUser } from './services/api';
 
 export const Register = (props) => {
     const [name, setName] = useState('');
@@ -34,13 +33,7 @@ export const Register = (props) => {
 
         console.log(name, email, pass);
         
-        createUser(user)
-        .then(() => {
-          console.log('User created successfully');
-        })
-        .catch((error) => {
-          console.error('Error creating user:', error);
-        });
+        
     };
     
     const validateName = (username) => {
