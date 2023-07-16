@@ -9,7 +9,7 @@ const HomePage = () => {
   let navigate = useNavigate();
 
   const routeChange = () =>{ 
-    let path = `/ login`; 
+    let path = `/login`; 
     navigate(path);
   }
 
