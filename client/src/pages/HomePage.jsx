@@ -38,6 +38,20 @@ const HomePage = () => {
      <p className="section-2-text-2">The faster way to create professional-looking resumes</p>
      <img className="Laptop" src="https://buildmecv.netlify.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmac.a668ea7c.png&w=750&q=75" alt="This img couldn't load" />
      </div>
+     <div className="third-section">
+
+     <div className="section-3-Wrapper">
+      <div className="TextBoxWrapper-2">
+      <p className="title2">There's a resume for every profession</p>
+      <p className="description2">Our resume creator comes with 18 fully customizable templates. You’ll get advice <br /> on which one to pick depending on your industry, seniority level, and the kind of <br /> company you’re applying to.</p>
+      <button>Create Resume</button>
+      </div>
+      <div className="TextBoxWrapper-3">
+
+       <img className="Section3-image" src= "https://cdn.discordapp.com/attachments/832699197685891094/1130156193747316867/image.png" alt= "This image couldn't load" />
+          </div>
+       </div>
+     </div>
      <Footer></Footer>
     
     </div>

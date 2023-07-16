@@ -125,7 +125,7 @@ div {
 .section-2-text-2{
   position: relative;
   text-align: center;
-  top: -60%;
+  top: -63%;
   font-size: 1.3em;
   font-weight: 600;
   margin-bottom: 20px;
@@ -134,7 +134,7 @@ div {
 
 .Laptop{
   position: relative;
-  top: -60%;
+  top: -62%;
 }
 
 .TextBoxWrapper {
@@ -146,7 +146,7 @@ div {
 }
 
 .number {
-  font-size: 4em;
+  font-size: 6em;
   font-weight: 900;
   color: black;
   font-family: Roboto Slab;
@@ -154,10 +154,74 @@ div {
 
 .description{
   font-family:'Lato', sans-serif;
+  font-weight: bold;
 }
 
 .title{
   font-weight: bold;
+}
+
+.third-section {
+  height: 450px;
+  width:100%;
+  top:1200px;
+  text-align: center;
+}
+
+.section-3-Wrapper {
+  display: flex;
+}
+
+.third-section p {
+  position: relative;
+  text-align: left;
+  flex: 1;
+  left: 27%;
+}
+
+.description2{
+  position: relative;
+  color: gray;
+  font-size: 1.1em;
+  top: 2%;
+}
+
+.third-section button:hover {
+  transform: scale(1.1);
+  opacity: 50%;
+  transition: 0.2s;
+}
+
+.third-section button:not(:hover){
+  transform: scale(1);
+  transition: 0.2s;
+}
+
+.third-section button {
+  position: relative;
+  background: #66b3ff;
+  border: none;
+  padding: 8px 25px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 1.1em;
+  border-radius: 5px;
+  top:13%;
+  left: -14%;
+}
+
+.Section3-image{
+  position: relative;
+  width: 53%;
+  height: 550px;
+  left: -5%;
+  top: -25%;
+}
+
+.title2{
+  font-weight: bold;
+  font-size: 1.3em;
 }
 
 .secondSectionText1 {
@@ -167,7 +231,7 @@ div {
     font-weight: 700;
     margin-bottom: 20px;
     font-family: Bai Jamjuree,sans-serif;
-    top: -60px;
+    top: -50px;
 }
 
 footer {
