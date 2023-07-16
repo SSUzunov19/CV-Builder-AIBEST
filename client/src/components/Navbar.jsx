@@ -13,6 +13,7 @@ return (
     <nav>
         <div>
             <button onClick={routeChange} className='navButtonLeft'>buildMe</button>
+            <button onClick={routeChange} className='navButtonMid'>Dashboard</button>
         </div>
     </nav>
     );

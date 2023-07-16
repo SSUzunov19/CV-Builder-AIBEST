@@ -36,6 +36,7 @@ div {
   height:100%;
 }
 .navButtonLeft {
+  cursor: pointer;
   position: relative;
   margin-top: 1%;
   height: 55%;
@@ -49,20 +50,21 @@ div {
   font-family: Catamaran,sans-serif;
   top: -10%;
 }
-.navButtonRight {
+
+.navButtonMid{
+  cursor: pointer;
   position: relative;
   margin-top: 1%;
-  height: 51%;
-  width: 2.5%;
-  right:0;
-  margin-left: 1%;
-  left: 71%;
+  height: 55%;
+  width: 10%;
+  margin-left:600px;
+  color:#66b3ff;
   background-color: white;
-  border-color: rgb(211, 210, 210);
-  border: 0.5px solid;
-  font-size:1em;
+  border:none;
+  font-size: 1.4em;
   font-weight: bold;
-  border-radius: 5px;
+  font-family: Catamaran,sans-serif;
+  top: -10%;
 }
 
 .first-section {
@@ -234,11 +236,51 @@ div {
     top: -50px;
 }
 
+.fourth-section {
+
+  top: 1300px;
+  height: 450px;
+  width:100%;
+}
+
+.user-comment-title {
+  font-family: Bai Jamjuree,sans-serif;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.TextBoxWrapper-4 {
+  display: flex;
+}
+.userCommentPH {
+  top: 15%;
+  left: 3%;
+}
+.name {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: Bai Jamjuree,sans-serif;
+}
+.occupation {
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+.comment {
+  margin-bottom: 10px;
+  color: gray;
+}
+.userComment {
+  font-size: 1.3em;
+}
+
 footer {
   position: relative;
   width: 100%;
   height: 60px;
-  top: 1400px;
+  top: 1700px;
   overflow:hidden;
 
 }
@@ -257,4 +299,75 @@ footer {
   top: 30%;
   float: right;
   right: 5%;
+}
+
+.fifth-section {
+  position: relative;
+  top: 1600px;
+  height: 900px;
+  width:100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.TextBoxWrapper-5 {
+  position: relative;
+  background-color: #f5f5f5;
+  height: 300%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section-5-header {
+  position: relative;
+  top:-10%;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 20px;
+  font-family: Bai Jamjuree,sans-serif;
+}
+.section-5-text {
+  position: relative;
+  top: -10%;
+  color: gray;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+.section-5-button {
+  position: relative;
+  background: #66b3ff;
+  border: none;
+  padding: 8px 25px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 1.1em;
+  border-radius: 5px;
+}
+.fTextLeft {
+  position: relative;
+  font-size: 1.3em;
+  left: 5%;
+  float: left;
+  top: 30%;
+ 
+}
+.fTextRight {
+  font-size: 1.2em;
+  position: relative;
+  top: 30%;
+  float: right;
+  right: 5%;
+}
+.section-5-button:hover {
+  transform: scale(1.1);
+  opacity: 50%;
+  transition: 0.2s;
+}
+.section-5-button:not(:hover) {
+  transform: scale(1);
+  transition: 0.2s;
 }

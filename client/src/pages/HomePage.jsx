@@ -60,6 +60,58 @@ const HomePage = () => {
           </div>
        </div>
      </div>
+
+     <div className="fourth-section">
+
+<p className='user-comment-title'>What People Say</p>
+
+     <div className="TextBoxWrapper-4">
+
+
+     <div className="userCommentPH">
+       <div className="userComment">
+         <p className="name">John Doe</p>
+         <p className="occupation">Still Unemployed</p>
+         <p className="comment">Lorem ipsum dolor sit amet, consectetur adipisicing <br /> elit. Odio magnam vitae voluptas distinctio numquam <br /> in hic error sint consequuntur maxime?</p>
+       </div>
+     </div>
+
+     <div className="userCommentPH">
+       <div className="userComment">
+         <p className="name">John Doe</p>
+         <p className="occupation">Still Unemployed</p>
+         <p className="comment">Lorem ipsum dolor sit amet, consectetur adipisicing <br /> elit. Odio magnam vitae voluptas distinctio numquam <br /> in hic error sint consequuntur maxime?</p>
+       </div>
+     </div>
+
+     <div className="userCommentPH">
+       <div className="userComment">
+         <p className="name">John Doe</p>
+         <p className="occupation">Still Unemployed</p>
+         <p className="comment">Lorem ipsum dolor sit amet, consectetur adipisicing <br /> elit. Odio magnam vitae voluptas distinctio numquam <br /> in hic error sint consequuntur maxime?</p>
+       </div>
+     </div>
+
+    </div>
+</div>
+
+<div className='fifth-section'>
+   
+   <div className="TextBoxWrapper-5">
+
+
+   <p className='section-5-header'>Create professional resumes with buildMe</p>
+   <p className="section-5-text">Get started now. It's free</p>
+   <button className="section-5-button">Create Resume</button>
+
+
+   </div>
+
+
+
+
+    </div>
+
      <Footer></Footer>
     
     </div>
