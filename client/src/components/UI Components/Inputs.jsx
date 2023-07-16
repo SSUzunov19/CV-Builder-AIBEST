@@ -25,7 +25,7 @@ const Inputs = ({ title, value, keyChange, placeholder }) => {
     const isValid = validateInput(newValue, keyChange);
 
     setInputValue(newValue);
-    setError(!isValid);
+    setError(newValue.trim() !== "" && !isValid);
     updateCv(keyChange, newValue);
   };
 
