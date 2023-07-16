@@ -7,7 +7,7 @@ const api = axios.create({
 export const fetchUsers = () => {
   return api.get('/api/users')
   .then((res) => {
-    console.log(res.data); // Check the response data
+    console.log('Fetched users:', res.data);
     return res.data;
   })
   .catch((error) => {
@@ -17,7 +17,15 @@ export const fetchUsers = () => {
 }
   
 export const createUser = (user) => {
-  return api.post('/api/users', user);
+  return api.post('/api/users', user)
+  .then((res) => {
+    console.log('User created', res.data);
+    return res.data;
+  })
+  .catch((error) => {
+    console.error('Error creating user:', error);
+    throw error;
+  });
 };
   
 export const updateUser = (id, updatedUser) => {
