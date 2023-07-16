@@ -6,9 +6,6 @@ const Navbar = () => {
  <nav>
      <div>
       <button className='navButtonLeft'>buildMe</button>
-      <button className='navButtonRight'>TW</button>
-      <button className='navButtonRight'>GH</button>
-      <button className='navButtonRight'>IN</button>
      </div>
      </nav>
      </>

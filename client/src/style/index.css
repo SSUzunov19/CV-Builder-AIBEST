@@ -95,11 +95,12 @@ div {
   background-color: #66b3ff;
   border: 0.5px solid #66b3ff;
   color: white;
-  width: 200px;
+  width: 180px;
   height: 43px;
-  font-size:19px;
+  font-size:20px;
  margin-top: 5%;
  border-radius: 5px;
+ font-weight: bold;
  
 }
 .Try-Now-BTN:hover {
@@ -118,47 +119,36 @@ div {
   top:850px;
 }
 .secondSectionText1 {
+  position: relative;;
   text-align: center;
-  font-family: 'Oswald', sans-serif;
-  font-size: 45px;
-  font-weight: bold;
+    font-size: 1.6em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: Bai Jamjuree,sans-serif;
+    top: -60px;
 }
-.secondSectionText2 {
-  text-align: center;
-  font-family: 'Oswald', sans-serif;
-  font-size: 25px;
-  font-style: italic;
-  color:rgb(51, 51, 51);
 
-}
 footer {
   position: relative;
-  background-color: black;
   width: 100%;
-  height: 300px;
-  top: 750px;
+  height: 60px;
+  top: 1400px;
   overflow:hidden;
 
 }
-footer a {
-  color:white;
-  text-decoration: none;
-  font-size: 20px;
-}
-footer li{
-  position: relative;
-  list-style: none;
-  margin-top: 30px;
-  left: 20%;
-}
 
-.footerLinksRight {
-  position:relative;
-  left: 50%;
-  top: -75%;
+.fTextLeft {
+  position: relative;
+  font-size: 1.3em;
+  left: 5%;
+  float: left;
+  top: 30%;
+ 
 }
-.footerLinksCenter {
-  position:relative;
-  left: 25%;
-  top: -150%;
+.fTextRight {
+  font-size: 1.2em;
+  position: relative;
+  top: 30%;
+  float: right;
+  right: 5%;
 }

@@ -17,9 +17,7 @@ const HomePage = () => {
       </div>
      </div>
      <div className="second-section">
-     <p className='secondSectionText1'>Free templates for your resume</p>
-     <p className='secondSectionText2'>choose a free template and customize it to <br />
-       your liking quick and easy</p>
+     <p className='secondSectionText1'>It's so easy, you don't even need to think</p>
 
       
      </div>
