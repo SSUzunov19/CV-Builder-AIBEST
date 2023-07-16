@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Box } from '@mui/material';
 import Helper from "./Edit Components/Helper";
 import About from "./Edit Components/About";
-
+import Skills from "./Edit Components/Skills";
 const Settings = ({resume}) => {
   return (
     <AnimatePresence>
@@ -10,6 +10,7 @@ const Settings = ({resume}) => {
         <Box sx={{ padding: '7px', position: 'relative', width: '450px' }}>
           <Helper resume={resume}/>
           <About />
+          <Skills />
         </Box>
       </motion.div>
     </AnimatePresence>
