@@ -1,36 +1,57 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { fetchUsers } from '../services/api';
+
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-export const Login = (props) => {
+export const Login = () => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
 
-    const handleSubmit = (e) => {
+    let users;
+    let user;
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        users = await fetchUsers();
         
         if (!validateEmail(email)) {
-            console.log('Invalid email');
+            console.log('Email does not exist');
             return;
         }
         
         if (!validatePassword(pass)) {
-            console.log('Invalid password');
+            console.log('Password is incorrect');
             return;
         }
         
-        // registerUser(email, pass);
         console.log("Logged in");
     };
       
     const validateEmail = (email) => {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (!/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+[^<>()\.,;:\s@\"]{2,})$/.test(email)) {
+            return false;
+        }
+
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].email === email) {
+                user = users[i];
+                return true;
+            }
+        }
+        
+        return false;
     };
     
     const validatePassword = (password) => {
-        return password.length >= 8;
+        if (user.password === password) {
+            return true;
+        }
+
+        return false;
     };
 
     let navigate = useNavigate();

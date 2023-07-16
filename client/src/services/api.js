@@ -7,7 +7,6 @@ const api = axios.create({
 export const fetchUsers = () => {
   return api.get('/api/users')
   .then((res) => {
-    console.log('Fetched users:', res.data);
     return res.data;
   })
   .catch((error) => {
