@@ -1,0 +1,84 @@
+form {
+    margin-top: 15%;
+    position: absolute;
+    left: 43%;
+}
+    
+.emailimage2{
+    position: absolute;
+    top: 27%;
+    left: 13%;
+    width: 23px;
+    height: 23px;
+}
+    
+.passwordimage2{
+    position: absolute;
+    top: 43%;
+    left: 13%;
+    width: 7%;
+    height: 7%;
+}
+    
+.passwordimage{
+    position: absolute;
+    top: 51%;
+    left: 13%;
+    width: 7%;
+    height: 7%;
+}
+    
+.userimage{
+    position: absolute;
+    top: 25%;
+    left: 13%;
+    width: 7%;
+    height: 7%;
+}
+    
+.emailimage {
+    position: absolute;
+    top: 38%;
+    left: 13%;
+    width: 23px;
+    height: 23px;
+}
+    
+.Create-Account-cat {
+    background-color: white;
+    border-radius: 10px;
+    height: 40px;
+    width: 70px;
+    border: 1px solid gray;
+}
+    
+.Create-Account-cat:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    transition: 0.5s;
+}
+    
+.Log-In-btn {
+    background-color: white;
+    border-radius: 10px;
+    height: 30px;
+    width: 70px;
+    border: 1px solid gray;
+}
+
+.Log-In-btn:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    transition: 0.5s;
+}
+    
+input {
+    border: none;
+    border-bottom: 2px solid gray;
+}
+
+input:focus{
+    outline: none;
+    border-bottom: 2px solid black;
+    transition: 0.3s;
+}

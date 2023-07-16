@@ -1,19 +1,27 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
+
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 
 const HomePage = () => {
+  let navigate = useNavigate();
+
+  const routeChange = () =>{ 
+    let path = `/ login`; 
+    navigate(path);
+  }
+
   return (
     <div className='Body'>
-      
      
       <Navbar></Navbar>
      <div className='first-section'>
       <div className="firstSectionTextPH">
      <p className='firstSectionText1'>Build Professional Resume <br /> Fast And Stress Free</p> 
      <p className='firstSectionText2'> </p>
-     <button className='Try-Now-BTN'>Get Started Now</button>
+     <button onClick={routeChange} className='Try-Now-BTN'>Get Started Now</button>
       </div>
      </div>
      <div className="second-section">
@@ -48,7 +56,7 @@ const HomePage = () => {
       </div>
       <div className="TextBoxWrapper-3">
 
-       <img className="Section3-image" src= "https://cdn.discordapp.com/attachments/832699197685891094/1130156193747316867/image.png" alt= "This image couldn't load" />
+       <img className="Section3-image" src= "https://cdn.discordapp.com/attachments/832699197685891094/1130156193747316867/image.png" alt= "Section 3" />
           </div>
        </div>
      </div>
