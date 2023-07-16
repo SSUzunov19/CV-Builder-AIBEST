@@ -1,4 +1,3 @@
-import CV from "../components/CV";
 import React from 'react';
 import Settings from "../components/Settings";
 import PageButtons from "../components/PageButtons";
