@@ -115,19 +115,19 @@ const About = () => {
 
                 <div style={{ textAlign: "center" }}>
                   <Inputs
-                    title="Name & Surname"
+                    title="Name & Surname*"
                     value={cv.name}
                     placeholder="Your name"
                     keyChange="name"
                   />
                   <Inputs
-                    title="Job"
+                    title="Job*"
                     value={cv.jobTitle}
                     placeholder="What is your job?"
                     keyChange="jobTitle"
                   />
                   <Inputs
-                    title="Phone"
+                    title="Phone*"
                     value={cv.phone}
                     placeholder="Your phone number"
                     keyChange="phone"
@@ -136,13 +136,13 @@ const About = () => {
                     helperText={phoneError ? "Invalid phone number" : ""}
                   />
                   <Inputs
-                    title="Location"
+                    title="Location*"
                     value={cv.location}
                     placeholder="Where do you live?"
                     keyChange="location"
                   />
                   <TextArea
-                    title="About"
+                    title="About*"
                     value={cv.about}
                     placeholder="A few sentences about yourself"
                     keyChange="about"
