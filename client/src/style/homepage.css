@@ -236,6 +236,8 @@ div {
     top: -50px;
 }
 
+
+
 .fourth-section {
 
   top: 1300px;
@@ -276,12 +278,12 @@ div {
   font-size: 1.3em;
 }
 
+
 footer {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 60px;
-  top: 1700px;
-  overflow:hidden;
+  top: -100px;
 
 }
 

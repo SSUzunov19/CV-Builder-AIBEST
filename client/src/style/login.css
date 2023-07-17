@@ -6,16 +6,16 @@ form {
     
 .emailimage2{
     position: absolute;
-    top: 27%;
-    left: 13%;
+    top: 16%;
+    left: -10%;
     width: 23px;
     height: 23px;
 }
     
 .passwordimage2{
     position: absolute;
-    top: 43%;
-    left: 13%;
+    top: 39%;
+    left: -10%;
     width: 7%;
     height: 7%;
 }
@@ -23,23 +23,44 @@ form {
 .passwordimage{
     position: absolute;
     top: 51%;
-    left: 13%;
+    left: -10%;
     width: 7%;
     height: 7%;
 }
     
 .userimage{
     position: absolute;
-    top: 25%;
-    left: 13%;
+    top: 16%;
+    left: -10%;
     width: 7%;
     height: 7%;
 }
+ 
+footer {
+    position: relative;
+    top: -10px;
+}
+
+.fTextLeft {
+    position: relative;
+    font-size: 1.3em;
+    left: 5%;
+    float: left;
+    top: 30%;
+   
+  }
+  .fTextRight {
+    font-size: 1.2em;
+    position: relative;
+    top: 30%;
+    float: right;
+    right: 5%;
+  }
     
 .emailimage {
     position: absolute;
-    top: 38%;
-    left: 13%;
+    top: 32%;
+    left: -10%;
     width: 23px;
     height: 23px;
 }
@@ -71,7 +92,7 @@ form {
     border: 1px solid black;
     transition: 0.5s;
 }
-    
+
 input {
     border: none;
     border-bottom: 2px solid gray;
