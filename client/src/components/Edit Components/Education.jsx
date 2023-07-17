@@ -3,7 +3,7 @@ import { CvContext } from "../../hooks/CvContext";
 import { RiCloseFill } from "react-icons/ri";
 import { HiChevronRight } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
-import AddButton from "../UI Component/AddButton";
+import AddButton from "../UI Components/AddButton";
 import { Paper, TextField, FormControl, IconButton } from "@mui/material";
 
 const Education = () => {
