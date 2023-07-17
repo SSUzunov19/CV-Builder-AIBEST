@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
-
-
-
 import HomePage from './pages/HomePage';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';

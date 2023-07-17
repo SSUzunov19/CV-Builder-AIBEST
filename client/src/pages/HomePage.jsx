@@ -1,9 +1,10 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
+
 import '../style/homepage.css';
+
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
 
 const HomePage = () => {
   let navigate = useNavigate();

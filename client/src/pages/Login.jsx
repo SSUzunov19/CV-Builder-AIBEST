@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import '../style/login.css';
 import { fetchUsers } from '../services/api';
+
+import '../style/login.css';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -32,7 +33,7 @@ export const Login = () => {
     };
       
     const validateEmail = (email) => {
-        if (!/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+[^<>()\.,;:\s@\"]{2,})$/.test(email)) {
+        if (!/^(([^<>()[].,;:\s@"]+(.[^<>()[].,;:\s@"]+)*)|(".+"))@(([^<>().,;\s@"]+.{0,1})+[^<>().,;:\s@"]{2,})$/.test(email)) {
             return false;
         }
 
@@ -73,7 +74,7 @@ export const Login = () => {
                     <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="password" name="password" /> <br /> <br />
                     <button className="Log-In-btn" type="submit">Log In</button> <br /> <br />
                     <a href="#NowhereForNow">Forgot Password?</a>
-                <p> Don't have an account? Click here to <a href="#" onClick={routeChange}>sign up</a></p>
+                <p> Don't have an account? Click here to <a href="#Register" onClick={routeChange}>sign up</a></p>
                 </form>
             </div>
             <Footer></Footer>

@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import { createUser, fetchUsers } from '../services/api';
 
+import '../style/login.css';
+
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -71,7 +73,7 @@ export const Register = () => {
     };
 
     const validateEmail = (email) => {
-        if (!/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+[^<>()\.,;:\s@\"]{2,})$/.test(email)) {
+        if (!/^(([^<>()[].,;:\s@"]+(.[^<>()[].,;:\s@"]+)*)|(".+"))@(([^<>().,;\s@"]+.{0,1})+[^<>().,;:\s@"]{2,})$/.test(email)) {
             return false;
         }
 
@@ -139,13 +141,13 @@ export const Register = () => {
           <form className="register-form" onSubmit={handleSubmit}>
               <h2>Register</h2>
               <input className="Nameinput" value={name} name="name" onChange={(e) => setName(e.target.value)} id="name" placeholder="Username" /> <br /> <br />
-              <img className="emailimage" src="https://www.iconpacks.net/icons/1/free-mail-icon-142-thumb.png"/>
-              <img className="userimage" src="https://i.pinimg.com/474x/76/4d/59/764d59d32f61f0f91dec8c442ab052c5.jpg"/>
-              <img className="passwordimage" src="https://cdn-icons-png.flaticon.com/512/1000/1000966.png"/>
+              <img className="emailimage" src="https://www.iconpacks.net/icons/1/free-mail-icon-142-thumb.png" alt="Email Icon"/>
+              <img className="userimage" src="https://i.pinimg.com/474x/76/4d/59/764d59d32f61f0f91dec8c442ab052c5.jpg" alt="User Icon"/>
+              <img className="passwordimage" src="https://cdn-icons-png.flaticon.com/512/1000/1000966.png" alt="Password Icon"/>
               <input className="Emailinput" value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="Email" id="email" name="email" /> <br /> <br />  
               <input className="Passwordinput" value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="password" name="password" /> <br /> <br />
               <button className="Create-Account-cat" type="submit">Create Account</button> <br /> <br />
-              <p> Already have an account? Click here to <a href="#" onClick={routeChange}>login</a></p>
+              <p> Already have an account? Click here to <a href="#Login" onClick={routeChange}>login</a></p>
           </form>
         </div>
         <Footer></Footer>
