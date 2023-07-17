@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import { Box, Typography, Link, SvgIcon } from '@mui/material';
 import { HiOutlineMail, HiOutlineLink, HiExternalLink } from "react-icons/hi";
 import {
@@ -269,5 +268,3 @@ const CV = () => {
 };
 
 export default CV;
-=======
->>>>>>> Stashed changes

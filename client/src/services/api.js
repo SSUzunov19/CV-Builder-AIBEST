@@ -5,6 +5,17 @@ const api = axios.create({
   baseURL: 'http://localhost:9000',
 });
 
+export const enhanceAboutText = (text) => {
+  return api.post('/api/magic', { text })
+    .then((response) => {
+      return response.data.magicText;
+    })
+    .catch((error) => {
+      console.error('Error enhancing about text:', error);
+      throw error;
+    });
+};
+
 export const fetchResumes = () => {
   return api.get('/api/resumes')
     .then((res) => {

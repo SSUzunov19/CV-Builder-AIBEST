@@ -1,4 +1,3 @@
-
 import { BiImageAdd } from "react-icons/bi";
 import { HiChevronRight } from "react-icons/hi";
 import { BsPatchCheck } from "react-icons/bs";
@@ -8,13 +7,22 @@ import { CvContext } from "../../hooks/CvContext";
 import Inputs from "../UI Components/Inputs";
 import TextArea from "../UI Components/TextArea";
 import CheckBox from "../UI Components/Checkbox";
-import { Box, Typography, Paper } from "@mui/material";
+import { Box, Typography, Paper, Button, CircularProgress } from "@mui/material";
+import Confetti from 'react-confetti';
+
+import { enhanceAboutText } from '../../services/api.js';
 
 const About = () => {
   const { cv, uploadImage } = useContext(CvContext);
   const [isOpen, setIsOpen] = useState(false);
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState(false);
+
+  const [magicMode, setMagicMode] = useState(false);
+  const [modifiedText, setModifiedText] = useState("");
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const validatePhone = () => {
     const phoneRegex = /^\d{10}$/; // Assuming a 10-digit phone number format
@@ -25,6 +33,21 @@ const About = () => {
     const newPhone = event.target.value;
     setPhone(newPhone);
     setPhoneError(!validatePhone(newPhone));
+  };
+
+  const handleMagicButtonClick = async () => {
+    setIsLoading(true);
+    if (!magicMode) {
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 10000); // stop showing confetti after 2 seconds
+      setModifiedText(cv.about);
+      const enhancedText = await enhanceAboutText(cv.about);
+      cv.about = enhancedText;
+    } else {
+      cv.about = modifiedText;
+    }
+    setIsLoading(false);
+    setMagicMode(!magicMode);
   };
 
   return (
@@ -148,6 +171,11 @@ const About = () => {
                     placeholder="A few sentences about yourself"
                     keyChange="about"
                   />
+
+                  <Button onClick={handleMagicButtonClick} disabled={isLoading}>
+                    {isLoading ? <CircularProgress size={24} /> : magicMode ? "Revert to Original Text" : "Magic"}
+                  </Button>
+
                 </div>
 
                 <Typography
@@ -264,6 +292,13 @@ const About = () => {
           </AnimatePresence>
         </Paper>
       </motion.div>
+      {showConfetti && !isLoading && (
+        <Confetti
+          style={{ position: 'absolute', top: 0, left: 0 }}
+          numberOfPieces={500}
+          recycle={false}
+        />
+      )}
     </AnimatePresence>
   );
 };
