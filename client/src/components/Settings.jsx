@@ -3,6 +3,7 @@ import { Box } from '@mui/material';
 import Helper from "./Edit Components/Helper";
 import About from "./Edit Components/About";
 import Skills from "./Edit Components/Skills";
+import Projects from "./Edit Components/Projects";
 const Settings = ({resume}) => {
   return (
     <AnimatePresence>
@@ -11,6 +12,7 @@ const Settings = ({resume}) => {
           <Helper resume={resume}/>
           <About />
           <Skills />
+          <Projects />
         </Box>
       </motion.div>
     </AnimatePresence>
