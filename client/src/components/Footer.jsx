@@ -1,15 +1,13 @@
-import React from 'react';
-import './styles/Footer.css';
+import React from "react";
 
 const Footer = () => {
-    return (
+  return (
+    <>
       <footer>
-        <div>
-          <p className='fTextLeft'>buildMe</p>
-          <p className='fTextRight'>© buildMe 2023, All rights reserved</p>
-        </div>
+        <p className="fTextLeft">buildMe</p>
+        <p className="fTextRight">© buildMe 2023, All rights reserved</p>
       </footer>
-    );
-}
-
+    </>
+  );
+};
 export default Footer;

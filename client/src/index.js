@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 import HomePage from './pages/HomePage';
-import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Dashboard from './components/Dashboard';
+import Login from './components/Login';
+import Register from './components/Register';
 
 ReactDOM.render(
   <React.StrictMode>

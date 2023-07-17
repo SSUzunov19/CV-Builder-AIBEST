@@ -1,28 +1,15 @@
-import React from 'react';
-import { useNavigate } from "react-router-dom";
-
-import './styles/Navbar.css';
+import React from "react";
 
 const Navbar = () => {
-    let navigate = useNavigate();
-
-    const routeChange = () =>{ 
-      let path = `/`; 
-      navigate(path);
-    }
-
-    const routeChange2 = () =>{
-        let path = `/dashboard`;
-        navigate(path);
-    }
-
-return (
-    <nav>
+  return (
+    <>
+      <nav>
         <div>
-            <button onClick={routeChange} className='navButtonLeft'>buildMe</button>
-            <button onClick={routeChange2} className='navButtonMid'>Dashboard</button>
+          <button className="navButtonLeft">buildMe</button>
+          <button className="navButtonMid">Dashboard</button>
         </div>
-    </nav>
-    );
-}
+      </nav>
+    </>
+  );
+};
 export default Navbar;
