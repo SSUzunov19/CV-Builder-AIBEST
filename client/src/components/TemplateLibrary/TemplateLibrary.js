@@ -2,7 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./TemplateLibrary.css"
 
-export default function TemplateLibrary({ tData, setSelectedTemplate }) {
+export default function TemplateLibrary({ tData, setSelectedTemplate, selectedTags}) {
   function getImageFilePath(str) {
     return require(`../../images/templates/template${str}.png`);
   }
@@ -16,7 +16,7 @@ export default function TemplateLibrary({ tData, setSelectedTemplate }) {
       <AnimatePresence>
         {
           tData.map((data, index) => {
-            const noTagsSelected = tData.every(template => template.relativity === 0);
+            const noTagsSelected = selectedTags.length === 0;
             return (noTagsSelected || data.relativity >= 1) && (
               <motion.div key={index} className="template"
                 initial={{ opacity: 0, scale: 0.8 }}
