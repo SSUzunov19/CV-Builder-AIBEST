@@ -6,43 +6,39 @@ import { motion, AnimatePresence } from "framer-motion";
 import AddButton from "../UI Components/AddButton";
 import { Card, CardContent, Typography, TextField, Button, TextareaAutosize } from "@mui/material";
 
-
-const Style = {
-  card: {
-    marginBottom: theme.spacing(2),
-    "&:last-child": {
-      marginBottom: theme.spacing(4),
-    },
-  },
-  title: {
-    display: "flex",
-    alignItems: "center",
-    cursor: "pointer",
-    marginBottom: theme.spacing(1),
-  },
-  content: {
-    marginTop: theme.spacing(1),
-    padding: theme.spacing(2),
+const cardStyle = {
+  marginBottom: "20px",
+  "&:last-child": {
+    marginBottom: "30px",
   },
 };
 
+const titleStyle = {
+  display: "flex",
+  alignItems: "center",
+  cursor: "pointer",
+  marginBottom: "10px",
+};
+
+const contentStyle = {
+  marginTop: "10px",
+  padding: "10px",
+};
+
 const Projects = () => {
-  const classes = useStyles();
   const { cv, updateCv, addProject } = useContext(CvContext);
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <AnimatePresence>
       <motion.div
-        layout
-        className={classes.card}
-        animate={{ marginBottom: isOpen ? "30px" : "20px" }}
+        style={cardStyle}
       >
         <motion.div
           initial={false}
           onClick={() => setIsOpen(!isOpen)}
           layout
-          className={classes.title}
+          className={titleStyle}
         >
           <Typography variant="body1" className="flex-1">
             Projects
@@ -90,7 +86,7 @@ const Projects = () => {
                         <RiCloseFill className="deleteButtonSVG" />
                       </Button>
                     </div>
-                    <CardContent className={classes.content}>
+                    <CardContent className={contentStyle}>
                       <div className="items-center mt-4">
                         <Typography variant="body2" className="text-gray-500">
                           Project Title
