@@ -56,7 +56,7 @@ const tagTypes = [
     {
         type : 'functional',
         colors : ['#24324E', '#33466C', '#3A5783', '#6CA9FF'],
-        size : ['128px', '30px']
+        size : ['127px', '30px']
     },
     {
         type : 'creative',

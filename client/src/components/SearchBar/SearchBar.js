@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { tagTypes } from "../TemplateData/TemplateData";
 import TemplateTags from "../TemplateTags/TemplateTags";
+import ToolTip from "../ToolTip/ToolTip"
 import searchIcond from "../../images/searchIcon.svg";
 import "./SearchBar.css";
 
@@ -48,7 +49,8 @@ export default function SearchBar({tData, setTData, selectedTags, setSelectedTag
                 <input id="user-input" placeholder="Search template tags... " onChange={(e) => handleChange(e.target.value)}></input>
             </div>
             <div className="tags-section-wrapper">
-                <p className="tags-section-text">Selected themes: </p>
+                <ToolTip setSelectedTags={setSelectedTags}/>
+                <p className="tags-section-text">Selected tags: </p>
                 <TemplateTags
                     selectedTags={selectedTags}
                     setSelectedTags={setSelectedTags}

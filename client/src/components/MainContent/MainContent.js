@@ -14,7 +14,7 @@ export default function MainContent() {
     return (
         <div className="main-content">
             <TargetTemplate selectedTemplate={selectedTemplate} />
-            <div className="search-segment">
+            <div className="search-segment" style={{ position: "relative" }}>
                 <SearchBar
                     tData={tData}
                     setTData={setTData}

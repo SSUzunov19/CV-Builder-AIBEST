@@ -1,5 +1,5 @@
 .templates-wrapper{
-    margin-top: 164px;
+    margin-top: 124px;
     display: grid;
     grid-template-columns: repeat(3, 200px);
     grid-template-rows: repeat(3, 283px);
