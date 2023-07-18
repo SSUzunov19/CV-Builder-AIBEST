@@ -26,14 +26,73 @@ CREATE TABLE resumes (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TYPE section_type AS ENUM ('personal', 'education', 'experience', 'skills');
-
-CREATE TABLE resume_sections (
+CREATE TABLE about (
     id UUID PRIMARY KEY,
     resume_id UUID REFERENCES resumes(id),
-    type section_type NOT NULL,
-    content JSONB,
-    section_order INTEGER,
+    name VARCHAR(100),
+    image TEXT,
+    job_title VARCHAR(100),
+    location VARCHAR(100),
+    email VARCHAR(100),
+    linkedin TEXT,
+    instagram TEXT,
+    facebook TEXT,
+    twitter TEXT,
+    github TEXT,
+    website TEXT,
+    about TEXT,
+    display_image BOOLEAN,
+    display_mail BOOLEAN,
+    display_website BOOLEAN,
+    display_linkedin BOOLEAN,
+    display_instagram BOOLEAN,
+    display_facebook BOOLEAN,
+    display_github BOOLEAN,
+    display_twitter BOOLEAN,
+    active_color VARCHAR(7),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE skills (
+    id UUID PRIMARY KEY,
+    resume_id UUID REFERENCES resumes(id),
+    skill_type VARCHAR(50),
+    skill VARCHAR(100),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE projects (
+    id UUID PRIMARY KEY,
+    resume_id UUID REFERENCES resumes(id),
+    title VARCHAR(100),
+    link TEXT,
+    summary TEXT,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE education (
+    id UUID PRIMARY KEY,
+    resume_id UUID REFERENCES resumes(id),
+    title VARCHAR(100),
+    school VARCHAR(100),
+    start_date VARCHAR(20),
+    end_date VARCHAR(20),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE experiences (
+    id UUID PRIMARY KEY,
+    resume_id UUID REFERENCES resumes(id),
+    title VARCHAR(100),
+    company VARCHAR(100),
+    start_date VARCHAR(20),
+    end_date VARCHAR(20),
+    summary TEXT,
+    current BOOLEAN,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
