@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Roboto+Slab:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  
+  
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+nav {
+  width: 100%;
+  height: 95px;
+}
+div {
+  position: relative;
+  width: 100%;
+  height:100%;
+}
+.navButtonLeft {
+  cursor: pointer;
+  position: relative;
+  margin-top: 1%;
+  height: 55%;
+  width: 10%;
+  margin-left:50px;
+  color:black;
+  background-color: white;
+  border:none;
+  font-size: 1.4em;
+  font-weight: bold;
+  font-family: Catamaran,sans-serif;
+  top: -10%;
+}
+
+.navButtonMid{
+  cursor: pointer;
+  left:30%;
+  position: relative;
+  margin-top: 1%;
+  height: 55%;
+  width: 10%;
+  margin-left:50px;
+  color:#66b3ff;
+  background-color: white;
+  border:none;
+  font-size: 1.4em;
+  font-weight: bold;
+  font-family: Catamaran,sans-serif;
+  top: -10%;
+}
+
+.first-section {
+  position: absolute;
+  height: 1000px;
+  width:100%;
+}
+.firstSectionTextPH {
+  font-size: 4.5em;
+  font-family: Bai Jamjuree,sans-serif;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.2em;
+  text-transform: capitalize;
+  width: 100%;
+  top: 20%;
+  
+}
+
+span{
+color:#66b3ff;
+}
+
+.firstSectionText1 {
+  font-size: 70px;
+  font-weight: bold;
+  
+}
+.firstSectionText2 {
+  font-size: 30px;
+  font-style: italic;
+  color:rgb(51, 51, 51);
+}
+.Try-Now-BTN {
+  
+  background-color: #66b3ff;
+  border: 0.5px solid #66b3ff;
+  color: white;
+  width: 200px;
+  height: 43px;
+  font-size:19px;
+ margin-top: 5%;
+ border-radius: 5px;
+ 
+}
+.Try-Now-BTN:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: 0.3s;
+  opacity: 40%;
+}
+.Try-Now-BTN:not(:hover) {
+  transform: scale(1);
+  transition: 0.3s;
+}
+.second-section {
+  height: 850px;
+  width:100%;
+  top:800px;
+  text-align: center;
+  
+}
+.secondSectionText1 {
+  position: relative;;
+  text-align: center;
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: Bai Jamjuree,sans-serif;
+}
+
+
+
+.TextBoxSection2 {
+  position: relative;
+  width: 25%;
+  flex: 1;
+  top: 25%;
+  text-align: center;
+  height: 100%;
+}
+.TextBoxWrapper {
+  top: -10%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.number {
+  font-size: 6em;
+  font-weight: 900;
+  color: #66b3ff;
+  font-family: Roboto Slab;
+}
+.title {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 20px;
+  font-family: Bai Jamjuree,sans-serif;
+}
+.description {
+  position: relative;
+  color: gray;
+
+}
+.second-section img {
+  position: relative;
+
+  top: -40%;
+}
+.section-2-text-2
+{
+  position: relative;
+  text-align: center;
+  top: -45%;
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-family: Bai Jamjuree,sans-serif;
+}
+.third-section {
+  height: 450px;
+  width:100%;
+  top:1200px;
+  text-align: center;
+  
+}
+.section-3-Wrapper {
+  display: flex;
+}
+.third-section img {
+
+  width: 70%;
+}
+.third-section p {
+  position: relative;
+  text-align: left;
+  flex: 1;
+  top: 15%;
+  left: 30%;
+  font-size: 1.1em;
+}
+
+.third-section button {
+  position: relative;
+  background: #66b3ff;
+  border: none;
+  padding: 8px 25px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 1.1em;
+  border-radius: 5px;
+  top:20%;
+  left: -8%;
+}
+.third-section button:hover {
+  transform: scale(1.1);
+  opacity: 50%;
+  transition: 0.2s;
+}
+.third-section button:not(:hover) {
+  transform: scale(1);
+  transition: 0.2s;
+}
+.user-comment-title {
+  font-family: Bai Jamjuree,sans-serif;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.fourth-section {
+
+  top: 1300px;
+  height: 450px;
+  width:100%;
+}
+.TextBoxWrapper-4 {
+  display: flex;
+}
+.userCommentPH {
+  top: 15%;
+  left: 3%;
+}
+.name {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: Bai Jamjuree,sans-serif;
+}
+.occupation {
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+.comment {
+  margin-bottom: 10px;
+  color: gray;
+}
+.userComment {
+  font-size: 1.3em;
+}
+.fifth-section {
+  top: 1300px;
+  height: 450px;
+  width:100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.TextBoxWrapper-5 {
+  position: relative;
+  background-color: #f5f5f5;
+  height: 80%;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section-5-header {
+  position: relative;
+  top:-10%;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 20px;
+  font-family: Bai Jamjuree,sans-serif;
+}
+.section-5-text {
+  position: relative;
+  top: -10%;
+  color: gray;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+.section-5-button {
+  position: relative;
+  background: #66b3ff;
+  border: none;
+  padding: 8px 25px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 1.1em;
+  border-radius: 5px;
+}
+.fTextLeft {
+  position: relative;
+  font-size: 1.3em;
+  left: 5%;
+  float: left;
+  top: 30%;
+ 
+}
+
+footer {
+  position: relative;
+  top: 1300px;
+}
+
+.fTextRight {
+  font-size: 1.2em;
+  position: relative;
+  top: 30%;
+  float: right;
+  right: 5%;
+}
+.section-5-button:hover {
+  transform: scale(1.1);
+  opacity: 50%;
+  transition: 0.2s;
+}
+.section-5-button:not(:hover) {
+  transform: scale(1);
+  transition: 0.2s;
+}

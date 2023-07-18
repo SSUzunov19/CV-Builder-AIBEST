@@ -1,0 +1,22 @@
+footer {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    top: -100px;
+}
+
+.fTextLeft {
+    position: relative;
+    font-size: 1.3em;
+    left: 5%;
+    float: left;
+    top: 30%;
+}
+
+.fTextRight {
+    font-size: 1.2em;
+    position: relative;
+    top: 30%;
+    float: right;
+    right: 5%;
+}

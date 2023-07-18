@@ -1,0 +1,13 @@
+.Body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+  
+.ResumeGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    overflow-y: auto;
+    padding: 20px;
+}
