@@ -1,0 +1,36 @@
+.template-tags {
+    display: flex;
+    flex-direction: row;
+}
+
+.template-tag{
+    margin-left: 8px;
+    border-radius: 50px;
+    font-size: 17px;
+    font-family: Inter, sans-serif;
+    border: 2px solid white;
+    display: inherit;
+    text-align: center;
+    padding-left: 14px;
+}
+
+.template-tag > p {
+    margin-top: 2.5px;
+}
+
+.remove-button-holder{
+    width: 28px;
+    height: 28px;
+    border-radius: 50px;
+    margin-left: 4px;
+    background-color: #423771;
+    opacity: 0.8;
+    text-align: center;
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
+.remove-button-holder:hover{
+    cursor: pointer;
+}
