@@ -6,20 +6,17 @@ import { Button, ButtonGroup, Box } from "@mui/material";
 
 const PageButtons = () => {
     const { scaleUp, scaleDown, ifScaleUpOrDown } = useContext(CvContext);
+
     return (
         <Box
-            position="relative"
-            width="100%"
-            height="100%"
+            position="fixed"
+            bottom="20px"
+            right="20px"
+            zIndex={1000}
             display="flex"
             justifyContent="center"
         >
-            <Box
-                position="absolute"
-                bottom="0"
-                zIndex="tooltip"
-                className="text-neutral-500 mx-auto text-center backdrop-blur-2xl bg-white/50 border border-black/10 px-5 py-3 transition-all rounded-full"
-            >
+            <Box className="text-neutral-500 mx-auto text-center backdrop-blur-2xl bg-white/50 border border-black/10 px-5 py-3 transition-all rounded-full">
                 <ButtonGroup variant="contained" color="primary" aria-label="contained button group">
                     <Button onClick={scaleUp}>
                         <BsZoomIn className="h-8 w-8" />
@@ -35,6 +32,5 @@ const PageButtons = () => {
         </Box>
     );
 };
-
 
 export default PageButtons;

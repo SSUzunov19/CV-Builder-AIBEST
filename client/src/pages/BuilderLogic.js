@@ -80,6 +80,12 @@ export const useBuilderLogic = () => {
         LS.set({ key: "cv", payload: emptyCv });
     };
 
+    const [template, setTemplate] = useState(1);
+
+    const selectTemplate = (e) => {
+        setTemplate(e.target.value);
+    };
+
     const updateCv = (key, value) => {
         const newCv = { ...cv, [key]: value };
         setCv(newCv);
@@ -188,7 +194,16 @@ export const useBuilderLogic = () => {
     };
 
     const templateSwitch = () => {
-        return <CV />;
+        switch (template) {
+            case "1":
+                return <CV />;
+            case "2":
+                return <CV />;
+            case "3":
+                return <CV />;
+            default:
+                return <CV />;
+        }
     };
 
     const componentRef = useRef();
@@ -211,6 +226,7 @@ export const useBuilderLogic = () => {
         templateSwitch,
         handlePrint,
         scale,
-        componentRef
+        componentRef,
+        selectTemplate,
     };
 };
