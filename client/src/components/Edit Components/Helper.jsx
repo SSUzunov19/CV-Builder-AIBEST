@@ -21,7 +21,7 @@ const Helper = ({ resume }) => {
                                     <SetSample />
                                 </Grid>
                                 <Grid item>
-                                    <TemplateSwitcher />
+                                    <TemplateSwitcher id={resume?.id}/>
                                 </Grid>
                             </Grid>
                         </Box>

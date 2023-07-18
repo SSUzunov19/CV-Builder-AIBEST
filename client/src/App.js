@@ -4,6 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import ResumeDashboard from './components/ResumeDashboard';
 import Resume from './components/Resume';
 import Home from './pages/ResumeBuilder';
+import TemplateSwitcher from "./components/MainContent/MainContent";
 
 const theme = createTheme({
   palette: {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/" element={<ResumeDashboard />} />
             <Route path="/builder/:id" element={<Home />} />
             <Route path="/resumes/:id" element={<Resume />} />
+            <Route path="/builder/:id/template" element={<TemplateSwitcher />} />
           </Routes>
         </div>
       </ThemeProvider>

@@ -1,10 +1,10 @@
-import { useContext } from "react";
 import { Button } from "@mui/material";
-import { CvContext } from "../../hooks/CvContext";
+import { useNavigate } from "react-router-dom";
 
-const TemplateSwitcher = () => {
-  const { selectTemplate } = useContext(CvContext);
+const TemplateSwitcher = ({ id }) => {
+  const navigate = useNavigate();  // Using useNavigate instead of useHistory
 
+  console.log(id);
   return (
     <Button
       variant="contained"
@@ -17,8 +17,9 @@ const TemplateSwitcher = () => {
           opacity: 0.9,
         },
       }}
-
-      onClick={selectTemplate}
+      onClick={() => {
+        navigate(`/builder/${id}/template`);  // Navigate on button click using navigate
+      }}
     >
       Template
     </Button>

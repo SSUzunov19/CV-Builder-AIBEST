@@ -6,6 +6,7 @@ import Skills from "./Edit Components/Skills";
 import Education from "./Edit Components/Education";
 import Projects from "./Edit Components/Projects";
 import Experiences from "./Edit Components/Experiences";
+
 const Settings = ({resume}) => {
   return (
     <AnimatePresence>

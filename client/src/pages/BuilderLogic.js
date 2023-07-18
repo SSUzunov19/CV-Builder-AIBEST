@@ -15,6 +15,8 @@ export const useBuilderLogic = () => {
     const { id } = useParams();
     const [resume, setResume] = useState(null);
 
+    const [template, setTemplate] = useState(1);
+
     useEffect(() => {
         getResumeById(id).then((response) => {
             console.log('Response:', response);
@@ -79,8 +81,6 @@ export const useBuilderLogic = () => {
         setCv(emptyCv);
         LS.set({ key: "cv", payload: emptyCv });
     };
-
-    const [template, setTemplate] = useState(1);
 
     const selectTemplate = (e) => {
         setTemplate(e.target.value);
