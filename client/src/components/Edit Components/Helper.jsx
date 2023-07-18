@@ -7,11 +7,11 @@ import SetSample from "../UI Components/SetSample";
 const Helper = ({resume}) => {
     return (
         <AnimatePresence>
-            <motion.div layout className="cardStyle">
+            <motion.div layout className="cardStyle" >
                 <Card>
                     <CardContent>
-                        <Typography variant="h3" component="div">{resume?.title || 'Loading...'}</Typography>
-                        <Box mt={4}>
+                        <Typography variant="h3" component="div" style={{ textAlign: "center" }} >{resume?.title || 'Loading...'}</Typography>
+                        <Box mt={4} style={{ display: "flex", justifyContent: "center" }}>
                             <Grid container spacing={2}>
                                 <Grid item>
                                     <SetEmpty />

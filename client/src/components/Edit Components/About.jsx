@@ -56,12 +56,14 @@ const About = () => {
         <Paper elevation={3}>
           <Box
             initial={false}
-            onClick={() => setIsOpen(isOpen ? false : true)}
+            onClick={() => setIsOpen(!isOpen)}
             layout
             display="flex"
             justifyContent="space-between"
             alignItems="center"
             className="w-full cursor-pointer text-lg"
+            style={{ color: "#555555", fontSize: "1rem", padding: "1rem" }}
+            mt={4}
           >
             <Box textAlign="center">
               <Typography variant="h6" style={{ textAlign: "center" }}>
@@ -71,6 +73,7 @@ const About = () => {
             <motion.div
               className="inline-block items-end"
               animate={{ rotate: isOpen ? 90 : 0 }}
+              style={{ display: "flex" }}
             >
               <HiChevronRight className="inline w-6 h-6" />
             </motion.div>
