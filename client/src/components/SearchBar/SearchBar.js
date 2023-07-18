@@ -34,19 +34,27 @@ export default function SearchBar({tData, setTData, selectedTags, setSelectedTag
             }
         });
 
-        if (newSelectedTags.length !== selectedTags.length) {
+        if (newSelectedTags.length !== selectedTags.length && selectedTags.length !== 3) {
             setSelectedTags(newSelectedTags);
             UpdateTemplateRelativity(newSelectedTags);
         }
 
-        document.getElementById("user-input").value = temp;
+        if(selectedTags.length !== 3){
+            document.getElementById("user-input").value = temp;
+        }
+        else{
+            document.getElementById("user-input").value = "3 tags already selected";
+        }
     }
 
     return (
         <div>
             <div className="input-wrapper">
                 <img src={searchIcond} alt="search-icon" className="search-icon"></img>
-                <input id="user-input" placeholder="Search template tags... " onChange={(e) => handleChange(e.target.value)}></input>
+                <input id="user-input" placeholder="Search template tags... " 
+                onChange={(e) => handleChange(e.target.value)}>
+
+                </input>
             </div>
             <div className="tags-section-wrapper">
                 <ToolTip setSelectedTags={setSelectedTags}/>

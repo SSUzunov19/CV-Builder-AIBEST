@@ -112,7 +112,8 @@ footer {
     transition: 0.5s;
 }
 
-input {
+/*I have changed the input to a class in order not to mess with my inp*/
+.login-input {
     position: relative;
     border: none;
     border-bottom: 2px solid gray;
@@ -120,7 +121,7 @@ input {
     width: 300px;
 }
 
-input:focus {
+.login-input:focus {
     outline: none;
     border-bottom: 2px solid black;
     transition: 0.3s;

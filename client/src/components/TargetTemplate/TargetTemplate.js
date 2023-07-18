@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import backButton from "../../images/buttons/Back button.png"
-import confirmButton from "../../images/buttons/Confirm button.png"
+import backButton from "../../images/buttons/back.svg"
+import confirmButton from "../../images/buttons/confirm.svg"
 import { CvContext } from "../../hooks/CvContext";
 import { useNavigate } from "react-router-dom";
 import "./TargetTemplate.css"

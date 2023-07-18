@@ -10,34 +10,39 @@
 }
 
 .target-template{
-    width: 934px;
-    height: 1321px;
+    width: 34vw;
+    height: 48vw;
+    min-width: 500px;
     background-color: transparent;
-    margin-left: 140px;
-    margin-right: 140px;
+    margin-left: 5vw;
+    margin-right: 4vw;
     border-radius: 15px;
     box-shadow: 10px 10px 10px #21222A;
 }
 
 .selected-template{
-    width: 934px;
-    height: 1321px;
+    width: 100%;
+    height: auto;
     border-radius: 15px;
 }
 
 #back-button{
     transition: filter 0.5s ease-in-out;
     align-self:flex-start;
-    margin-top: 59px;
-    border: 2px solid white ;
-    border-radius: 50px;    
+    margin-top: 4vh;
+    width: 4.6vw;
+    height: auto;
+    border: 1px solid white ;
+    border-radius: 50px;
 }
 
 #confirm-button{
     transition: filter 0.5s ease-in-out;
     align-self: flex-end;
-    margin-bottom: 59px;
-    border: 2px solid white ;
+    margin-bottom: 4vh;
+    width: 6vw;
+    height: auto;
+    border: 1px solid white ;
     border-radius: 50px;  
 }
 

@@ -51,32 +51,32 @@ const tagTypes = [
     {
         type : 'modern',
         colors : ['#302854', '#423771', '#635B86', '#DACFFA'],
-        size : ['110px', '30px']
+        size : ['3.7vw', '2vh']
     },
     {
         type : 'functional',
         colors : ['#24324E', '#33466C', '#3A5783', '#6CA9FF'],
-        size : ['127px', '30px']
+        size : ['4.5vw', '2vh']
     },
     {
         type : 'creative',
         colors : ['#14332E', '#1F4F48', '#1F6756','#28E2B3'],
-        size : ['112px', '30px']
+        size : ['3.8vw', '2vh']
     },
     {
         type : 'timeless',
         colors : ['#43282D', '#603940', '#7B4B4F', '#FD9B9D'],
-        size : ['114px', '30px']
+        size : ['3.9vw', '2vh']
     },
     {
         type : 'sharp',
         colors : ['#133220', '#1E4E32', '#1C6332', '#1BD75B'],
-        size : ['93px', '30px']
+        size : ['3vw', '2vh']
     },
     {
         type : 'minimal',
         colors : ['#303321', '#4B4F34', '#686935', '#E5E566'],
-        size : ['109px', '30px']
+        size : ['3.7vw', '2vh']
     }
 ]
 

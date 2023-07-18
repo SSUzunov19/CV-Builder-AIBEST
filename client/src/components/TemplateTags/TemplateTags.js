@@ -52,7 +52,7 @@ export default function TemplateTags({ selectedTags, setSelectedTags, tData, set
                             style={{ backgroundColor: temp.colors[1] }}
                             onClick={() => handleTagRemoval(index)}
                         >
-                            <svg width="10" height="10" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="6" height="6" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect x="6.10352e-05" y="6.52222" width="9.22376" height="1" rx="0.5" transform="rotate(-45 6.10352e-05 6.52222)" fill={color} />
                                 <rect width="9.22376" height="1" rx="0.5" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 7.22931 6.52222)" fill={color} />
                             </svg>

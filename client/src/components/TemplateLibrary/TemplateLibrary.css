@@ -1,21 +1,21 @@
 .templates-wrapper{
-    margin-top: 124px;
+    margin-top: 12vh;
     display: grid;
-    grid-template-columns: repeat(3, 200px);
-    grid-template-rows: repeat(3, 283px);
-    gap: 28px;
+    grid-template-columns: repeat(3, 7.55vw);
+    grid-template-rows: repeat(3, 20.7vh);
+    gap: 20px;
 } 
 
 .template{
-    width: 200px;
-    height: 283px;
+    width: 7.55vw;   
+    height: 20.7vh;
     background-color: transparent;
     border-radius: 15px;
 }
 
 .template-image{
-    width: 200px;
-    height: 283px;
+    width: 7.55vw;
+    height: auto;
     border-radius: 15px;
 }
 

@@ -48,6 +48,7 @@ export const Login = (props) => {
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className={styles["login-input"]}
           type="email"
           placeholder="Email"
           id="email"
@@ -57,6 +58,7 @@ export const Login = (props) => {
         <input
           value={pass}
           onChange={(e) => setPass(e.target.value)}
+          className={styles["login-input"]}
           type="password"
           placeholder="Password"
           id="password"

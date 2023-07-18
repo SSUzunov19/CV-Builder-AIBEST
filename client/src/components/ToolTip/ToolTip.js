@@ -24,7 +24,7 @@ export default function ToolTip({ setSelectedTags }) {
                 }}
             >?
                 <div id="tag-tooltip" className="tags-container">
-                    <p className="info-text">You can search with the following tags:</p>
+                    <p className="info-text">You can search with 3 of the following tags:</p>
                     <div className="tag-row-container">
                         {tagTypes.map((tag, index) => {
                             return (
@@ -32,7 +32,7 @@ export default function ToolTip({ setSelectedTags }) {
                                     key={index}
                                     className="tag"
                                     style={{
-                                        width: `calc(${tag.size[0]} - 35px)`,
+                                        width: `calc(${tag.size[0]} - 18px)`,
                                         height: tag.size[1],
                                         backgroundColor: tag.colors[0],
                                         borderColor: tag.colors[2],
