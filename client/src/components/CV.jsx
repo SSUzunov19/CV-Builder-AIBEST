@@ -10,7 +10,6 @@ import { TbBrandTwitter } from "react-icons/tb";
 import { useContext } from "react";
 import { CvContext } from "../hooks/CvContext";
 import { websiteLinkCreator, resolvedWebsiteLink } from "../utils/link.utils";
-import { fontFamily } from '@mui/system';
 
 const CV = () => {
   const socialLinkStyles = {
