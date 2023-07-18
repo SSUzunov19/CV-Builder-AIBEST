@@ -1,0 +1,16 @@
+.card-container {
+    margin: 20px;
+    flex-basis: calc(33% - 40px);
+    box-sizing: border-box;
+}
+
+.action-button {
+    margin-right: 10px;
+}
+
+.cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}

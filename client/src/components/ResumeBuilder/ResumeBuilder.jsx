@@ -1,13 +1,13 @@
 import React from 'react';
-import Settings from "../components/Settings";
-import PageButtons from "../components/PageButtons";
-import { CvContext } from "../hooks/CvContext";
+import Settings from "../Settings";
+import PageButtons from "../PageButtons";
+import { CvContext } from "../../hooks/CvContext";
 import { Box } from '@mui/material';
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import StyledContainer from './StyledContainer';
 
-import { useBuilderLogic } from './BuilderLogic';
+import { useBuilderLogic } from '../../services/BuilderLogic';
 
 const theme = createTheme({
     palette: {

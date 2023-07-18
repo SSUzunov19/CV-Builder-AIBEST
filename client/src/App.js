@@ -1,10 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import ResumeDashboard from './components/ResumeDashboard';
-import Resume from './components/Resume';
-import Home from './pages/ResumeBuilder';
+
+import Home from './pages/HomePage';
+import Dashboard from './components/ResumeDashboard/ResumeDashboard';
+import ResumeBuilder from './components/ResumeBuilder/ResumeBuilder';
 import TemplateSwitcher from "./components/MainContent/MainContent";
+import Login from './components/Login';
+import Register from './components/Register';
 
 const theme = createTheme({
   palette: {
@@ -23,9 +26,11 @@ function App() {
       <ThemeProvider theme={theme}>
         <div className="App">
           <Routes>
-            <Route path="/" element={<ResumeDashboard />} />
-            <Route path="/builder/:id" element={<Home />} />
-            <Route path="/resumes/:id" element={<Resume />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/builder/:id" element={<ResumeBuilder />} />
             <Route path="/builder/:id/template" element={<TemplateSwitcher />} />
           </Routes>
         </div>

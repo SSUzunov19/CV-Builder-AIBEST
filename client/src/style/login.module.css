@@ -1,41 +1,41 @@
-form {
+.login-form {
     margin-top: 5%;
     position: absolute;
     left: 43%;
 }
-    
-.emailimage2{
+
+.emailimage2 {
     position: absolute;
     top: 36%;
     left: -16%;
     width: 42px;
     height: 42px;
 }
-    
-.passwordimage2{
+
+.passwordimage2 {
     position: absolute;
     top: 54%;
     left: -16%;
     width: 13%;
     height: 11%;
 }
-    
-.passwordimage{
+
+.passwordimage {
     position: absolute;
     top: 62%;
     left: -15%;
     width: 11%;
     height: 10%;
 }
-    
-.userimage{
+
+.userimage {
     position: absolute;
     top: 30%;
     left: -17%;
     width: 12%;
     height: 10%;
 }
- 
+
 footer {
     position: relative;
     top: 790px;
@@ -47,16 +47,17 @@ footer {
     left: 5%;
     float: left;
     top: 30%;
-   
-  }
-  .fTextRight {
+
+}
+
+.fTextRight {
     font-size: 1.2em;
     position: relative;
     top: 30%;
     float: right;
     right: 5%;
-  }
-    
+}
+
 .emailimage {
     position: absolute;
     top: 46%;
@@ -64,7 +65,7 @@ footer {
     width: 42px;
     height: 42px;
 }
-    
+
 .Create-Account-cat {
     color: white;
     font-size: 1em;
@@ -74,7 +75,7 @@ footer {
     width: 100px;
     border: 1px solid #66b3ff;
 }
-    
+
 .Create-Account-cat:hover {
     opacity: 80%;
     transform: scale(1.2);
@@ -83,11 +84,11 @@ footer {
     transition: 0.5s;
 }
 
-.Create-Account-cat:not(:hover){
+.Create-Account-cat:not(:hover) {
     transform: scale(1);
     transition: 0.5s;
 }
-    
+
 .Log-In-btn {
     background-color: #66b3ff;
     font-size: 1.3em;
@@ -107,7 +108,7 @@ footer {
 }
 
 .Log-In-btn:not(:hover) {
-transform: scale(1);
+    transform: scale(1);
     transition: 0.5s;
 }
 
@@ -119,7 +120,7 @@ input {
     width: 300px;
 }
 
-input:focus{
+input:focus {
     outline: none;
     border-bottom: 2px solid black;
     transition: 0.3s;
@@ -128,48 +129,48 @@ input:focus{
 nav {
     width: 100%;
     height: 95px;
-  }
+}
 
 .navButtonLeft {
-  position: relative;
-  margin-top: 1%;
-  height: 55%;
-  width: 10%;
-  margin-left:50px;
-  color:black;
-  background-color: white;
-  border:none;
-  font-size: 1.4em;
-  font-weight: bold;
-  font-family: Catamaran,sans-serif;
-  top: -10%;
-}
-
-h2{
-    font-size: 3em;
-    position: relative;
-    left: 30%;
-    letter-spacing: 4px;
-    background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 15%, rgba(102,236,240,1) 30%);
-    background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.navButtonMid{
-    cursor: pointer;
-    left:30%;
     position: relative;
     margin-top: 1%;
     height: 55%;
     width: 10%;
-    margin-left:50px;
-    color:#66b3ff;
+    margin-left: 50px;
+    color: black;
     background-color: white;
-    border:none;
+    border: none;
     font-size: 1.4em;
     font-weight: bold;
-    font-family: Catamaran,sans-serif;
+    font-family: Catamaran, sans-serif;
     top: -10%;
-  }
+}
+
+h2 {
+    font-size: 3em;
+    position: relative;
+    left: 30%;
+    letter-spacing: 4px;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 15%, rgba(102, 236, 240, 1) 30%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.navButtonMid {
+    cursor: pointer;
+    left: 30%;
+    position: relative;
+    margin-top: 1%;
+    height: 55%;
+    width: 10%;
+    margin-left: 50px;
+    color: #66b3ff;
+    background-color: white;
+    border: none;
+    font-size: 1.4em;
+    font-weight: bold;
+    font-family: Catamaran, sans-serif;
+    top: -10%;
+}

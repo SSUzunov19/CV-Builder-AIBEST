@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { Typography, Card, CardActions, CardContent, Button, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ShareIcon from '@mui/icons-material/Share';
-import { fetchResumes, deleteResume } from '../services/api';
-import ResumeForm from './ResumeForm';
-import './ResumeDashboard.css'; // Make sure you import your CSS file
+import { fetchResumes, deleteResume } from '../../services/api';
+import ResumeForm from '../ResumeForm';
+import './ResumeDashboard.css';
 
-function ResumeDashboard() {
+export const ResumeDashboard = () => {
   const [resumes, setResumes] = useState([]);
 
   useEffect(() => {

@@ -4,7 +4,7 @@ import { cvData } from "../data/cvData";
 import { useReactToPrint } from "react-to-print";
 import { FILE_NOT_SELECTED, FILE_READ_ERROR, UNSUPPORTED_FILE_TYPE } from "../constants/message-result.constants";
 import LS from "../utils/browser.utils";
-import { getResumeById } from '../services/api';
+import { getResumeById } from './api';
 
 import CV from "../components/CV";
 

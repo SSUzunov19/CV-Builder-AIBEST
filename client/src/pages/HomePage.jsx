@@ -1,9 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import AppRouter from "../components/Router";
-
-import { useNavigate } from "react-router-dom";
+import "../style/homepage.css";
 
 const HomePage = () => {
   const footerStyle = {
@@ -15,7 +13,6 @@ const HomePage = () => {
   };
   return (
     <div className="HomepageBody">
-      <AppRouter />
 
       <Navbar></Navbar>
       <div className="first-section">

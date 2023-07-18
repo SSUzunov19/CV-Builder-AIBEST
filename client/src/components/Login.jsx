@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../style/login.css";
+import styles from "../style/login.module.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
@@ -33,16 +33,16 @@ export const Login = (props) => {
   };
 
   return (
-    <div className="auth-form-container">
+    <div className={styles["auth-form-container"]}>
       <Navbar />
-      <form className="login-form" onSubmit={handleSubmit}>
+      <form className={styles["login-form"]} onSubmit={handleSubmit}>
         <h2>Login</h2>
         <img
-          className="emailimage2"
+          className={styles["emailimage2"]}
           src="https://www.iconpacks.net/icons/1/free-mail-icon-142-thumb.png"
         />
         <img
-          className="passwordimage2"
+          className={styles["passwordimage2"]}
           src="https://cdn-icons-png.flaticon.com/512/1000/1000966.png"
         />
         <input
@@ -63,7 +63,7 @@ export const Login = (props) => {
           name="password"
         />{" "}
         <br /> <br />
-        <button className="Log-In-btn" type="submit">
+        <button className={styles["Log-In-btn"]} type="submit">
           Log In
         </button>{" "}
         <br /> <br />
@@ -80,4 +80,5 @@ export const Login = (props) => {
     </div>
   );
 };
+
 export default Login;
