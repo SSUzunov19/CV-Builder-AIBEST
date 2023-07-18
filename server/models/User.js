@@ -10,11 +10,7 @@ const User = sequelize.define('User', {
   username: {
     type: DataTypes.STRING,
     unique: true,
-<<<<<<< HEAD
     allowNull: true,
-=======
-    allowNull: false,
->>>>>>> resumes
   },
   email: {
     type: DataTypes.STRING,
@@ -23,11 +19,7 @@ const User = sequelize.define('User', {
   },
   password: {
     type: DataTypes.STRING,
-<<<<<<< HEAD
     allowNull: true,
-=======
-    allowNull: false,
->>>>>>> resumes
   },
   created_at: {
     type: DataTypes.DATE,
