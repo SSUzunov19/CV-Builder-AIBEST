@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
+import Title from "../Title/Title";
 import Footer from "../Footer/Footer";
 import "./homepage.css";
 
@@ -12,18 +13,11 @@ const HomePage = () => {
     overflow: "hidden",
   };
   return (
-    <div className="HomepageBody">
+    <>
+      <Navbar/>
 
-      <Navbar></Navbar>
-      <div className="first-section">
-        <div className="firstSectionTextPH">
-          <p className="firstSectionText1">
-            Build <span>Professional Resume</span> <br /> Fast And Stress Free
-          </p>
-          <p className="firstSectionText2"> </p>
-          <button className="Try-Now-BTN">Get Started Now</button>
-        </div>
-      </div>
+      <Title/>
+
       <div className="second-section">
         <p className="secondSectionText1">
           It's so easy, you don't even need to think
@@ -90,7 +84,7 @@ const HomePage = () => {
       </div>
 
       <Footer style={footerStyle}></Footer>
-    </div>
+    </>
   );
 };
 

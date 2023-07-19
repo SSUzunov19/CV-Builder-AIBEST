@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./login.module.css";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
+import Navbar from "../Homepage Components/Navbar/Navbar";
+import Footer from "../Homepage Components/Footer/Footer";
 
 export const Login = (props) => {
   const [email, setEmail] = useState("");

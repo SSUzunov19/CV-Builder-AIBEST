@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');
+
+
+.navbar-wrapper{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.nav-bar{
+    height: 60px;
+    width: 70vw;
+    display: flex;
+    font-family: Catamaran;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 1.1em;
+    font-weight: 700;
+    height: 1em;
+    margin-left: 0.5rem;
+}
+
+.logo > a{
+    text-decoration: none;
+    color: black;
+}
+  
+.account-btns{
+    display:flex;
+    flex-direction: row;
+}
+
+.nav-bth{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    background: none;
+    border: 1px solid #e0e0e0;
+    color: #222;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: 700;
+    font-size: .8em;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-bth:hover{
+    scale: 1.1;
+}

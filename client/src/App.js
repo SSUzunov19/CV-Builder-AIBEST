@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-import Home from './components/Homepage/HomePage';
+import Home from './components/Homepage Components/Homepage/HomePage';
 import Dashboard from './components/ResumeDashboard/ResumeDashboard';
 import ResumeBuilder from './components/ResumeBuilder/ResumeBuilder';
 import TemplateSwitcher from "./components/Template Components/MainContent/MainContent";
