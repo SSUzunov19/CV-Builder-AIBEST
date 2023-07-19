@@ -9,31 +9,19 @@ import TextArea from "../UI Components/TextArea";
 import CheckBox from "../UI Components/Checkbox";
 import { Box, Typography, Paper, Button, CircularProgress } from "@mui/material";
 import Confetti from 'react-confetti';
+import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
 
 import { enhanceAboutText } from '../../services/api.js';
 
 const About = () => {
   const { cv, uploadImage } = useContext(CvContext);
   const [isOpen, setIsOpen] = useState(false);
-  const [phone, setPhone] = useState("");
-  const [phoneError, setPhoneError] = useState(false);
 
   const [magicMode, setMagicMode] = useState(false);
   const [modifiedText, setModifiedText] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
-
-  const validatePhone = () => {
-    const phoneRegex = /^\d{10}$/; // Assuming a 10-digit phone number format
-    return phoneRegex.test(phone);
-  };
-
-  const handlePhoneChange = (event) => {
-    const newPhone = event.target.value;
-    setPhone(newPhone);
-    setPhoneError(!validatePhone(newPhone));
-  };
 
   const handleMagicButtonClick = async () => {
     setIsLoading(true);
@@ -49,7 +37,7 @@ const About = () => {
     setIsLoading(false);
     setMagicMode(!magicMode);
   };
-
+  
   return (
     <AnimatePresence initial={false}>
       <motion.div layout animate={{ marginBottom: isOpen ? "30px" : "20px" }}>
@@ -147,20 +135,20 @@ const About = () => {
                     placeholder="Your name"
                     keyChange="name"
                   />
+                  <GrammarlyEditorPlugin clientId="client_AYbwa9RF7qiSdH5ncrXRAi">
                   <Inputs
                     title="Job*"
                     value={cv.jobTitle}
                     placeholder="What is your job?"
                     keyChange="jobTitle"
                   />
+                  </GrammarlyEditorPlugin>
                   <Inputs
                     title="Phone*"
                     value={cv.phone}
                     placeholder="Your phone number"
                     keyChange="phone"
-                    error={phoneError}
-                    onChange={handlePhoneChange}
-                    helperText={phoneError ? "Invalid phone number" : ""}
+                    
                   />
                   <Inputs
                     title="Location*"
@@ -168,12 +156,14 @@ const About = () => {
                     placeholder="Where do you live?"
                     keyChange="location"
                   />
+                  <GrammarlyEditorPlugin clientId="client_AYbwa9RF7qiSdH5ncrXRAi">
                   <TextArea
                     title="About*"
                     value={cv.about}
                     placeholder="A few sentences about yourself"
                     keyChange="about"
                   />
+                  </GrammarlyEditorPlugin>
 
                   <Button onClick={handleMagicButtonClick} disabled={isLoading}>
                     {isLoading ? <CircularProgress size={24} /> : magicMode ? "Revert to Original Text" : "Magic"}

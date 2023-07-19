@@ -7,7 +7,7 @@ import AddButton from "../UI Components/AddButton";
 import Inputs from "../UI Components/InputsH";
 import TextArea from "../UI Components/TextAreaH";
 import { Box, Typography, Paper } from "@mui/material";
-
+import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
 const Experiences = () => {
   const { cv, updateCv, addExperience } = useContext(CvContext);
   const [isOpen, setIsOpen] = useState(false);
@@ -83,6 +83,7 @@ const Experiences = () => {
                       </div>
 
                       <div className="items-center mt-4">
+                      <GrammarlyEditorPlugin clientId="client_AYbwa9RF7qiSdH5ncrXRAi">
                         <Inputs
                           title = "Position"
                           type="text"
@@ -100,6 +101,7 @@ const Experiences = () => {
                             ]);
                           }}
                         />
+                        </GrammarlyEditorPlugin>
                       </div>
                       <div className="items-center mt-4">
                         <Inputs
@@ -121,6 +123,7 @@ const Experiences = () => {
                         />
                       </div>
                       <div className="items-center mt-4">
+                      <GrammarlyEditorPlugin clientId="client_AYbwa9RF7qiSdH5ncrXRAi">
                         <TextArea
                           title = "Summary"
                           rows={7}
@@ -138,6 +141,7 @@ const Experiences = () => {
                             ]);
                           }}
                         />
+                        </GrammarlyEditorPlugin>
                       </div>
                       <div className="items-center mt-4">
                         <Inputs

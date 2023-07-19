@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Inputs from "../UI Components/InputsH";
 import AddButton from "../UI Components/AddButton";
 import { Box, Typography, Paper } from "@mui/material";
-
+import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
 const Education = () => {
   const { cv, updateCv, addEducation } = useContext(CvContext);
   const [isOpen, setIsOpen] = useState(false);
@@ -86,6 +86,7 @@ const Education = () => {
                         </button>
                       </div>
                       <div className="items-center mt-4 transition-all">
+                      <GrammarlyEditorPlugin clientId="client_AYbwa9RF7qiSdH5ncrXRAi">
                         <Inputs
                           title="Field of study"
                           type="text"
@@ -105,6 +106,7 @@ const Education = () => {
                             ]);
                           }}
                         />
+                        </GrammarlyEditorPlugin>
                       </div>
                       <div className="items-center mt-4">
                         <Inputs

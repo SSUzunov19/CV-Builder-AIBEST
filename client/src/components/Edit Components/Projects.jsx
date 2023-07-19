@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import AddButton from "../UI Components/AddButton";
 import Inputs from "../UI Components/InputsH";
 import TextArea from "../UI Components/TextAreaH";
-
+import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
 import { Typography, Box, Paper } from "@mui/material";
 
 const Projects = () => {
@@ -130,6 +130,7 @@ const Projects = () => {
                         />
                       </div>
                       <div className="items-center mt-4 mb-6">
+                        <GrammarlyEditorPlugin clientId="client_AYbwa9RF7qiSdH5ncrXRAi">
                         <TextArea
                           title="Project Summary"
                           type="textarea"
@@ -149,6 +150,7 @@ const Projects = () => {
                             ]);
                           }}
                         />
+                        </GrammarlyEditorPlugin>
                       </div>
                     </div>
                   </motion.div>
