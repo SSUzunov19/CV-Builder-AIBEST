@@ -47,9 +47,34 @@
     width: fit-content;
     border-radius: 5px;
     transition: 0.3s scale ease-in-out;
+    font-family: Catamaran,sans-serif;
 }
 
 .title-bth:hover {
     cursor: pointer;
     scale: 1.2;
+}
+
+@media screen and (max-width: 992px){
+    .page-title{
+        font-size: 4em;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .title-wrapper{
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .text_container{
+        width: 90%;
+        margin-bottom: 40px;
+    }
+
+    .page-title{
+        font-size: 2.5em;
+        line-height: 1.2em;
+    }
 }

@@ -1,12 +1,12 @@
 import React from "react";
 import "./Navbar.css"
 
-const Navbar = () => {
+export default function Navbar () {
   return (
     <div className="navbar-wrapper">
       <nav className="nav-bar">
         <div className="logo">
-          <a href="">buildMe</a>
+          <a href="">Wonder Woman</a>
         </div>
         <div className="account-btns">
           <a className="nav-bth" href="">Login</a>
@@ -16,5 +16,3 @@ const Navbar = () => {
     </div>
   );
 };
-
-export default Navbar;

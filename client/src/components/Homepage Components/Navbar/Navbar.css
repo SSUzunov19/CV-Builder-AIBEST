@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');
-
-
 .navbar-wrapper{
     width: 100%;
     height: 60px;
@@ -45,11 +42,11 @@
     color: #222;
     cursor: pointer;
     margin-left: 10px;
-    font-weight: 700;
+    font-weight: lighter;
     font-size: .8em;
     text-decoration: none;
     color: black;
-    transition: background-color 0.3s, color 0.3s;
+    transition: scale 0.2s;
 }
 
 .nav-bth:hover{

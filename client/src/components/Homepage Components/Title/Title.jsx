@@ -1,6 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
-import "./title.css"
+import "./Title.css"
 
 export default function Title() {
     const heroTextAnimate = {

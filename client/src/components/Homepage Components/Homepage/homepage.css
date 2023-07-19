@@ -32,7 +32,7 @@
 }
 
 .secondSectionText1 {
-  position: relative;;
+  position: relative;
   text-align: center;
   font-size: 1.3em;
   font-weight: 700;
@@ -55,13 +55,6 @@
   width: 100%;
   height: 100%;
   display: flex;
-}
-
-.number {
-  font-size: 6em;
-  font-weight: 900;
-  color: #66b3ff;
-  font-family: Roboto Slab;
 }
 
 .title {

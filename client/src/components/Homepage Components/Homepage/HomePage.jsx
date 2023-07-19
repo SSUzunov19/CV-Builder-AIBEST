@@ -1,8 +1,9 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
 import Title from "../Title/Title";
+import Features from "../Features/Features"
 import Footer from "../Footer/Footer";
-import "./homepage.css";
+import "./Homepage.css";
 
 const HomePage = () => {
   const footerStyle = {
@@ -14,40 +15,13 @@ const HomePage = () => {
   };
   return (
     <>
-      <Navbar/>
+      <Navbar />
 
-      <Title/>
+      <Title />
 
-      <div className="second-section">
-        <p className="secondSectionText1">
-          It's so easy, you don't even need to think
-        </p>
-        <div className="TextBoxWrapper">
-          <div className="TextBoxSection2">
-            <p className="number">01</p>
-            <p className="title">Add Your Info</p>
-            <p className="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing <br /> elit.
-              Modi, quasi? Distinctio optio totam voluptatibus <br /> sed..
-            </p>
-          </div>
-          <div className="TextBoxSection2">
-            <p className="number">02</p>
-            <p className="title">Select Template</p>
-            <p className="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing <br /> elit.
-              Modi, quasi? Distinctio optio totam voluptatibus <br /> sed..
-            </p>
-          </div>
-          <div className="TextBoxSection2">
-            <p className="number">03</p>
-            <p className="title">Save PDF</p>
-            <p className="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing <br /> elit.
-              Modi, quasi? Distinctio optio totam voluptatibus <br /> sed..
-            </p>
-          </div>
-        </div>
+      <Features/>
+      
+      <div>
         <p className="section-2-text-2">
           The faster way to create professional-looking resumes
         </p>
@@ -56,6 +30,7 @@ const HomePage = () => {
           alt="This image couldn't load"
         />
       </div>
+
       <div className="third-section">
         <div className="section-3-Wrapper">
           <div className="TextBoxWrapper-2">
