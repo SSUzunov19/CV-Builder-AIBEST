@@ -63,6 +63,17 @@ export const loginUser = (email, password) => {
   });
 };
 
+export const changeUsername = (userId, username) => {
+  return api.put(`/api/users/${userId}/username`, { username })
+  .then((res) => {
+    console.log('Username changed', res.data);
+    return res.data;
+  })
+  .catch((error) => {
+    console.error('Error changing username:', error);
+    throw error;
+  });
+};
 
 export const changeEmail = (userId, email) => {
   return api.put(`/api/users/${userId}/email`, { email })

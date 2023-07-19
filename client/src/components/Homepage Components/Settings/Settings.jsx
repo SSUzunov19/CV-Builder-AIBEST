@@ -1,13 +1,28 @@
 import React, { useState } from 'react';
-import { changeEmail, changePassword, deleteUser } from '../../../services/api';
+import { changeUsername, changeEmail, changePassword, deleteUser } from '../../../services/api';
 import { TextField, Button } from '@mui/material';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import './Settings.css';
 
-export default function Settings({ userId, userName }) {
+export default function Settings({ userId, userName, setUserName}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+
+  const handleChangeUsername = (e) => {
+    e.preventDefault();
+
+    changeUsername(userId, username)
+      .then(() => {
+        console.log('Username changed successfully');
+      })
+      .catch((error) => {
+        console.error('Error changing Username:', error);
+      });
+    
+    setUserName(username);
+  };
 
   const handleChangeEmail = (e) => {
     e.preventDefault();
@@ -50,6 +65,26 @@ export default function Settings({ userId, userName }) {
       <Navbar userId={userId} userName={userName}></Navbar>
       <div className="settings-container">
         <h1>Settings</h1>
+
+        <form onSubmit={handleChangeUsername} className="settings-form">
+          <h2>Change Username</h2>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="username"
+            label="New Username"
+            name="username"
+            autoComplete="username"
+            autoFocus
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <Button type="submit" variant="contained" color="primary">
+            Change Username
+          </Button>
+        </form>
 
         <form onSubmit={handleChangeEmail} className="settings-form">
           <h2>Change Email</h2>

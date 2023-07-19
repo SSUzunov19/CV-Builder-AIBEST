@@ -41,7 +41,7 @@ function App() {
             <Route path="/" element={<Home userId={userId} setUserId={setUserId} userName={userName}/>} />
             <Route path="/login" element={<Login setUserId={setUserId} setUserName={setUserName}/>} />
             <Route path="/register" element={<Register setUserId={setUserId} setUserName={setUserName}/>} />
-            <Route path="/settings" element={<Settings userId={userId} userName={userName}/>} />
+            <Route path="/settings" element={<Settings userId={userId} userName={userName} setUserName={setUserName}/>} />
             <Route path="/dashboard" element={<Dashboard userId={userId} />} />
             <Route path="/builder/:id" element={<ResumeBuilder userId={userId} />} />
             <Route path="/builder/:id/template" element={<TemplateSwitcher userId={userId} />} />

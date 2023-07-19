@@ -29,6 +29,7 @@ export default function Navbar({ userId, setUserId, userName }) {
           {userId ? (
             <>
               <span>Hello, {userName}</span>
+              <button className="nav-bth" onClick={() => navigate('/dashboard')}>Dashboard</button>
               <button className="nav-bth" onClick={handleSettings}>Settings</button>
               <button className="nav-bth" onClick={handleLogout}>Logout</button>
             </>
