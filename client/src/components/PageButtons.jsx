@@ -1,11 +1,12 @@
 import { BsZoomIn, BsZoomOut } from "react-icons/bs";
 import { GoDownload } from "react-icons/go";
+import { BiAnalyse } from "react-icons/bi";
 import { useContext } from "react";
 import { CvContext } from "../hooks/CvContext";
 import { Button, ButtonGroup, Box } from "@mui/material";
 
 const PageButtons = () => {
-    const { scaleUp, scaleDown, ifScaleUpOrDown } = useContext(CvContext);
+    const { scaleUp, scaleDown, ifScaleUpOrDown, analyseTheResume} = useContext(CvContext);
 
     return (
         <Box
@@ -26,6 +27,9 @@ const PageButtons = () => {
                     </Button>
                     <Button onClick={ifScaleUpOrDown}>
                         <GoDownload className="h-8 w-8" />
+                    </Button>
+                    <Button onClick={analyseTheResume}>
+                        <BiAnalyse className="h-8 w-8" />
                     </Button>
                 </ButtonGroup>
             </Box>

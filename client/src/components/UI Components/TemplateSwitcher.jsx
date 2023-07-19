@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 const TemplateSwitcher = ({ id }) => {
   const navigate = useNavigate();  // Using useNavigate instead of useHistory
 
-  console.log(id);
   return (
     <Button
       variant="contained"

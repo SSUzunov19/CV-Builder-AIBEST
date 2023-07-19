@@ -48,10 +48,20 @@ export const enhanceAboutText = (text) => {
     });
 };
 
+export const analyseResume = (resume) => {
+  return api.post('/api/analyse', { resume })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.error('Error analyzing resume:', error);
+      throw error;
+    });
+};
+
 export const fetchResumes = () => {
   return api.get('/api/resumes')
     .then((res) => {
-      console.log(res.data); // Check the response data
       return res.data;
     })
     .catch((error) => {
@@ -63,7 +73,6 @@ export const fetchResumes = () => {
 export const getResumeById = (id) => {
   return api.get(`/api/resumes/${id}`)
     .then((res) => {
-      console.log(res.data); // Check the response data
       return res.data;
     })
     .catch((error) => {
@@ -75,7 +84,6 @@ export const getResumeById = (id) => {
 export const createResume = (resume) => {
   return api.post('/api/resumes', resume)
     .then((response) => {
-      console.log('createResume response', response.data);
 
       LS.set({ key: 'resume', payload: response.data });
 

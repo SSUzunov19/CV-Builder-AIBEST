@@ -8,7 +8,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import StyledContainer from './StyledContainer';
 
 import { useNavigate } from 'react-router-dom';
-import { useBuilderLogic } from '../../services/BuilderLogic';
+import { useBuilderLogic, Modal } from '../../services/BuilderLogic';
 
 const theme = createTheme({
     palette: {
@@ -57,6 +57,10 @@ export default function Home() {
         handlePrint,
         scale,
         componentRef,
+        analyseTheResume,
+        analysisData,
+        isModalOpen,
+        setIsModalOpen
     } = useBuilderLogic();
 
     const handleBack = () => {
@@ -66,6 +70,12 @@ export default function Home() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
+
+            <Modal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                data={analysisData}
+            />
 
             <CvContext.Provider
                 value={{
@@ -84,6 +94,10 @@ export default function Home() {
                     ifScaleUpOrDown,
                     addEducation,
                     templateSwitch,
+                    analyseTheResume,
+                    analysisData,
+                    isModalOpen,
+                    setIsModalOpen
                 }}
             >
                 <Box

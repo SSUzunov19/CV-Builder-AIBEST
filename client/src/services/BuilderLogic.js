@@ -4,22 +4,67 @@ import { cvData } from "../data/cvData";
 import { useReactToPrint } from "react-to-print";
 import { FILE_NOT_SELECTED, FILE_READ_ERROR, UNSUPPORTED_FILE_TYPE } from "../constants/message-result.constants";
 import LS from "../utils/browser.utils";
-import { getResumeById } from './api';
+import { getResumeById, analyseResume } from './api';
 
 import CV from "../components/CV";
+
+const OVERLAY_STYLES = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.7)',
+    display: 'grid',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1000
+};
+
+const MODAL_STYLES = {
+    backgroundColor: '#fff',
+    padding: '50px',
+    zIndex: 1000,
+    maxWidth: '500px',
+    maxHeight: '600px',
+    overflowY: 'scroll',
+    borderRadius: '12px'
+};
+
+export const Modal = ({ isOpen, onClose, data }) => {
+    if (!isOpen) {
+        return null;
+    }
+
+    return (
+        <div style={OVERLAY_STYLES}>
+            <div style={MODAL_STYLES}>
+                <button onClick={onClose}>Close</button>
+                {data &&
+                    <div>
+                        {/* Display your data here */}
+                        <h2>Feedback: {data.feedback}</h2>
+                        <img src={data.diagram} alt="Diagram" />
+                    </div>
+                }
+            </div>
+        </div>
+    );
+};
 
 export const useBuilderLogic = () => {
     const [cv, setCv] = useState(cvData);
     const [scale, setScale] = useState(1);
-
     const { id } = useParams();
     const [resume, setResume] = useState(null);
-
     const [template, setTemplate] = useState(1);
+
+    const [analysisData, setAnalysisData] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
 
     useEffect(() => {
         getResumeById(id).then((response) => {
-            console.log('Response:', response);
             setResume(response);
         });
     }, [id]);
@@ -206,6 +251,60 @@ export const useBuilderLogic = () => {
         }
     };
 
+    function cvToString(cv) {
+        let cvText = "";
+
+        cvText += `Name: ${cv.name}\n`;
+        cvText += `Job Title: ${cv.jobTitle}\n`;
+        cvText += `Phone: ${cv.phone}\n`;
+        cvText += `Location: ${cv.location}\n`;
+        cvText += `Email: ${cv.email}\n`;
+
+        if (cv.github) {
+            cvText += `Github: ${cv.github}\n`;
+        }
+
+        if (cv.website) {
+            cvText += `Website: ${cv.website}\n`;
+        }
+
+        if (cv.twitter) {
+            cvText += `Twitter: ${cv.twitter}\n`;
+        }
+
+        cvText += `About: ${cv.about}\n`;
+
+        cvText += "Education:\n";
+        cv.education.forEach((edu) => {
+            cvText += `${edu.title} at ${edu.school} (${edu.startDate} - ${edu.endDate})\n`;
+        });
+
+        cvText += "Experience:\n";
+        cv.experiences.forEach((exp) => {
+            cvText += `${exp.title} at ${exp.company} (${exp.startDate} - ${exp.endDate})\n`;
+            cvText += `${exp.summary}\n`;
+        });
+
+        cvText += "Skills:\n";
+        cvText += cv.toolsAndTechSkills.join(", ") + "\n";
+
+        cvText += "Languages:\n";
+        cvText += cv.languages.join(", ") + "\n";
+
+        return cvText;
+    }
+
+    const analyseTheResume = async () => {
+        let cvText = cvToString(cv);
+        try {
+            const data = await analyseResume(cvText);
+            setAnalysisData(data);
+            setIsModalOpen(true);  // Open the modal after receiving the data
+        } catch (error) {
+            console.error('Failed to analyze resume:', error);
+        }
+    };
+
     const componentRef = useRef();
 
     return {
@@ -228,5 +327,9 @@ export const useBuilderLogic = () => {
         scale,
         componentRef,
         selectTemplate,
+        analyseTheResume,
+        analysisData,
+        isModalOpen,
+        setIsModalOpen
     };
 };

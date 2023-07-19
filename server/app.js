@@ -31,7 +31,7 @@ app.use('/users', usersRouter);
 app.use('/api/resumes', resumesRouter);
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: "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",
 });
 
 const openai = new OpenAIApi(configuration);
@@ -41,7 +41,7 @@ app.post('/api/magic', async (req, res) => {
 
   try {
     const response = await openai.createChatCompletion({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-3.5-turbo-16k-0613',
       messages: [{ role: 'user', content: `Improve the following text, but keep it short: ${text}` }],
       max_tokens: 100,
       temperature: 0.3
@@ -52,6 +52,25 @@ app.post('/api/magic', async (req, res) => {
   } catch (error) {
     console.error('Failed to call OpenAI API', error);
     res.status(500).json({ error: 'Failed to enhance text.' });
+  }
+});
+
+app.post('/api/analyse', async (req, res) => {
+  const { resumeData } = req.body;
+
+  try {
+    const response = await openai.createChatCompletion({
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: `Analyse this resume: ${resumeData}` }],
+      max_tokens: 100,
+      temperature: 0.3
+    });
+
+    const analysisResult = response.data.choices[0].message.content;
+    res.status(200).json({ analysis: analysisResult });
+  } catch (error) {
+    console.error('Failed to call OpenAI API', error);
+    res.status(500).json({ error: 'Failed to analyze resume.' });
   }
 });
 
