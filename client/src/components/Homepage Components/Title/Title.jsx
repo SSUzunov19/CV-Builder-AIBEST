@@ -29,7 +29,7 @@ export default function Title() {
                     Build <span id="gradient-text">Professional Resume</span> Fast And Stress Free
                 </motion.p>
             </div>
-            <button className="title-bth">Get Started Now</button>
+            <button className="title-btn">Get Started Now</button>
         </div>
     );
 }

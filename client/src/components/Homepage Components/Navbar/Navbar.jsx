@@ -38,14 +38,14 @@ export default function Navbar({ userId, setUserId, userName, setUserName }) {
           {userId != "null" ? (
             <>
               <span>Hello, {userName}</span>
-              <button className="nav-bth" onClick={() => navigate('/dashboard')}>Dashboard</button>
-              <button className="nav-bth" onClick={handleSettings}>Settings</button>
-              <button className="nav-bth" onClick={handleLogout}>Logout</button>
+              <button className="nav-btn" onClick={() => navigate('/dashboard')}>Dashboard</button>
+              <button className="nav-btn" onClick={handleSettings}>Settings</button>
+              <button className="nav-btn" onClick={handleLogout}>Logout</button>
             </>
           ) : (
             <>
-              <button className="nav-bth" onClick={() => navigate('/login')}>Login</button>
-              <button className="nav-bth" onClick={() => navigate('/register')}>Register</button>
+              <button className="nav-btn" onClick={() => navigate('/login')}>Login</button>
+              <button className="nav-btn" onClick={() => navigate('/register')}>Register</button>
             </>
           )}
         </div>

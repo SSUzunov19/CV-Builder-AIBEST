@@ -1,7 +1,10 @@
 import React from "react";
+import Layout from "../Layout/Layout";
 import Navbar from "../Navbar/Navbar";
 import Title from "../Title/Title";
 import Features from "../Features/Features"
+import ProductPreview from "../Product Preview/Product Preview";
+import ProductDetails from "../Product Details/Product Details";
 import Footer from "../Footer/Footer";
 import "./Homepage.css";
 
@@ -14,24 +17,19 @@ const HomePage = ({userId, setUserId, userName, setUserName}) => {
     overflow: "hidden",
   };
   return (
-    <>
+    <Layout>
+
       <Navbar userId={userId} setUserId={setUserId} userName={userName} setUserName={setUserName}/>
 
       <Title />
 
       <Features/>
-      
-      <div>
-        <p className="section-2-text-2">
-          The faster way to create professional-looking resumes
-        </p>
-        <img
-          src="https://buildmecv.netlify.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmac.a668ea7c.png&w=750&q=75"
-          alt="This image couldn't load"
-        />
-      </div>
 
-      <div className="third-section">
+      <ProductPreview/>
+
+      <ProductDetails />
+
+      {/* <div className="third-section">
         <div className="section-3-Wrapper">
           <div className="TextBoxWrapper-2">
             <p className="title">There's a resume for every profession</p>
@@ -46,7 +44,7 @@ const HomePage = ({userId, setUserId, userName, setUserName}) => {
             <img src="" alt="This image couldn't load" />
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="fifth-section">
         <div className="TextBoxWrapper-5">
@@ -59,7 +57,7 @@ const HomePage = ({userId, setUserId, userName, setUserName}) => {
       </div>
 
       <Footer style={footerStyle}></Footer>
-    </>
+    </Layout>
   );
 };
 

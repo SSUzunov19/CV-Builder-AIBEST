@@ -1,5 +1,5 @@
 import React from "react"
-import previewImage from "../../../images/preview.jpg"
+import previewImage from "../../../images/preview/builderPreview.jpg"
 import "./Product Preview.css"
 
 export default function ProductPreview() {
@@ -9,7 +9,7 @@ export default function ProductPreview() {
                 The faster way to create professional-looking resumes
             </p>
             <img
-                id="preview-image"
+                className="preview-image"
                 src={previewImage}
                 alt="This image couldn't load"
             />

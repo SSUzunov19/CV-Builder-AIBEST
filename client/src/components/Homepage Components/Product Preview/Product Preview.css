@@ -1,21 +1,30 @@
-.preview-container{
+.preview-container {
     width: 100%;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 100px;
 }
 
-.preview-text{
+.preview-text {
     text-align: center;
     font-size: 1.3em;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     font-family: Bai Jamjuree, sans-serif;
+    width: 80%;
 }
 
-#preview-image{
+.preview-image {
     width: 40vw;
     height: auto;
+}
+
+@media screen and (max-width: 800px) {
+    .preview-image {
+        width: 80%;
+        height: auto;
+    }
 }

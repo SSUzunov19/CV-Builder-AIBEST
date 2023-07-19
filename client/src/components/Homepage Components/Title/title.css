@@ -29,13 +29,7 @@
     -webkit-text-fill-color: transparent;
 }
 
-.firstSectionText2 {
-    font-size: 30px;
-    font-style: italic;
-    color: rgb(51, 51, 51);
-}
-
-.title-bth {
+.title-btn {
     display: block;
     background: #1d87d5;
     border: none;
@@ -50,7 +44,7 @@
     font-family: Catamaran,sans-serif;
 }
 
-.title-bth:hover {
+.title-btn:hover {
     cursor: pointer;
     scale: 1.2;
 }

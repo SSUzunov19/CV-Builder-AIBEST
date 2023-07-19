@@ -4,15 +4,15 @@ import "./Features.css"
 export default function FeaturesSection() {
     const features = [
         {
-            title: "Add your Info",
+            title: "Add Your Info",
             desc: "Effortlessly add the information you want to the document using the provided interface. Preview changes in real-time to ensure everything meets your preferences.",
         },
         {
-            title: "Select template",
+            title: "Select Template",
             desc: "Select the perfect template from the 9 available options. Use the search bar to filter and find the best fit among 6 tags for your needs.",
         },
         {
-            title: "Save pdf",
+            title: "Save PDF",
             desc: "Save the finished document as a PDF, ready for easy attachment to emails or job applications. Ensure your work looks professional and remains accessible across different platforms.",
         }
     ]
