@@ -1,0 +1,21 @@
+.preview-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.preview-text{
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-family: Bai Jamjuree, sans-serif;
+}
+
+#preview-image{
+    width: 40vw;
+    height: auto;
+}
