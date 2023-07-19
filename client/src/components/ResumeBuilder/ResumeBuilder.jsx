@@ -6,6 +6,7 @@ import { Box } from '@mui/material';
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import StyledContainer from './StyledContainer';
+import { LoadingScreen } from '../LoadingScreen';
 
 import { useNavigate } from 'react-router-dom';
 import { useBuilderLogic, Modal } from '../../services/BuilderLogic';
@@ -60,7 +61,9 @@ export default function Home() {
         analyseTheResume,
         analysisData,
         isModalOpen,
-        setIsModalOpen
+        setIsModalOpen,
+        loading,
+        setLoading
     } = useBuilderLogic();
 
     const handleBack = () => {
@@ -97,9 +100,13 @@ export default function Home() {
                     analyseTheResume,
                     analysisData,
                     isModalOpen,
-                    setIsModalOpen
+                    setIsModalOpen,
+                    loading,
+                    setLoading
                 }}
             >
+                {loading && <LoadingScreen />}
+
                 <Box
                     display="flex"
                     justifyContent="space-between"

@@ -49,8 +49,11 @@ export const enhanceAboutText = (text) => {
 };
 
 export const analyseResume = (resume) => {
-  return api.post('/api/analyse', { resume })
+  console.log('Received analysis data api.js 3:', resume);
+  return api.post('/api/analyse', { resumeData: resume })
     .then((response) => {
+      console.log('Received analysis data api.js 1:', response.data)
+      console.log('Received analysis data api.js 2:', response.data.analysis)
       return response.data;
     })
     .catch((error) => {

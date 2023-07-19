@@ -3,10 +3,10 @@ import { GoDownload } from "react-icons/go";
 import { BiAnalyse } from "react-icons/bi";
 import { useContext } from "react";
 import { CvContext } from "../hooks/CvContext";
-import { Button, ButtonGroup, Box } from "@mui/material";
+import { Button, ButtonGroup, Box, CircularProgress } from "@mui/material";
 
 const PageButtons = () => {
-    const { scaleUp, scaleDown, ifScaleUpOrDown, analyseTheResume} = useContext(CvContext);
+    const { scaleUp, scaleDown, ifScaleUpOrDown, analyseTheResume, loading } = useContext(CvContext);
 
     return (
         <Box
@@ -29,7 +29,7 @@ const PageButtons = () => {
                         <GoDownload className="h-8 w-8" />
                     </Button>
                     <Button onClick={analyseTheResume}>
-                        <BiAnalyse className="h-8 w-8" />
+                        {loading ? <CircularProgress color="inherit" size={24} /> : <BiAnalyse className="h-8 w-8" />}
                     </Button>
                 </ButtonGroup>
             </Box>

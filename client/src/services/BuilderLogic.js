@@ -7,50 +7,157 @@ import LS from "../utils/browser.utils";
 import { getResumeById, analyseResume } from './api';
 
 import CV from "../components/CV";
+import styled, { keyframes, css } from 'styled-components';
 
-const OVERLAY_STYLES = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0,0,0,0.7)',
-    display: 'grid',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 1000
-};
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
 
-const MODAL_STYLES = {
-    backgroundColor: '#fff',
-    padding: '50px',
-    zIndex: 1000,
-    maxWidth: '500px',
-    maxHeight: '600px',
-    overflowY: 'scroll',
-    borderRadius: '12px'
-};
+const slideIn = keyframes`
+  from { transform: translateY(-20px); }
+  to { transform: translateY(0); }
+`;
+
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+const ModalContainer = styled.div`
+  background-color: #fff;
+  padding: 50px;
+  z-index: 1000;
+  max-width: 800px;
+  max-height: 800px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: ${fadeIn} 0.5s forwards;
+
+  ${({ active }) =>
+    active &&
+    css`
+      animation: ${slideIn} 0.5s forwards;
+    `}
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+`;
+
+const TabsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+`;
+
+const Tab = styled.button`
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  font-weight: bold;
+  color: #333;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  ${({ active }) =>
+    active &&
+    css`
+      border-bottom: 10px #333;
+      opacity: 1;
+      color: #555;
+      transform: scale(1.1);
+    `}
+`;
+
+const Content = styled.div`
+  line-height: 1.6;
+  font-size: 1.2em;
+  color: #555;
+  animation: ${fadeIn} 0.5s forwards;
+`;
 
 export const Modal = ({ isOpen, onClose, data }) => {
-    if (!isOpen) {
-        return null;
+  const [activeTab, setActiveTab] = useState('aboutYou');
+  const [sections, setSections] = useState({});
+  const sectionNames = [
+    'About You',
+    'Education',
+    'Experience',
+    'Skills',
+    'Languages',
+    'Position Suggestions',
+  ];
+
+  useEffect(() => {
+    if (!isOpen || !data.analysis) {
+      return;
     }
 
-    return (
-        <div style={OVERLAY_STYLES}>
-            <div style={MODAL_STYLES}>
-                <button onClick={onClose}>Close</button>
-                {data &&
-                    <div>
-                        {/* Display your data here */}
-                        <h2>Feedback: {data.feedback}</h2>
-                        <img src={data.diagram} alt="Diagram" />
-                    </div>
-                }
-            </div>
-        </div>
-    );
+    try {
+      const aiDataObject = JSON.parse(data.analysis);
+
+      const newSections = Object.keys(aiDataObject)
+        .filter((key) => sectionNames.includes(key))
+        .reduce((obj, key) => {
+          obj[key] = aiDataObject[key];
+          return obj;
+        }, {});
+
+      setSections(newSections);
+    } catch (error) {
+      console.error('Unable to parse AI data', error);
+    }
+  }, [isOpen, data]);
+
+  if (!isOpen) {
+    return null;
+  }
+
+  return (
+    <Overlay>
+      <ModalContainer active={activeTab !== null}>
+        <CloseButton onClick={onClose}>X</CloseButton>
+        <TabsContainer>
+          {sectionNames.map((key, index) => (
+            <Tab
+              key={index}
+              active={key === activeTab}
+              onClick={() => setActiveTab(key)}
+            >
+              {key}
+            </Tab>
+          ))}
+        </TabsContainer>
+        <Content>
+          <p>{sections[activeTab]}</p>
+        </Content>
+      </ModalContainer>
+    </Overlay>
+  );
 };
+
 
 export const useBuilderLogic = () => {
     const [cv, setCv] = useState(cvData);
@@ -62,6 +169,7 @@ export const useBuilderLogic = () => {
     const [analysisData, setAnalysisData] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         getResumeById(id).then((response) => {
@@ -295,10 +403,13 @@ export const useBuilderLogic = () => {
     }
 
     const analyseTheResume = async () => {
+        setLoading(true); // Before the AI starts processing
         let cvText = cvToString(cv);
         try {
             const data = await analyseResume(cvText);
+            console.log('Received analysis data:', data); // Logs the received analysis data
             setAnalysisData(data);
+            setLoading(false); // Once the AI processing is done
             setIsModalOpen(true);  // Open the modal after receiving the data
         } catch (error) {
             console.error('Failed to analyze resume:', error);
@@ -330,6 +441,7 @@ export const useBuilderLogic = () => {
         analyseTheResume,
         analysisData,
         isModalOpen,
-        setIsModalOpen
+        setIsModalOpen,
+        loading,
     };
 };

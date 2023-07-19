@@ -23,6 +23,7 @@
     "react-router-dom": "^6.14.1",
     "react-scripts": "^5.0.1",
     "react-to-print": "^2.14.13",
+    "styled-components": "^6.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
