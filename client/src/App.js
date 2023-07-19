@@ -38,7 +38,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <div className="App">
           <Routes>
-            <Route path="/" element={<Home userId={userId} setUserId={setUserId} userName={userName}/>} />
+            <Route path="/" element={<Home userId={userId} setUserId={setUserId} userName={userName} setUserName={setUserName}/>} />
             <Route path="/login" element={<Login setUserId={setUserId} setUserName={setUserName}/>} />
             <Route path="/register" element={<Register setUserId={setUserId} setUserName={setUserName}/>} />
             <Route path="/settings" element={<Settings userId={userId} userName={userName} setUserName={setUserName}/>} />

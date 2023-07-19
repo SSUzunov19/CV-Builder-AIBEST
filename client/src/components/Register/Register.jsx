@@ -12,7 +12,7 @@ export const Register = ({ props, setUserId, setUserName }) => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => { // <-- mark this function as async
     e.preventDefault();
 
     if (!validateName(name)) {
@@ -30,12 +30,14 @@ export const Register = ({ props, setUserId, setUserName }) => {
       return;
     }
 
+    const hashedPassword = await hashPassword(pass); // <-- use await here
+
     const user = {
       username: name,
       email: email,
-      password: pass,
+      password: hashedPassword, // <-- use hashedPassword here
     };
- 
+
     createUser(user)
       .then((createdUser) => {
         // Handle successful user creation
@@ -50,6 +52,20 @@ export const Register = ({ props, setUserId, setUserName }) => {
         console.error("Error creating user:", error);
       });
   };
+
+  const hashPassword = async (password) => {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hash = await window.crypto.subtle.digest('SHA-256', data);
+
+    // Convert buffer to byte array
+    const hashArray = Array.from(new Uint8Array(hash));
+
+    // Convert bytes to hex string
+    const hashedPassword = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+    return hashedPassword;
+  }
 
   const validateName = (username) => {
     // Requirements
@@ -87,7 +103,7 @@ export const Register = ({ props, setUserId, setUserName }) => {
     // Requirements
 
     const minPasswordLength = 8;
-    const maxPasswordLength = 20;
+    const maxPasswordLength = 50;
 
     // Set to false to disable requirement
     const hasLowerCase = true;

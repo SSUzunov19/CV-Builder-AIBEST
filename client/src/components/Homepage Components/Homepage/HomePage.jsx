@@ -2,11 +2,10 @@ import React from "react";
 import Navbar from "../Navbar/Navbar";
 import Title from "../Title/Title";
 import Features from "../Features/Features"
-import ProductPreview from "../Product Preview/Product Preview";
 import Footer from "../Footer/Footer";
 import "./Homepage.css";
 
-const HomePage = ({ userId, setUserId, userName }) => {
+const HomePage = ({userId, setUserId, userName, setUserName}) => {
   const footerStyle = {
     position: "relative",
     width: "100%",
@@ -16,13 +15,21 @@ const HomePage = ({ userId, setUserId, userName }) => {
   };
   return (
     <>
-      <Navbar userId={userId} setUserId={setUserId} userName={userName} />
+      <Navbar userId={userId} setUserId={setUserId} userName={userName} setUserName={setUserName}/>
 
       <Title />
 
-      <Features />
-
-      <ProductPreview />
+      <Features/>
+      
+      <div>
+        <p className="section-2-text-2">
+          The faster way to create professional-looking resumes
+        </p>
+        <img
+          src="https://buildmecv.netlify.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmac.a668ea7c.png&w=750&q=75"
+          alt="This image couldn't load"
+        />
+      </div>
 
       <div className="third-section">
         <div className="section-3-Wrapper">

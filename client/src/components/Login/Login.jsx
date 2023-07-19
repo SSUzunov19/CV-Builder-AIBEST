@@ -25,7 +25,8 @@ export const Login = ({props, setUserId, setUserName}) => {
     }
   
     try {
-      const data = await loginUser(email, pass);
+      const hashedPassword = await hashPassword(pass);
+      const data = await loginUser(email, hashedPassword);
       console.log("Logged in");
       setUserId(data.userId); // Setting user id here
       setUserName(data.username);
@@ -36,6 +37,19 @@ export const Login = ({props, setUserId, setUserName}) => {
     }
   };
   
+  const hashPassword = async (password) => {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hash = await window.crypto.subtle.digest('SHA-256', data);
+    
+    // Convert buffer to byte array
+    const hashArray = Array.from(new Uint8Array(hash));
+  
+    // Convert bytes to hex string
+    const hashedPassword = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    
+    return hashedPassword;
+  }
 
   const validateEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
