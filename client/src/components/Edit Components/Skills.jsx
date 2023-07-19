@@ -62,7 +62,7 @@ const Skills = () => {
                   style={{ textAlign: "center" }}
                 >
                   <motion.div layout>
-                  <GrammarlyEditorPlugin clientId="client_AYbwa9RF7qiSdH5ncrXRAi">
+                  <GrammarlyEditorPlugin clientId="REACT_APP_GRAMMARLY_CLIENT_ID">
                     <Inputs title="Title 1" value={cv.skillTitle1} placeholder="Title 1" keyChange="skillTitle1" />
                     </GrammarlyEditorPlugin>
                     <motion.div
@@ -137,7 +137,7 @@ const Skills = () => {
                       className="w-44 h-1 mx-auto"
                       style={{ backgroundColor: "#D1D5DB", borderRadius: "0.5rem" }}
                     ></motion.div>
-                    <GrammarlyEditorPlugin clientId="client_AYbwa9RF7qiSdH5ncrXRAi">
+                    <GrammarlyEditorPlugin clientId="REACT_APP_GRAMMARLY_CLIENT_ID">
                     <Inputs title="Title 2" value={cv.skillTitle2} placeholder="Title 2" keyChange="skillTitle2" />
                     </GrammarlyEditorPlugin>
                     <motion.div
@@ -212,7 +212,7 @@ const Skills = () => {
                       className="w-44 h-1 mx-auto"
                       style={{ backgroundColor: "#D1D5DB", borderRadius: "0.5rem" }}
                     ></motion.div>
-                    <GrammarlyEditorPlugin clientId="client_AYbwa9RF7qiSdH5ncrXRAi">
+                    <GrammarlyEditorPlugin clientId="REACT_APP_GRAMMARLY_CLIENT_ID">
                     <Inputs title="Title 3" value={cv.skillTitle3} placeholder="Title 3" keyChange="skillTitle3" />
                     </GrammarlyEditorPlugin>
                     <motion.div
