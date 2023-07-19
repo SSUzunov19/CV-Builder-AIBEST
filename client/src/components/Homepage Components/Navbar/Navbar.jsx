@@ -15,11 +15,15 @@ export default function Navbar({ userId, setUserId, userName }) {
     navigate('/settings');
   };
 
+  const handleHome = () => {
+    navigate('/');
+  };
+
   return (
     <div className="navbar-wrapper">
       <nav className="nav-bar">
         <div className="logo">
-          <a href="#">Wonder Woman</a>
+          <a onClick={handleHome}>Wonder Woman</a>
         </div>
         <div className="account-btns">
           {userId ? (
