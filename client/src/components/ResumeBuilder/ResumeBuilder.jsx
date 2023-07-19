@@ -19,7 +19,7 @@ const theme = createTheme({
     },
 });
 
-export default function Home() {
+export default function Home({ userId }) {
     const navigate = useNavigate();
 
     const cvRef = useRef(null);
@@ -70,6 +70,10 @@ export default function Home() {
         navigate('/dashboard');
     };
 
+    const handleBack1 = () => {
+        navigate('/');
+    };
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -107,49 +111,100 @@ export default function Home() {
             >
                 {loading && <LoadingScreen />}
 
-                <Box
-                    display="flex"
-                    justifyContent="space-between"
-                    alignItems="center"
-                    height="100vh"
-                    padding="4rem 2rem"
-                    position="relative"
-                >
-                    <Box display="flex" justifyContent="center" width="50%" height="100%">
-                        <Box component="section" className="settings">
-                            <Settings resume={resume} />
-                        </Box>
-                    </Box>
-
-                    <Box isplay="flex" justifyContent="center" width="50%" ref={cvRef}>
-                        <Box component="section">
-                            <StyledContainer ref={componentRef} style={{ transform: `scale(${scale})` }}>
-                                {templateSwitch()}
-                            </StyledContainer>
-                        </Box>
-                    </Box>
-
-                    <PageButtons onPrint={handlePrint} />
-
-                    {/* Back button */}
-                    <button
-                        className="back-button"
-                        onClick={handleBack}
-                        style={{
-                            position: 'absolute',
-                            top: '1rem',
-                            left: '1rem',
-                            padding: '0.5rem',
-                            background: '#1976d2',
-                            color: '#ffffff',
-                            border: 'none',
-                            borderRadius: '4px',
-                            cursor: 'pointer',
-                        }}
+                {userId != "null" && userId != null ? (
+                    <Box
+                        display="flex"
+                        justifyContent="space-between"
+                        alignItems="center"
+                        height="100vh"
+                        padding="4rem 2rem"
+                        position="relative"
                     >
-                        Back
-                    </button>
-                </Box>
+                        <Box display="flex" justifyContent="center" width="50%" height="100%">
+                            <Box component="section" className="settings">
+                                <Settings resume={resume} />
+                            </Box>
+                        </Box>
+
+
+                        <Box isplay="flex" justifyContent="center" width="50%" ref={cvRef}>
+                            <Box component="section">
+                                <StyledContainer ref={componentRef} style={{ transform: `scale(${scale})` }}>
+                                    {templateSwitch()}
+                                </StyledContainer>
+                            </Box>
+                        </Box>
+
+
+                        <PageButtons onPrint={handlePrint} />
+
+                        <button
+                            className="back-button"
+                            onClick={handleBack}
+                            style={{
+                                position: 'absolute',
+                                top: '1rem',
+                                left: '1rem',
+                                padding: '1rem',
+                                width: '100px',
+                                height: '50px',
+                                background: '#1976d2',
+                                color: '#ffffff',
+                                border: 'none',
+                                borderRadius: '4px',
+                                cursor: 'pointer',
+                                fontSize: '18px',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}
+                        >
+                            Back
+                        </button>
+                    </Box>
+                ) : (
+                    <>
+                        <Box
+                            display="flex"
+                            justifyContent="center"
+                            alignItems="center"
+                            height="100vh"
+                        >
+                            <Box display="flex" justifyContent="center" width="50%" ref={cvRef}>
+                                <Box component="section">
+                                    <StyledContainer ref={componentRef} style={{ transform: `scale(${scale})` }}>
+                                        {templateSwitch()}
+                                    </StyledContainer>
+                                </Box>
+                            </Box>
+
+                            <button
+                                className="back-button"
+                                onClick={handleBack1}
+                                style={{
+                                    position: 'absolute',
+                                    top: '1rem',
+                                    left: '1rem',
+                                    padding: '1rem',
+                                    width: '100px',
+                                    height: '50px',
+                                    background: '#1976d2',
+                                    color: '#ffffff',
+                                    border: 'none',
+                                    borderRadius: '4px',
+                                    cursor: 'pointer',
+                                    fontSize: '18px',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                Back
+                            </button>
+
+                        </Box>
+                    </>
+                )}
             </CvContext.Provider>
         </ThemeProvider>
     );

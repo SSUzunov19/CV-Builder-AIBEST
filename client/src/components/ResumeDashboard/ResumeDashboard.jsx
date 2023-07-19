@@ -33,7 +33,8 @@ export const ResumeDashboard = ( userId ) => {
   };
 
   const handleShare = (id) => {
-    // handle the share functionality here
+    const url = `${window.location.origin}/builder/${id}`;
+    navigator.clipboard.writeText(url);
   };
 
   if (error) {
