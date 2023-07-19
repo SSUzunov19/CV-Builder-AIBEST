@@ -3,7 +3,7 @@ import { CvContext } from "../../hooks/CvContext";
 import { RiCloseFill } from "react-icons/ri";
 import { HiChevronRight } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
-import Inputs from "../UI Components/Inputs";
+import Inputs from "../UI Components/InputsH";
 import AddButton from "../UI Components/AddButton";
 import { Box, Typography, Paper } from "@mui/material";
 
@@ -38,7 +38,7 @@ const Education = () => {
             <motion.div
               className="inline-block items-end"
               animate={{ rotate: isOpen ? 90 : 0 }}
-              style={{display: "flex" }}
+              style={{ display: "flex" }}
             >
               <HiChevronRight className="inline w-6 h-6" />
             </motion.div>
@@ -92,6 +92,7 @@ const Education = () => {
                           className="inputStyle"
                           placeholder="Ex: Computer Science"
                           value={education.title}
+                          keyChange="field of study"
                           onChange={(value) => {
                             const newEducation = {
                               ...education,

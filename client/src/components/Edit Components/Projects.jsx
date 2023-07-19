@@ -4,8 +4,8 @@ import { RiCloseFill } from "react-icons/ri";
 import { HiChevronRight } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 import AddButton from "../UI Components/AddButton";
-import Inputs from "../UI Components/Inputs";
-import TextArea from "../UI Components/TextArea";
+import Inputs from "../UI Components/InputsH";
+import TextArea from "../UI Components/TextAreaH";
 
 import { Typography, Box, Paper } from "@mui/material";
 

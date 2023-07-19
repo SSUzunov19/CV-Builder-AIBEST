@@ -4,8 +4,8 @@ import { RiCloseFill } from "react-icons/ri";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiChevronRight } from "react-icons/hi";
 import AddButton from "../UI Components/AddButton";
-import Inputs from "../UI Components/Inputs";
-import TextArea from "../UI Components/TextArea";
+import Inputs from "../UI Components/InputsH";
+import TextArea from "../UI Components/TextAreaH";
 import { Box, Typography, Paper } from "@mui/material";
 
 const Experiences = () => {
@@ -88,10 +88,10 @@ const Experiences = () => {
                           type="text"
                           placeholder="Your position"
                           value={experience.title}
-                          onChange={(e) => {
+                          onChange={(value) => {
                             const newExperience = {
                               ...experience,
-                              title: e.target.value,
+                              title: value,
                             };
                             updateCv("experiences", [
                               ...cv.experiences.slice(0, index),
@@ -107,10 +107,10 @@ const Experiences = () => {
                           type="text"
                           placeholder="Company Name"
                           value={experience.company}
-                          onChange={(e) => {
+                          onChange={(value) => {
                             const newExperience = {
                               ...experience,
-                              company: e.target.value,
+                              company: value,
                             };
                             updateCv("experiences", [
                               ...cv.experiences.slice(0, index),
@@ -126,10 +126,10 @@ const Experiences = () => {
                           rows={7}
                           placeholder="Brief information of 3-4 sentences about what you do in the company."
                           value={experience.summary}
-                          onChange={(e) => {
+                          onChange={(value) => {
                             const newExperience = {
                               ...experience,
-                              summary: e.target.value,
+                              summary: value,
                             };
                             updateCv("experiences", [
                               ...cv.experiences.slice(0, index),
@@ -145,10 +145,10 @@ const Experiences = () => {
                           type="text"
                           placeholder="When did you start this job?"
                           value={experience.startDate}
-                          onChange={(e) => {
+                          onChange={(value) => {
                             const newExperience = {
                               ...experience,
-                              startDate: e.target.value,
+                              startDate: value,
                             };
                             updateCv("experiences", [
                               ...cv.experiences.slice(0, index),
@@ -164,10 +164,10 @@ const Experiences = () => {
                           type="text"
                           placeholder="Did you quit this job or is it still going?"
                           value={experience.endDate}
-                          onChange={(e) => {
+                          onChange={(value) => {
                             const newExperience = {
                               ...experience,
-                              endDate: e.target.value,
+                              endDate: value,
                             };
                             updateCv("experiences", [
                               ...cv.experiences.slice(0, index),
