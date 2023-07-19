@@ -9,7 +9,6 @@
 }
 
 .body-main {
-  
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -22,12 +21,14 @@
 
 .code-main {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
+
 .nav-main {
   width: 100%;
   height: 95px;
 }
+
 .div-main {
   position: relative;
   width: 100%;
@@ -72,6 +73,7 @@
   height: 1000px;
   width:100%;
 }
+
 .firstSectionTextPH {
   font-size: 4.5em;
   font-family: Bai Jamjuree,sans-serif;
@@ -81,62 +83,61 @@
   text-transform: capitalize;
   width: 100%;
   top: 20%;
-  
 }
 
 span{
-color:#66b3ff;
+  color:#66b3ff;
 }
 
 .firstSectionText1 {
   font-size: 70px;
   font-weight: bold;
-  
 }
+
 .firstSectionText2 {
   font-size: 30px;
   font-style: italic;
   color:rgb(51, 51, 51);
 }
+
 .Try-Now-BTN {
-  
   background-color: #66b3ff;
   border: 0.5px solid #66b3ff;
   color: white;
   width: 200px;
   height: 43px;
   font-size:19px;
- margin-top: 5%;
- border-radius: 5px;
- 
+  margin-top: 5%;
+  border-radius: 5px;
 }
+
 .Try-Now-BTN:hover {
   cursor: pointer;
   transform: scale(1.2);
   transition: 0.3s;
   opacity: 40%;
 }
+
 .Try-Now-BTN:not(:hover) {
   transform: scale(1);
   transition: 0.3s;
 }
+
 .second-section {
   height: 850px;
   width:100%;
   top:800px;
   text-align: center;
-  
 }
+
 .secondSectionText1 {
   position: relative;;
   text-align: center;
-    font-size: 1.3em;
-    font-weight: 700;
-    margin-bottom: 20px;
-    font-family: Bai Jamjuree,sans-serif;
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-family: Bai Jamjuree,sans-serif;
 }
-
-
 
 .TextBoxSection2 {
   position: relative;
@@ -146,6 +147,7 @@ color:#66b3ff;
   text-align: center;
   height: 100%;
 }
+
 .TextBoxWrapper {
   top: -10%;
   position: relative;
@@ -153,12 +155,14 @@ color:#66b3ff;
   height: 100%;
   display: flex;
 }
+
 .number {
   font-size: 6em;
   font-weight: 900;
   color: #66b3ff;
   font-family: Roboto Slab;
 }
+
 .title {
   font-weight: bold;
   font-size: 1.2em;
@@ -166,18 +170,18 @@ color:#66b3ff;
   margin-bottom: 20px;
   font-family: Bai Jamjuree,sans-serif;
 }
+
 .description {
   position: relative;
   color: gray;
-
 }
+
 .second-section img {
   position: relative;
-
   top: -40%;
 }
-.section-2-text-2
-{
+
+.section-2-text-2{
   position: relative;
   text-align: center;
   top: -45%;
@@ -186,20 +190,22 @@ color:#66b3ff;
   margin-bottom: 20px;
   font-family: Bai Jamjuree,sans-serif;
 }
+
 .third-section {
   height: 450px;
   width:100%;
   top:1200px;
   text-align: center;
-  
 }
+
 .section-3-Wrapper {
   display: flex;
 }
-.third-section img {
 
+.third-section img {
   width: 70%;
 }
+
 .third-section p {
   position: relative;
   text-align: left;
@@ -222,15 +228,18 @@ color:#66b3ff;
   top:20%;
   left: -8%;
 }
+
 .third-section button:hover {
   transform: scale(1.1);
   opacity: 50%;
   transition: 0.2s;
 }
+
 .third-section button:not(:hover) {
   transform: scale(1);
   transition: 0.2s;
 }
+
 .user-comment-title {
   font-family: Bai Jamjuree,sans-serif;
   text-align: center;
@@ -238,36 +247,43 @@ color:#66b3ff;
   font-weight: bold;
   margin-bottom: 40px;
 }
-.fourth-section {
 
+.fourth-section {
   top: 1300px;
   height: 450px;
   width:100%;
 }
+
 .TextBoxWrapper-4 {
   display: flex;
 }
+
 .userCommentPH {
   top: 15%;
   left: 3%;
 }
+
 .name {
   font-size: 1em;
   font-weight: bold;
   margin-bottom: 10px;
   font-family: Bai Jamjuree,sans-serif;
 }
+
 .occupation {
   font-weight: 200;
   margin-bottom: 20px;
 }
+
 .comment {
   margin-bottom: 10px;
   color: gray;
 }
+
 .userComment {
   font-size: 1.3em;
 }
+
 .fifth-section {
   top: 1300px;
   height: 450px;
@@ -277,6 +293,7 @@ color:#66b3ff;
   justify-content: center;
   align-items: center;
 }
+
 .TextBoxWrapper-5 {
   position: relative;
   background-color: #f5f5f5;
@@ -287,6 +304,7 @@ color:#66b3ff;
   justify-content: center;
   align-items: center;
 }
+
 .section-5-header {
   position: relative;
   top:-10%;
@@ -295,6 +313,7 @@ color:#66b3ff;
   margin-bottom: 20px;
   font-family: Bai Jamjuree,sans-serif;
 }
+
 .section-5-text {
   position: relative;
   top: -10%;
@@ -302,6 +321,7 @@ color:#66b3ff;
   font-size: 1.1em;
   margin-bottom: 10px;
 }
+
 .section-5-button {
   position: relative;
   background: #66b3ff;
@@ -313,13 +333,13 @@ color:#66b3ff;
   font-size: 1.1em;
   border-radius: 5px;
 }
+
 .fTextLeft {
   position: relative;
   font-size: 1.3em;
   left: 5%;
   float: left;
   top: 30%;
- 
 }
 
 footer {
@@ -334,11 +354,13 @@ footer {
   float: right;
   right: 5%;
 }
+
 .section-5-button:hover {
   transform: scale(1.1);
   opacity: 50%;
   transition: 0.2s;
 }
+
 .section-5-button:not(:hover) {
   transform: scale(1);
   transition: 0.2s;

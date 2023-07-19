@@ -2,9 +2,9 @@ import React from "react";
 
 import "../style/dashboard.css";
 
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 import Footer from "./Footer";
-import Resume from "./Resume";
+import Resume from "../Resumes/Resume";
 
 const resumeData = [
   {

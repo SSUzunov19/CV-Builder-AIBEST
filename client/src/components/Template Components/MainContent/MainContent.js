@@ -5,8 +5,8 @@ import TemplateLibrary from "../TemplateLibrary/TemplateLibrary";
 import SearchBar from "../SearchBar/SearchBar";
 import TargetTemplate from "../TargetTemplate/TargetTemplate"
 import "./MainContent.css"
-import "../../images/searchIcon.svg"
-import { getResumeById } from '../../services/api';
+import "../../../images/searchIcon.svg"
+import { getResumeById } from '../../../services/api';
 
 export default function MainContent() {
     const [selectedTemplate, setSelectedTemplate] = useState(1);

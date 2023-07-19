@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import backButton from "../../images/buttons/back.svg"
-import confirmButton from "../../images/buttons/confirm.svg"
-import { CvContext } from "../../hooks/CvContext";
+import backButton from "../../../images/buttons/back.svg"
+import confirmButton from "../../../images/buttons/confirm.svg"
+import { CvContext } from "../../../hooks/CvContext";
 import { useNavigate } from "react-router-dom";
 import "./TargetTemplate.css"
 
@@ -10,7 +10,7 @@ export default function TargetTemplate({ selectedTemplate, id }) {
     const navigate = useNavigate();
 
     function getImageFilePath(){
-        return require(`../../images/templates/template${selectedTemplate.toString()}.png`);
+        return require(`../../../images/templates/template${selectedTemplate.toString()}.png`);
     }
 
     const handleConfirmClick = () => {

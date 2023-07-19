@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import styles from "../style/login.module.css";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import styles from "./login.module.css";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 export const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -40,10 +40,12 @@ export const Login = (props) => {
         <img
           className={styles["emailimage2"]}
           src="https://www.iconpacks.net/icons/1/free-mail-icon-142-thumb.png"
+          alt=""
         />
         <img
           className={styles["passwordimage2"]}
           src="https://cdn-icons-png.flaticon.com/512/1000/1000966.png"
+          alt=""
         />
         <input
           value={email}

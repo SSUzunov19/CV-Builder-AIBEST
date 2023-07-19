@@ -4,7 +4,7 @@ import "./TemplateLibrary.css"
 
 export default function TemplateLibrary({ tData, setSelectedTemplate, selectedTags}) {
   function getImageFilePath(str) {
-    return require(`../../images/templates/template${str}.png`);
+    return require(`../../../images/templates/template${str}.png`);
   }
 
   function handleImageClick(index) {

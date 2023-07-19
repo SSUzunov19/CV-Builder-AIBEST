@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 export const Register = (props) => {
   const [name, setName] = useState("");
@@ -130,14 +130,17 @@ export const Register = (props) => {
         <img
           className="emailimage"
           src="https://www.iconpacks.net/icons/1/free-mail-icon-142-thumb.png"
+          alt=""
         />
         <img
           className="userimage"
           src="https://i.pinimg.com/474x/76/4d/59/764d59d32f61f0f91dec8c442ab052c5.jpg"
+          alt=""
         />
         <img
           className="passwordimage"
           src="https://cdn-icons-png.flaticon.com/512/1000/1000966.png"
+          alt=""
         />
         <input
           className="Emailinput"

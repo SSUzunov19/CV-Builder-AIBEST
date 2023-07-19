@@ -3,7 +3,7 @@ import { useState } from "react";
 import { tagTypes } from "../TemplateData/TemplateData";
 import TemplateTags from "../TemplateTags/TemplateTags";
 import ToolTip from "../ToolTip/ToolTip"
-import searchIcond from "../../images/searchIcon.svg";
+import searchIcond from "../../../images/searchIcon.svg";
 import "./SearchBar.css";
 
 export default function SearchBar({tData, setTData, selectedTags, setSelectedTags}) {

@@ -112,7 +112,7 @@ footer {
     transition: 0.5s;
 }
 
-/*I have changed the input to a class in order not to mess with my inp*/
+/*I have changed the input to a class in order not to mess with my input tags*/
 .login-input {
     position: relative;
     border: none;

@@ -1,4 +1,4 @@
-import { Box, Typography, Link, SvgIcon } from '@mui/material';
+import { Box, Typography, Link } from '@mui/material';
 import { HiOutlineMail, HiOutlineLink, HiExternalLink } from "react-icons/hi";
 import {
   AiFillGithub,

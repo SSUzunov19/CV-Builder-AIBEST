@@ -2,12 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-import Home from './pages/HomePage';
+import Home from './components/Homepage/HomePage';
 import Dashboard from './components/ResumeDashboard/ResumeDashboard';
 import ResumeBuilder from './components/ResumeBuilder/ResumeBuilder';
-import TemplateSwitcher from "./components/MainContent/MainContent";
-import Login from './components/Login';
-import Register from './components/Register';
+import TemplateSwitcher from "./components/Template Components/MainContent/MainContent";
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 const theme = createTheme({
   palette: {

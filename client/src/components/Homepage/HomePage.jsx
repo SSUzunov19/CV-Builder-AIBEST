@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import "../style/homepage.css";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
+import "./homepage.css";
 
 const HomePage = () => {
   const footerStyle = {
