@@ -7,8 +7,24 @@ exports.getUsers = async (req, res) => {
 
 exports.createUser = async (req, res) => {
   const newUser = await User.create(req.body);
-
   res.json(newUser);
+};
+
+exports.loginUser = async (req, res) => {
+  const { email, password } = req.body;
+  const user = await User.findOne({ where: { email } });
+  
+  if (!user) {
+    res.status(401).json({ error: 'No user with this email found.' });
+    return;
+  }
+
+  if (user.password !== password) {
+    res.status(401).json({ error: 'Incorrect password.' });
+    return;
+  }
+
+  res.json({ userId: user.id });
 };
 
 exports.updateUser = async (req, res) => {

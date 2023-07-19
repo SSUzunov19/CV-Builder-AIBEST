@@ -1,18 +1,15 @@
 const Resume = require('../models/Resume');
 
-exports.getResumeById = async (req, res) => {
-  const resume = await Resume.findByPk(req.params.id);
-  if (resume) {
-    res.json(resume);
-  } else {
-    res.status(404).json({ error: 'Resume not found' });
-  }
+exports.getResumesByUserId = async (req, res) => {
+  const userId = req.query.user_id; // Get the userId from the query parameter
+  console.log('Received userId:', userId); // Log the userId
+  const resumes = await Resume.findAll({ where: { user_id: userId } });
+  res.json(resumes);
 };
 
-
-exports.getAllResumes = async (req, res) => {
-  const resumes = await Resume.findAll();
-  res.json(resumes);
+exports.getResumeById = async (req, res) => {
+  const resume = await Resume.findByPk(req.params.id);
+  res.json(resume);
 };
 
 exports.createResume = async (req, res) => {

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { createResume } from '../services/api';
 import { Button, TextField, Container, Typography } from '@mui/material';
 
-function ResumeForm() {
+function ResumeForm({userId}) {
   const [title, setTitle] = useState('');
   const navigate = useNavigate();
 
@@ -11,8 +11,8 @@ function ResumeForm() {
     event.preventDefault();
     
     const newResume = { 
-      title, 
-      sections: ['personal', 'education', 'experience', 'skills'].map((type) => ({ type, content: '' }))
+      title: title, 
+      user_id: userId.userId,
     };
 
     createResume(newResume).then((resume) => {

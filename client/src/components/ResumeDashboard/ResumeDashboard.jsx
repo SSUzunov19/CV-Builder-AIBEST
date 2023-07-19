@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Typography, Card, CardActions, CardContent, Button, IconButton } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
+import { Box, Container, Typography, Card, CardActions, CardContent, Button, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ShareIcon from '@mui/icons-material/Share';
 import { fetchResumes, deleteResume } from '../../services/api';
 import ResumeForm from '../ResumeForm';
 import './ResumeDashboard.css';
 
-export const ResumeDashboard = () => {
+export const ResumeDashboard = ( userId ) => {
   const [resumes, setResumes] = useState([]);
+  const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetchResumes().then(setResumes);
-  }, []);
+    if (userId.userId !== null && userId.userId !== "") {
+      console.log("Fetching resumes for user:", userId.userId);
+      fetchResumes(userId.userId)
+        .then(setResumes)
+        .catch((error) => {
+          console.error("Error fetching resumes:", error);
+        });
+    } else {
+      setError("You need to create an account to view this page.");
+    }
+  }, [userId]);
 
   const handleDelete = (id) => {
     deleteResume(id).then(() => {
@@ -24,9 +36,30 @@ export const ResumeDashboard = () => {
     // handle the share functionality here
   };
 
+  if (error) {
+    return (
+      <Box 
+        display="flex" 
+        flexDirection="column" 
+        alignItems="center" 
+        justifyContent="center" 
+        height="100vh" 
+        padding="1rem" 
+        textAlign="center"
+      >
+        <Typography variant="h3" component="h1" color="error" gutterBottom>
+          {error}
+        </Typography>
+        <Button variant="contained" color="primary" size="large" onClick={() => navigate('/register')}>
+          Create an Account
+        </Button>
+      </Box>
+    );
+  }
+
   return (
     <div>
-      <ResumeForm />
+      <ResumeForm userId={userId}/>
       <div className="cards-wrapper">
         {resumes.map((resume) => (
           <Card key={resume.id} className="card-container">

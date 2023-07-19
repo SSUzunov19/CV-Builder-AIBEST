@@ -2,27 +2,38 @@ import React, { useState } from "react";
 import styles from "./login.module.css";
 import Navbar from "../Homepage Components/Navbar/Navbar";
 import Footer from "../Homepage Components/Footer/Footer";
+import { loginUser } from "../../services/api";
+import { useNavigate } from 'react-router-dom';
 
-export const Login = (props) => {
+export const Login = ({props, setUserId}) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const navigate = useNavigate();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
     if (!validateEmail(email)) {
       console.log("Invalid email");
       return;
     }
-
+  
     if (!validatePassword(pass)) {
       console.log("Invalid password");
       return;
     }
-
-    // registerUser(email, pass);
-    console.log("Logged in");
+  
+    try {
+      const data = await loginUser(email, pass);
+      console.log("Logged in");
+      setUserId(data.userId); // Setting user id here
+      navigate("/dashboard");
+    } catch (error) {
+      console.error('Error logging in:', error);
+    }
   };
+  
 
   const validateEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);

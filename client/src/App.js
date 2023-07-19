@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
@@ -21,17 +21,20 @@ const theme = createTheme({
 });
 
 function App() {
+  const [userId, setUserId] = useState(null);
+  console.log('App.js userId:', userId);
+
   return (
     <Router>
       <ThemeProvider theme={theme}>
         <div className="App">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/builder/:id" element={<ResumeBuilder />} />
-            <Route path="/builder/:id/template" element={<TemplateSwitcher />} />
+            <Route path="/login" element={<Login setUserId={setUserId} />} />
+            <Route path="/register" element={<Register setUserId={setUserId} />} />
+            <Route path="/dashboard" element={<Dashboard userId={userId} />} />
+            <Route path="/builder/:id" element={<ResumeBuilder userId={userId} />} />
+            <Route path="/builder/:id/template" element={<TemplateSwitcher userId={userId} />} />
           </Routes>
         </div>
       </ThemeProvider>

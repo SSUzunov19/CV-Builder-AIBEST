@@ -16,7 +16,7 @@ export const fetchUsers = () => {
     throw error;
   });
 }
-  
+
 export const createUser = (user) => {
   return api.post('/api/users', user)
   .then((res) => {
@@ -28,7 +28,34 @@ export const createUser = (user) => {
     throw error;
   });
 };
+
+export const loginUser = (email, password) => {
+  console.log(`Attempting to log in user with email ${email} and password ${password}`);
   
+  return api.post('/api/users/auth/login', { email, password })
+  .then((res) => {
+    console.log('Response received from /api/auth/login:', res);
+    console.log('User logged in', res.data);
+    
+    if(res.data.userId) {
+      LS.set({ key: 'userId', payload: res.data.userId }); // save user ID in local storage
+    } else {
+      console.log("User ID was not included in the response from the server.");
+    }
+    return res.data;
+  })
+  .catch((error) => {
+    console.error('Error logging in:', error);
+    
+    // If the error response has data, log it
+    if(error.response && error.response.data) {
+      console.error('Error response data:', error.response.data);
+    }
+    
+    throw error;
+  });
+};
+
 export const updateUser = (id, updatedUser) => {
   return api.put(`/api/users/${id}`, updatedUser);
 }
@@ -62,8 +89,8 @@ export const analyseResume = (resume) => {
     });
 };
 
-export const fetchResumes = () => {
-  return api.get('/api/resumes')
+export const fetchResumes = (userId) => {
+  return api.get(`/api/resumes?user_id=${userId}`)
     .then((res) => {
       return res.data;
     })
@@ -87,9 +114,7 @@ export const getResumeById = (id) => {
 export const createResume = (resume) => {
   return api.post('/api/resumes', resume)
     .then((response) => {
-
       LS.set({ key: 'resume', payload: response.data });
-
       return response.data;
     });
 };

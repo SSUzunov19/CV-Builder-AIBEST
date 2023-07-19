@@ -135,7 +135,7 @@ const About = () => {
                     placeholder="Your name"
                     keyChange="name"
                   />
-                  <GrammarlyEditorPlugin clientId="process.env.REACT_APP_GRAMMARLY_CLIENT_ID">
+                  <GrammarlyEditorPlugin clientId="REACT_APP_GRAMMARLY_CLIENT_ID">
                   <Inputs
                     title="Job*"
                     value={cv.jobTitle}

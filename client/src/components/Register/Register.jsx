@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import Navbar from "../Homepage Components/Navbar/Navbar";
 import Footer from "../Homepage Components/Footer/Footer";
+import "./Register.css";
+import { createUser } from "../../services/api";
+import { useNavigate } from 'react-router-dom';
 
-export const Register = (props) => {
+export const Register = ({ props, setUserId }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
-  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +36,17 @@ export const Register = (props) => {
       password: pass,
     };
 
-    console.log(name, email, pass);
+    createUser(user)
+      .then((createdUser) => {
+        // Handle successful user creation
+        console.log("User created:", createdUser);
+        setUserId(createdUser.id);
+        navigate("/dashboard");
+      })
+      .catch((error) => {
+        // Handle error during user creation
+        console.error("Error creating user:", error);
+      });
   };
 
   const validateName = (username) => {
@@ -124,24 +137,10 @@ export const Register = (props) => {
           name="name"
           onChange={(e) => setName(e.target.value)}
           id="name"
-          placeholder="Full Name"
+          placeholder="Username"
         />{" "}
         <br /> <br />
-        <img
-          className="emailimage"
-          src="https://www.iconpacks.net/icons/1/free-mail-icon-142-thumb.png"
-          alt=""
-        />
-        <img
-          className="userimage"
-          src="https://i.pinimg.com/474x/76/4d/59/764d59d32f61f0f91dec8c442ab052c5.jpg"
-          alt=""
-        />
-        <img
-          className="passwordimage"
-          src="https://cdn-icons-png.flaticon.com/512/1000/1000966.png"
-          alt=""
-        />
+
         <input
           className="Emailinput"
           value={email}
