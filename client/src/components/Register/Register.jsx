@@ -5,7 +5,7 @@ import "./Register.css";
 import { createUser } from "../../services/api";
 import { useNavigate } from 'react-router-dom';
 
-export const Register = ({ props, setUserId }) => {
+export const Register = ({ props, setUserId, setUserName }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
@@ -35,12 +35,14 @@ export const Register = ({ props, setUserId }) => {
       email: email,
       password: pass,
     };
-
+ 
     createUser(user)
       .then((createdUser) => {
         // Handle successful user creation
         console.log("User created:", createdUser);
         setUserId(createdUser.id);
+        setUserName(name);
+        console.log("createdUser.username: ", createdUser.username);
         navigate("/dashboard");
       })
       .catch((error) => {

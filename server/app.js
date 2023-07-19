@@ -31,7 +31,7 @@ app.use('/users', usersRouter);
 app.use('/api/resumes', resumesRouter);
 
 const configuration = new Configuration({
-  apiKey: "",
+  apiKey: "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",
 });
 
 const openai = new OpenAIApi(configuration);

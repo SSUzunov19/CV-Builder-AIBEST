@@ -38,10 +38,17 @@ export const loginUser = (email, password) => {
     console.log('User logged in', res.data);
     
     if(res.data.userId) {
-      LS.set({ key: 'userId', payload: res.data.userId }); // save user ID in local storage
+      LS.set({ key: 'userId', payload: res.data.userId });
     } else {
       console.log("User ID was not included in the response from the server.");
     }
+    
+    if(res.data.username) {
+      LS.set({ key: 'username', payload: res.data.username });
+    } else {
+      console.log("Username was not included in the response from the server.");
+    }
+
     return res.data;
   })
   .catch((error) => {
@@ -52,6 +59,31 @@ export const loginUser = (email, password) => {
       console.error('Error response data:', error.response.data);
     }
     
+    throw error;
+  });
+};
+
+
+export const changeEmail = (userId, email) => {
+  return api.put(`/api/users/${userId}/email`, { email })
+  .then((res) => {
+    console.log('Email changed', res.data);
+    return res.data;
+  })
+  .catch((error) => {
+    console.error('Error changing email:', error);
+    throw error;
+  });
+};
+
+export const changePassword = (userId, password) => {
+  return api.put(`/api/users/${userId}/password`, { password })
+  .then((res) => {
+    console.log('Password changed', res.data);
+    return res.data;
+  })
+  .catch((error) => {
+    console.error('Error changing password:', error);
     throw error;
   });
 };

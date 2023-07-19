@@ -5,7 +5,7 @@ import Footer from "../Homepage Components/Footer/Footer";
 import { loginUser } from "../../services/api";
 import { useNavigate } from 'react-router-dom';
 
-export const Login = ({props, setUserId}) => {
+export const Login = ({props, setUserId, setUserName}) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
@@ -28,6 +28,8 @@ export const Login = ({props, setUserId}) => {
       const data = await loginUser(email, pass);
       console.log("Logged in");
       setUserId(data.userId); // Setting user id here
+      setUserName(data.username);
+      console.log("data.username: ", data.username);
       navigate("/dashboard");
     } catch (error) {
       console.error('Error logging in:', error);

@@ -5,7 +5,7 @@ import Features from "../Features/Features"
 import Footer from "../Footer/Footer";
 import "./Homepage.css";
 
-const HomePage = () => {
+const HomePage = ({userId, setUserId, userName}) => {
   const footerStyle = {
     position: "relative",
     width: "100%",
@@ -15,7 +15,7 @@ const HomePage = () => {
   };
   return (
     <>
-      <Navbar />
+      <Navbar userId={userId} setUserId={setUserId} userName={userName}/>
 
       <Title />
 

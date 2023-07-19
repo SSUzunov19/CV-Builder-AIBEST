@@ -24,8 +24,22 @@ exports.loginUser = async (req, res) => {
     return;
   }
 
-  res.json({ userId: user.id });
+  res.json({ userId: user.id, username: user.username });
 };
+
+exports.changeEmail = async (req, res) => {
+  await User.update(req.body, {
+    where: { id: req.params.id }
+  });
+  res.json({ success: 'Email updated' });
+}
+
+exports.changePassword = async (req, res) => {
+  await User.update(req.body, {
+    where: { id: req.params.id }
+  });
+  res.json({ success: 'Password updated' });
+}
 
 exports.updateUser = async (req, res) => {
   await User.update(req.body, {
