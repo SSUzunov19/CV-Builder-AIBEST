@@ -8,6 +8,7 @@ import "./Register.css";
 import { createUser } from "../../services/api";
 import { useNavigate } from 'react-router-dom';
 
+
 export const Register = ({ props, setUserId, setUserName }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

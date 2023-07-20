@@ -9,6 +9,7 @@ export default function Settings({ userId, userName, setUserName, premiumAccount
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [pass, setPass] = useState("");
 
   const [openPaymentModal, setOpenPaymentModal] = useState(false);
 
@@ -22,6 +23,7 @@ export default function Settings({ userId, userName, setUserName, premiumAccount
       setPremiumAccount(true);
     }, 1000);
   };
+
 
   const handleChangeUsername = (e) => {
     e.preventDefault();
@@ -49,8 +51,10 @@ export default function Settings({ userId, userName, setUserName, premiumAccount
       });
   };
 
-  const handleChangePassword = (e) => {
+  const handleChangePassword = async (e) => {
     e.preventDefault();
+
+    const hashedPassword = await hashPassword(pass);
 
     changePassword(userId, password)
       .then(() => {
@@ -60,6 +64,7 @@ export default function Settings({ userId, userName, setUserName, premiumAccount
         console.error('Error changing password:', error);
       });
   };
+
 
   const handleDeleteAccount = (e) => {
     e.preventDefault();
@@ -72,6 +77,22 @@ export default function Settings({ userId, userName, setUserName, premiumAccount
         console.error('Error deleting account:', error);
       });
   };
+
+  const hashPassword = async (password) => {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hash = await window.crypto.subtle.digest('SHA-256', data);
+
+    // Convert buffer to byte array
+    const hashArray = Array.from(new Uint8Array(hash));
+
+    // Convert bytes to hex string
+    const hashedPassword = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+    return hashedPassword;
+
+    
+  }
 
   return (
     <>
@@ -86,7 +107,7 @@ export default function Settings({ userId, userName, setUserName, premiumAccount
               <DialogTitle>Become Premium</DialogTitle>
               <DialogContent>
                 <DialogContentText>
-                  To become a premium user, please enter your payment details. The cost is 2 lv.
+                  To become a premium user, please enter your payment details. The cost is 2 BGN.
                 </DialogContentText>
                 <TextField
                   margin="dense"
