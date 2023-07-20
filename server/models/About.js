@@ -18,7 +18,7 @@ const About = sequelize.define('About', {
   image: {
     type: DataTypes.TEXT,
   },
-  jobTitle: {
+  jobtitle: {
     type: DataTypes.STRING(100),
   },
   phone: {
@@ -51,28 +51,28 @@ const About = sequelize.define('About', {
   about: {
     type: DataTypes.TEXT,
   },
-  displayImage: {
+  displayimage: {
     type: DataTypes.BOOLEAN,
   },
-  displayMail: {
+  displaymail: {
     type: DataTypes.BOOLEAN,
   },
-  displayWebSite: {
+  displaywebsite: {
     type: DataTypes.BOOLEAN,
   },
-  displayLinkedIn: {
+  displaylinkedin: {
     type: DataTypes.BOOLEAN,
   },
-  displayInstagramm: {
+  displayinstagram: {
     type: DataTypes.BOOLEAN,
   },
-  displayFacebook: {
+  displayfacebook: {
     type: DataTypes.BOOLEAN,
   },
-  displayGithub: {
+  displaygithub: {
     type: DataTypes.BOOLEAN,
   },
-  displayTwitter: {
+  displaytwitter: {
     type: DataTypes.BOOLEAN,
   },
   created_at: {

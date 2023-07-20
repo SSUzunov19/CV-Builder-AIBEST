@@ -18,12 +18,13 @@ CREATE TABLE resumes (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE abouts(
+CREATE TABLE abouts (
     id UUID PRIMARY KEY,
     resume_id UUID REFERENCES resumes(id),
     name VARCHAR(100),
     image TEXT,
-    job_title VARCHAR(100),
+    jobtitle VARCHAR(100),
+    phone VARCHAR(100),
     location VARCHAR(100),
     email VARCHAR(100),
     linkedin TEXT,
@@ -33,14 +34,14 @@ CREATE TABLE abouts(
     github TEXT,
     website TEXT,
     about TEXT,
-    display_image BOOLEAN,
-    display_mail BOOLEAN,
-    display_website BOOLEAN,
-    display_linkedin BOOLEAN,
-    display_instagram BOOLEAN,
-    display_facebook BOOLEAN,
-    display_github BOOLEAN,
-    display_twitter BOOLEAN,
+    displayimage BOOLEAN,
+    displaymail BOOLEAN,
+    displaywebSite BOOLEAN,
+    displaylinkedIn BOOLEAN,
+    displayinstagram BOOLEAN,
+    displayfacebook BOOLEAN,
+    displaygithub BOOLEAN,
+    displaytwitter BOOLEAN,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
