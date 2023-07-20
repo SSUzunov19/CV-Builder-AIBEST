@@ -86,7 +86,7 @@ const Education = () => {
                         </button>
                       </div>
                       <div className="items-center mt-4 transition-all">
-                      <GrammarlyEditorPlugin clientId="REACT_APP_GRAMMARLY_CLIENT_ID">
+                      <GrammarlyEditorPlugin clientId="client_AYbwa9RF7qiSdH5ncrXRAi">
                         <Inputs
                           title="Field of study"
                           type="text"

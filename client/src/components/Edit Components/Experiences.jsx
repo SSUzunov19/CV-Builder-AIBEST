@@ -83,7 +83,7 @@ const Experiences = () => {
                       </div>
 
                       <div className="items-center mt-4">
-                      <GrammarlyEditorPlugin clientId="REACT_APP_GRAMMARLY_CLIENT_ID">
+                      <GrammarlyEditorPlugin clientId="client_AYbwa9RF7qiSdH5ncrXRAi">
                         <Inputs
                           title = "Position"
                           type="text"
@@ -123,7 +123,7 @@ const Experiences = () => {
                         />
                       </div>
                       <div className="items-center mt-4">
-                      <GrammarlyEditorPlugin clientId="REACT_APP_GRAMMARLY_CLIENT_ID">
+                      <GrammarlyEditorPlugin clientId="client_AYbwa9RF7qiSdH5ncrXRAi">
                         <TextArea
                           title = "Summary"
                           rows={7}

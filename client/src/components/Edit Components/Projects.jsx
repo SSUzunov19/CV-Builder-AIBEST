@@ -130,7 +130,7 @@ const Projects = () => {
                         />
                       </div>
                       <div className="items-center mt-4 mb-6">
-                        <GrammarlyEditorPlugin clientId="REACT_APP_GRAMMARLY_CLIENT_ID">
+                        <GrammarlyEditorPlugin clientId="client_AYbwa9RF7qiSdH5ncrXRAi">
                         <TextArea
                           title="Project Summary"
                           type="textarea"
