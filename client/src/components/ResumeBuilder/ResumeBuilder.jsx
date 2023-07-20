@@ -61,28 +61,27 @@ export default function Home({ userId, templateId, resumeId }) {
         console.log(templateId);
         switch (templateId) {
             case 1:
-                return <CV color={"rgba(0, 0, 0, 0)"} />;  // white
+                return <CV color={"rgba(0, 0, 0, 0)"} gradientColor={"rgba(0, 0, 0, 0)"} />;  // white
             case 2:
-                return <CV color={"rgba(0, 0, 255, 0.5)"} />;  // half transparent blue
+                return <CV color={"rgba(173, 216, 230, 0.2)"} gradientColor={"rgba(135, 206, 250, 0.3)"} />; // light blue to sky blue
             case 3:
-                return <CV color={"rgba(0, 255, 0, 0.5)"} />;  // half transparent green
+                return <CV color={"rgba(144, 238, 144, 0.2)"} gradientColor={"rgba(60, 179, 113, 0.3)"} />; // light green to medium sea green
             case 4:
-                return <CV color={"rgba(255, 255, 0, 0.5)"} />;  // half transparent yellow
+                return <CV color={"rgba(255, 255, 224, 0.2)"} gradientColor={"rgba(255, 250, 205, 0.3)"} />; // light yellow to lemon chiffon
             case 5:
-                return <CV color={"rgba(128, 0, 128, 0.5)"} />;  // half transparent purple
+                return <CV color={"rgba(219, 112, 219, 0.2)"} gradientColor={"rgba(238, 130, 238, 0.3)"} />; // orchid to violet
             case 6:
-                return <CV color={"rgba(255, 165, 0, 0.5)"} />;  // half transparent orange
+                return <CV color={"rgba(255, 192, 203, 0.2)"} gradientColor={"rgba(255, 105, 180, 0.3)"} />; // pink to hot pink
             case 7:
-                return <CV color={"rgba(0, 128, 128, 0.5)"} />;  // half transparent teal
+                return <CV color={"rgba(176, 224, 230, 0.2)"} gradientColor={"rgba(70, 130, 180, 0.3)"} />; // powder blue to steel blue
             case 8:
-                return <CV color={"rgba(128, 0, 0, 0.5)"} />;  // half transparent maroon
+                return <CV color={"rgba(233, 150, 122, 0.2)"} gradientColor={"rgba(255, 99, 71, 0.3)"} />; // dark salmon to tomato
             case 9:
-                return <CV color={"rgba(0, 128, 0, 0.5)"} />;  // half transparent dark green
+                return <CV color={"rgba(173, 255, 47, 0.2)"} gradientColor={"rgba(50, 205, 50, 0.3)"} />; // green-yellow to lime green
             default:
-                return <CV color={"rgba(0, 0, 0, 0)"} />;  // half transparent red as a default
+                return <CV color={"rgba(220, 220, 220, 0.1)"} gradientColor={"rgba(255, 255, 255, 0.2)"} />; // light gray to white
         }
     };
-    
 
     const {
         cv,
