@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Layout from "../Homepage Components/Layout/Layout"
 import Navbar from "../Homepage Components/Navbar/Navbar";
 import Footer from "../Homepage Components/Footer/Footer";
 import "./Register.css";
@@ -145,54 +146,57 @@ export const Register = ({ props, setUserId, setUserName }) => {
   };
 
   return (
-    <div className="auth-form-container">
-      <Navbar />
-      <form className="register-form" onSubmit={handleSubmit}>
-        <h2>Register</h2>
-        <input
-          className="Nameinput"
-          value={name}
-          name="name"
-          onChange={(e) => setName(e.target.value)}
-          id="name"
-          placeholder="Username"
-        />{" "}
-        <br /> <br />
+    <Layout>
+      <Navbar/>
+      <div className="auth-form-container">
+        <form className="register-form" onSubmit={handleSubmit}>
+          <h2>Register</h2>
+          <input
+            className="Nameinput"
+            value={name}
+            name="name"
+            onChange={(e) => setName(e.target.value)}
+            id="name"
+            placeholder="Username"
+          />{" "}
+          <br /> <br />
 
-        <input
-          className="Emailinput"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="Email"
-          id="email"
-          name="email"
-        />{" "}
-        <br /> <br />
-        <input
-          className="Passwordinput"
-          value={pass}
-          onChange={(e) => setPass(e.target.value)}
-          type="password"
-          placeholder="Password"
-          id="password"
-          name="password"
-        />{" "}
-        <br /> <br />
-        <button className="Create-Account-cat" type="submit">
-          Create Account
-        </button>{" "}
-        <br /> <br />
-        <p>
-          {" "}
-          Already have an account? Click here to{" "}
-          <a href="#" onClick={() => props.onFormSwitch("login")}>
-            login
-          </a>
-        </p>
-      </form>
-      <Footer />
-    </div>
+          <input
+            className="Emailinput"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            placeholder="Email"
+            id="email"
+            name="email"
+          />{" "}
+          <br /> <br />
+          <input
+            className="Passwordinput"
+            value={pass}
+            onChange={(e) => setPass(e.target.value)}
+            type="password"
+            placeholder="Password"
+            id="password"
+            name="password"
+          />{" "}
+          <br /> <br />
+          <button className="title-btn" type="submit">
+            Create Account
+          </button>{" "}
+          <br /> <br />
+          <p id="register-subtext">
+            {" "}
+            Already have an account? Click here to{" "}
+            <a href="#" onClick={() => props.onFormSwitch("login")}>
+              login
+            </a>
+          </p>
+        </form>
+
+      </div>
+      <Footer/>
+    </Layout>
   );
 };
 export default Register;

@@ -1,0 +1,28 @@
+.auth-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 87vh;
+    background: rgb(0, 255, 123);
+    background: linear-gradient(45deg, rgba(0, 255, 123, 1) 0%, rgba(0, 179, 255, 1) 100%);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Catamaran, sans-serif;
+}
+
+.login-form > h2{
+    margin-bottom: 10px;
+}
+
+.bth-container{
+    display: flex;
+}

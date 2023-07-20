@@ -3,8 +3,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background-color: #f5f5f5;
+  height: 87vh;
+  background: rgb(0, 255, 123);
+  background: linear-gradient(45deg, rgba(0, 255, 123, 1) 0%, rgba(0, 179, 255, 1) 100%);
 }
 
 .register-form {
@@ -15,10 +16,11 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Catamaran, sans-serif;
 }
 
 .register-form h2 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .Nameinput,
@@ -33,25 +35,22 @@
   font-size: 16px;
 }
 
-.emailimage,
-.userimage,
-.passwordimage {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-}
-
-.Create-Account-cat {
-  width: 150px;
-  height: 40px;
-  background-color: #007bff;
-  color: #fff;
+.title-btn {
+  display: block;
+  background: #1d87d5;
   border: none;
-  border-radius: 3px;
-  font-size: 16px;
+  padding: 8px 25px;
+  color: white;
   cursor: pointer;
+  text-transform: capitalize;
+  font-size: .9em;
+  width: fit-content;
+  border-radius: 5px;
+  transition: 0.3s scale ease-in-out;
+  font-family: Catamaran, sans-serif;
 }
 
-.Create-Account-cat:hover {
-  background-color: #0056b3;
+.title-btn:hover {
+  cursor: pointer;
+  scale: 1.2;
 }
