@@ -4,8 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 87vh;
-  background: rgb(0, 255, 123);
-  background: linear-gradient(45deg, rgba(0, 255, 123, 1) 0%, rgba(0, 179, 255, 1) 100%);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,179,255,1) 100%);
 }
 
 .register-form {
