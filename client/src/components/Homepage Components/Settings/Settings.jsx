@@ -56,7 +56,7 @@ export default function Settings({ userId, userName, setUserName, premiumAccount
 
     const hashedPassword = await hashPassword(pass);
 
-    changePassword(userId, password)
+    changePassword(userId, hashedPassword)
       .then(() => {
         console.log('Password changed successfully');
       })

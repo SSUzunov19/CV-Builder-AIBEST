@@ -42,7 +42,7 @@ app.use('/api/skills', skillsRouter);
 app.use('/api/projects', projectsRouter);
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
