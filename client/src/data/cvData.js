@@ -1,8 +1,8 @@
 export const cvData = {
 
-  name: "Stas Uzunov",
+  name: "John Doe",
 
-  image: "", // Add the URL or path to your profile picture
+  image: "https://www.pngarts.com/files/10/Default-Profile-Picture-PNG-Free-Download.png", // Add the URL or path to your profile picture
 
   jobTitle: "Software Engineer",
 
@@ -10,7 +10,7 @@ export const cvData = {
 
   location: "Burgas, Bulgaria",
 
-  email: "stas.uzunov@email.com",
+  email: "john.doe@email.com",
 
   linkedIn: "",
 
@@ -18,11 +18,11 @@ export const cvData = {
 
   facebook: "",
 
-  twitter: "stas_uzunov",
+  twitter: "john_doe",
 
-  github: "stasuzunov",
+  github: "johndoe",
 
-  website: "stasuzunov.dev",
+  website: "johndoe.dev",
 
   about:
 

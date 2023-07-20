@@ -12,8 +12,8 @@ const Helper = ({ resume }) => {
                 <Card>
                     <CardContent>
                         <Typography variant="h3" component="div" style={{ textAlign: "center" }} >{resume?.title || 'Loading...'}</Typography>
-                        <Box mt={4} style={{ display: "flex", justifyContent: "center" }}>
-                            <Grid container spacing={3}>
+                        <Box mt={4} style={{ display: "flex", justifyContent: "center",}}>
+                            <Grid container spacing={1}>
                                 <Grid item>
                                     <SetEmpty />
                                 </Grid>
