@@ -26,7 +26,7 @@ export default function Title() {
                     animate="visible"
                     variants={heroTextAnimate}
                 >
-                    Build <span id="gradient-text">Professional Resume</span> Fast And Stress Free
+                    Build <span className="gradient-text">Professional Resume</span> Fast And Stress Free
                 </motion.p>
             </div>
             <button className="title-btn">Get Started Now</button>

@@ -7,12 +7,11 @@ export default function ProductDetails() {
         <div className="product-details-wrapper">
             <div className="product-details-container">
                 <div className="details-text-container">
-                    {/*Update the text to match the project functionality*/}
-                    <p className="details-title">There&apos;s a resume for every profession</p>
+                    <p className="details-title">What's our goal?</p>
                     <p className="details-desc">
-                        Our resume creator comes with 18 fully customizable templates.
-                        You&apos;ll get advice on which one to pick depending on your industry,
-                        seniority level, and the kind of company you&apos;re applying to.
+                        The aim of this project is to assist users in creating 
+                        a professional CV, making it effortless to secure employment. 
+                        To accomplish this, we leverage APIs from Grammarly and OpenAI.
                     </p>
                     <button className="title-btn">Start Now</button>
                 </div>

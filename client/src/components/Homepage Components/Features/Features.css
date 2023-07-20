@@ -60,7 +60,7 @@
     width: 90%
 }
 
-@media (max-width: 600px) {
+@media (max-width: 678px) {
     .feature {
         width: 100%;
         max-width: none;

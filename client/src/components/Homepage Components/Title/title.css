@@ -21,7 +21,7 @@
     text-transform: capitalize;
 }
 
-#gradient-text {
+.gradient-text {
     font-family: 'Bai Jamjuree', sans-serif;
     background: linear-gradient(to right, #1d87d5 20%, #22b3d0 40%, #1d87d5 60%);
     background-clip: text;

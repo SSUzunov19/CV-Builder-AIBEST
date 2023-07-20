@@ -1,21 +1,39 @@
-footer {
-    position: absolute;
+.footer-wrapper{
     width: 100%;
     height: 60px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
-.fTextLeft {
-    position: relative;
-    font-size: 1.3em;
-    left: 5%;
-    float: left;
-    top: 30%;
+.footer-container{
+    display: flex;
+    width: 65%;
+    height: 60px;
+    flex-direction: row;
+    padding: 20px 0px;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Catamaran, sans-serif;
 }
 
-.fTextRight {
-    font-size: 1.2em;
-    position: relative;
-    top: 30%;
-    float: right;
-    right: 5%;
+.footer-logo{
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-left: 0.5rem;
 }
+
+.footer-logo > a{
+    text-decoration: none;
+    color: black;
+}
+
+@media screen and (max-width: 678px){
+    .footer-container{
+        width: 85%;
+    }
+
+}
+
+
+
