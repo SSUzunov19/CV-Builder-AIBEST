@@ -42,6 +42,19 @@ exports.updateTemplate = async (req, res) => {
   }
 };
 
+exports.getTemplateIdByResumeId = async (req, res) => {
+  try {
+    const resume = await Resume.findByPk(req.params.id);
+    if (!resume) {
+      return res.status(404).json({ error: 'Resume not found' });
+    }
+    res.json({ templateId: resume.template_id });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'An error occurred while fetching the template' });
+  }
+};
+
 exports.deleteResume = async (req, res) => {
   await Resume.destroy({
     where: { id: req.params.id }

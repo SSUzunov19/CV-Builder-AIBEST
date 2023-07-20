@@ -178,6 +178,17 @@ export const updateResumeTemplate = (resumeId, templateId) => {
   });
 };
 
+export const fetchTemplateofResume = (resumeId) => {
+  return api.get(`/api/resumes/${resumeId}/template`)
+    .then((res) => {
+      console.log('Received templateId in api.js fetchTemplateofResume: ', res.data);
+      return res.data;
+    })
+    .catch((error) => {
+      console.error('Error fetching template of resume:', error);
+      throw error;
+    });
+};
 
 export const deleteResume = (id) => {
   return api.delete(`/api/resumes/${id}`);

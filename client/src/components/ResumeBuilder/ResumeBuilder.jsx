@@ -9,9 +9,9 @@ import StyledContainer from './StyledContainer';
 import { LoadingScreen } from '../LoadingScreen';
 import CV from '../CV';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useBuilderLogic, Modal } from '../../services/BuilderLogic';
-import { updateResumeTemplate } from '../../services/api';
+import { updateResumeTemplate, fetchTemplateofResume } from '../../services/api';
 
 const theme = createTheme({
     palette: {
@@ -24,13 +24,15 @@ const theme = createTheme({
     },
 });
 
-export default function Home({ userId, templateId, resumeId }) {
+export default function Home({ userId, templateId, setTemplateId }) {
 
     const navigate = useNavigate();
     const cvRef = useRef(null);
 
+    const { resumeId } = useParams(); // get the resumeId from the URL parameters
+
     useEffect(() => {
-        if (templateId) { // if template is not null or undefined
+        if (templateId && templateId != 1) { // if template is not null or undefined
             console.log('Updating resume template:', templateId);
             updateResumeTemplate(resumeId, templateId)
                 .then(updatedResume => {
@@ -39,8 +41,23 @@ export default function Home({ userId, templateId, resumeId }) {
                 .catch(error => {
                     console.error('Error updating resume template:', error);
                 });
+        } else {
+            console.log('Fetching resume in useEffect:', resumeId);
+            if (resumeId) { // if resumeId is null, undefined, or an empty string
+                // navigate to dashboard
+                navigate('/dashboard');
+            } else {
+                fetchTemplateofResume(resumeId)
+                    .then(resume => {
+                        console.log('Resume:', resume);
+                        setTemplateId(resume.template);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching resume:', error);
+                    });
+            }
         }
-    }, [templateId]); // this effect runs every time 'template' changes
+    }, [templateId, resumeId]); // this effect runs every time 'template' changes
 
     useEffect(() => {
         const handleScroll = () => {

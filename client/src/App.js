@@ -45,7 +45,7 @@ function App() {
             <Route path="/register" element={<Register setUserId={setUserId} setUserName={setUserName}/>} />
             <Route path="/settings" element={<Settings userId={userId} userName={userName} setUserName={setUserName}/>} />
             <Route path="/dashboard" element={<Dashboard userId={userId} setUserId={setUserId} userName={userName} setUserName={setUserName} setResumeId={setResumeId}/>} />
-            <Route path="/builder/:id" element={<ResumeBuilder userId={userId} templateId={templateId} resumeId={resumeId} />} />
+            <Route path="/builder/:id" element={<ResumeBuilder userId={userId} templateId={templateId} setTemplateId={setTemplateId} resumeId={resumeId} />} />
             <Route path="/builder/:id/template" element={<TemplateSwitcher userId={userId} setTemplateId={setTemplateId}/>} />
           </Routes>
         </div>
