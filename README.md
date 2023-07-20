@@ -1,7 +1,7 @@
 <h1 align="center">Team Wonder Woman</h1>
 
 <p align = "center">
-    <img src="https://cdn.discordapp.com/attachments/1130942347547529296/1131629721080307783/githubBanner.png" />
+    <img src="https://cdn.discordapp.com/attachments/1125828347415511040/1131701432756740228/githubBanner.png" />
 </p>
 
 <p align = "center">
