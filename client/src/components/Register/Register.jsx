@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import Layout from "../Homepage Components/Layout/Layout"
 import Navbar from "../Homepage Components/Navbar/Navbar";
 import Footer from "../Homepage Components/Footer/Footer";
@@ -10,6 +12,9 @@ export const Register = ({ props, setUserId, setUserName }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarSeverity, setSnackbarSeverity] = useState("error");
 
   const navigate = useNavigate();
 
@@ -17,17 +22,20 @@ export const Register = ({ props, setUserId, setUserName }) => {
     e.preventDefault();
 
     if (!validateName(name)) {
-      console.log("Invalid name");
+      setSnackbarMessage("Invalid Username");
+      setOpenSnackbar(true);
       return;
     }
 
     if (!validateEmail(email)) {
-      console.log("Invalid email");
+      setSnackbarMessage("Invalid email");
+      setOpenSnackbar(true);
       return;
     }
 
     if (!validatePassword(pass)) {
-      console.log("Invalid password");
+      setSnackbarMessage("Invalid password");
+      setOpenSnackbar(true);
       return;
     }
 
@@ -38,6 +46,17 @@ export const Register = ({ props, setUserId, setUserName }) => {
       email: email,
       password: hashedPassword, // <-- use hashedPassword here
     };
+
+    const passwordErrors = validatePassword(pass);
+
+  if (passwordErrors.length > 0) {
+    setSnackbarMessage(passwordErrors.join("\n"));
+    setOpenSnackbar(true);
+    return;
+  }
+
+    
+    
 
     createUser(user)
       .then((createdUser) => {
@@ -51,7 +70,53 @@ export const Register = ({ props, setUserId, setUserName }) => {
       .catch((error) => {
         // Handle error during user creation
         console.error("Error creating user:", error);
+        setSnackbarSeverity("error");
+      setOpenSnackbar(true);
       });
+  };
+
+  const validatePassword = (password) => {
+    // Requirements
+    const minPasswordLength = 8;
+    const maxPasswordLength = 50;
+  
+    // Set to false to disable requirement
+    const hasLowerCase = true;
+    const hasUpperCase = true;
+    const hasNumber = true;
+    const hasSpecialCharacter = true;
+  
+    const errors = [];
+  
+    if (password.length < minPasswordLength || password.length > maxPasswordLength) {
+      errors.push(`Password must be between ${minPasswordLength} and ${maxPasswordLength} characters.`);
+    }
+  
+    if (!/[a-z]/.test(password) || !hasLowerCase) {
+      errors.push("Password must contain at least one lowercase letter.");
+    }
+  
+    if (!/[A-Z]/.test(password) || !hasUpperCase) {
+      errors.push("Password must contain at least one uppercase letter.");
+    }
+  
+    if (!/[0-9]/.test(password) || !hasNumber) {
+      errors.push("Password must contain at least one numeric digit.");
+    }
+  
+    if (!/[!@#$%^&*]/.test(password) || !hasSpecialCharacter) {
+      errors.push("Password must contain at least one special character.");
+    }
+  
+    return errors;
+  };
+
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSnackbar(false);
   };
 
   const hashPassword = async (password) => {
@@ -86,8 +151,7 @@ export const Register = ({ props, setUserId, setUserName }) => {
 
     if (!/^[a-zA-Z0-9_\-.\s]+$/.test(username)) {
       console.log(
-        "Username can only contain letters, numbers, underscores, hyphens, dots, and spaces"
-      );
+      "Username can only contain letters, numbers, underscores, hyphens, dots, and spaces");
       return false;
     }
 
@@ -98,51 +162,6 @@ export const Register = ({ props, setUserId, setUserName }) => {
     return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+[^<>()\.,;:\s@\"]{2,})$/.test(
       email
     );
-  };
-
-  const validatePassword = (password) => {
-    // Requirements
-
-    const minPasswordLength = 8;
-    const maxPasswordLength = 50;
-
-    // Set to false to disable requirement
-    const hasLowerCase = true;
-    const hasUpperCase = true;
-    const hasNumber = true;
-    const hasSpecialCharacter = true;
-
-    if (
-      password.length < minPasswordLength ||
-      password.length > maxPasswordLength
-    ) {
-      console.log(
-        `Password must be between ${minPasswordLength} and ${maxPasswordLength} characters`
-      );
-      return false;
-    }
-
-    if (!/[a-z]/.test(password) || !hasLowerCase) {
-      console.log("Password must contain at least one lowercase letter");
-      return false;
-    }
-
-    if (!/[A-Z]/.test(password) || !hasUpperCase) {
-      console.log("Password must contain at least one uppercase letter");
-      return false;
-    }
-
-    if (!/[0-9]/.test(password) || !hasNumber) {
-      console.log("Password must contain at least one numeric digit");
-      return false;
-    }
-
-    if (!/[!@#$%^&*]/.test(password) || !hasSpecialCharacter) {
-      console.log("Password must contain at least one special character");
-      return false;
-    }
-
-    return true;
   };
 
   return (
@@ -192,6 +211,11 @@ export const Register = ({ props, setUserId, setUserName }) => {
 
       </div>
       <Footer/>
+      <Snackbar open={openSnackbar} autoHideDuration={5000} onClose={handleSnackbarClose}>
+        <MuiAlert onClose={handleSnackbarClose} severity={snackbarSeverity} elevation={6} variant="filled">
+          {snackbarMessage}
+        </MuiAlert>
+      </Snackbar>
     </Layout>
   );
 };

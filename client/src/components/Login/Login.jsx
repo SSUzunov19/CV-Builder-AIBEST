@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import "./Login.css";
 import Layout from "../Homepage Components/Layout/Layout"
 import Navbar from "../Homepage Components/Navbar/Navbar";
@@ -9,6 +11,9 @@ import { useNavigate } from 'react-router-dom';
 export const Login = ({ props, setUserId, setUserName }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarSeverity, setSnackbarSeverity] = useState("error");
 
   const navigate = useNavigate();
 
@@ -16,12 +21,14 @@ export const Login = ({ props, setUserId, setUserName }) => {
     e.preventDefault();
 
     if (!validateEmail(email)) {
-      console.log("Invalid email");
+      setSnackbarMessage("Invalid email");
+      setOpenSnackbar(true);
       return;
     }
 
     if (!validatePassword(pass)) {
-      console.log("Invalid password");
+      setSnackbarMessage("Invalid password. Password should be at least 8 characters.");
+      setOpenSnackbar(true);
       return;
     }
 
@@ -35,7 +42,18 @@ export const Login = ({ props, setUserId, setUserName }) => {
       navigate("/dashboard");
     } catch (error) {
       console.error('Error logging in:', error);
+      setSnackbarMessage("Error logging in. Please try again.");
+      setSnackbarSeverity("error");
+      setOpenSnackbar(true);
     }
+  };
+
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSnackbar(false);
   };
 
   const hashPassword = async (password) => {
@@ -104,6 +122,11 @@ export const Login = ({ props, setUserId, setUserName }) => {
 
       </div>
       <Footer />
+      <Snackbar open={openSnackbar} autoHideDuration={3000} onClose={handleSnackbarClose}>
+        <MuiAlert onClose={handleSnackbarClose} severity={snackbarSeverity} elevation={6} variant="filled">
+          {snackbarMessage}
+        </MuiAlert>
+      </Snackbar>
     </Layout>
   );
 };
