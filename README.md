@@ -22,9 +22,9 @@
     <a href="https://github.com/"><img src="https://img.icons8.com/nolan/344/github.png" alt="GitHub logo" width=52px /></a>
     <a href="https://reactnative.dev/"><img src="https://img.icons8.com/color/344/react-native.png" alt="React Native logo" width=50px /></a>
     <a href="https://azure.microsoft.com/en-us/products/postgresql/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png" alt="Azure logo" width=48px /></a>
-    <a href="https://expressjs.com/"><img src="https://github.com/SSUzunov19/AIBEST-project/assets/138564462/2c9c9bd6-179d-4e7b-a2e6-057084210926" alt="Express js" width=48px /></a>
-    <a href="https://nodejs.org/en"><img src="https://github.com/SSUzunov19/AIBEST-project/assets/138564462/7c320d04-4173-4ad0-aecf-8145872c2da4" alt="Node js" width=48px /></a>
-    <a href="https://app.grammarly.com/"><img src="https://github.com/SSUzunov19/AIBEST-project/assets/138564462/f22e7fa9-667c-4947-ae78-13e8dea27865" alt="Grammarly" width=48px /></a>
+    <a href="https://expressjs.com/"><img src="https://github.com/SSUzunov19/CV-Builder-AIBEST/assets/138564462/2c9c9bd6-179d-4e7b-a2e6-057084210926" alt="Express js" width=48px /></a>
+    <a href="https://nodejs.org/en"><img src="https://github.com/SSUzunov19/CV-Builder-AIBEST/assets/138564462/7c320d04-4173-4ad0-aecf-8145872c2da4" alt="Node js" width=48px /></a>
+    <a href="https://app.grammarly.com/"><img src="https://github.com/SSUzunov19/CV-Builder-AIBEST/assets/138564462/f22e7fa9-667c-4947-ae78-13e8dea27865" alt="Grammarly" width=48px /></a>
     </p>
 
 ## 📥 Installation & Set Up
