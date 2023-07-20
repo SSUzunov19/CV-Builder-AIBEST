@@ -35,6 +35,11 @@ app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/users', usersRouter);
 app.use('/api/resumes', resumesRouter);
+app.use('/api/about', aboutRouter);
+app.use('/api/education', educationRouter);
+app.use('/api/experience', experienceRouter);
+app.use('/api/skills', skillsRouter);
+app.use('/api/projects', projectsRouter);
 
 const configuration = new Configuration({
   apiKey: "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",

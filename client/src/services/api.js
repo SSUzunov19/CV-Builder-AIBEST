@@ -178,15 +178,16 @@ export const updateResumeTemplate = (resumeId, templateId) => {
   });
 };
 
-export const saveResumeData = async (resumeId, aboutData, skillsData, projectsData, educationData, experiencesData) => {
+export const saveResumeData = async (resumeId, aboutData/*, skillsData, projectsData, educationData, experiencesData*/) => {
   // The actual structure of your API calls may vary depending on your backend setup
-  await api.post('/about', { resume_id: resumeId, ...aboutData });
-  await api.post('/skills', { resume_id: resumeId, ...skillsData });
-  await api.post('/projects', { resume_id: resumeId, ...projectsData });
-  await api.post('/education', { resume_id: resumeId, ...educationData });
-  await api.post('/experiences', { resume_id: resumeId, ...experiencesData });
+  await api.post('/api/about', { resume_id: resumeId, ...aboutData });
+  /*
+  await api.post('/api/skills', { resume_id: resumeId, ...skillsData });
+  await api.post('/api/projects', { resume_id: resumeId, ...projectsData });
+  await api.post('/api/education', { resume_id: resumeId, ...educationData });
+  await api.post('/api/experiences', { resume_id: resumeId, ...experiencesData });
+  */
 };
-
 
 export const fetchTemplateofResume = (resumeId) => {
   return api.get(`/api/resumes/${resumeId}/template`)

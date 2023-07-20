@@ -1,18 +1,15 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('./sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = require('../database');
 
 const Education = sequelize.define('Education', {
     id: {
         type: DataTypes.UUID,
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
-        allowNull: false,
     },
     user_id: {
         type: DataTypes.UUID,
-        references: {
-            model: 'users',
-            key: 'id'
-        }
+        allowNull: true,
     },
     school: {
         type: DataTypes.STRING,
@@ -31,12 +28,12 @@ const Education = sequelize.define('Education', {
     },
     created_at: {
         type: DataTypes.DATE,
-        allowNull: false,
+        defaultValue: Sequelize.NOW,
     },
     updated_at: {
         type: DataTypes.DATE,
-        allowNull: false,
-    }
+        defaultValue: Sequelize.NOW,
+    },
 }, {
     timestamps: false,
     underscored: true,

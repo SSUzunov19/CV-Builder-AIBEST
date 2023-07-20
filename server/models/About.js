@@ -1,27 +1,24 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('./sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = require('../database');
 
 const About = sequelize.define('About', {
   id: {
     type: DataTypes.UUID,
+    defaultValue: Sequelize.UUIDV4,
     primaryKey: true,
-    allowNull: false,
   },
   resume_id: {
     type: DataTypes.UUID,
-    references: {
-      model: 'resumes',
-      key: 'id'
-    }
+    allowNull: true,
   },
   name: {
     type: DataTypes.STRING(100),
-    allowNull: false,
+    allowNull: true,
   },
   image: {
     type: DataTypes.TEXT,
   },
-  job_title: {
+  jobTitle: {
     type: DataTypes.STRING(100),
   },
   phone: {
@@ -54,43 +51,38 @@ const About = sequelize.define('About', {
   about: {
     type: DataTypes.TEXT,
   },
-  display_image: {
+  displayImage: {
     type: DataTypes.BOOLEAN,
   },
-  display_mail: {
+  displayMail: {
     type: DataTypes.BOOLEAN,
   },
-  display_website: {
+  displayWebSite: {
     type: DataTypes.BOOLEAN,
   },
-  display_linkedin: {
+  displayLinkedIn: {
     type: DataTypes.BOOLEAN,
   },
-  display_instagram: {
+  displayInstagramm: {
     type: DataTypes.BOOLEAN,
   },
-  display_facebook: {
+  displayFacebook: {
     type: DataTypes.BOOLEAN,
   },
-  display_github: {
+  displayGithub: {
     type: DataTypes.BOOLEAN,
   },
-  display_twitter: {
+  displayTwitter: {
     type: DataTypes.BOOLEAN,
-  },
-  active_color: {
-    type: DataTypes.STRING(7),
   },
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: DataTypes.NOW,
+    defaultValue: Sequelize.NOW,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: DataTypes.NOW,
-  }
+    defaultValue: Sequelize.NOW,
+  },
 }, {
   timestamps: false,
   underscored: true,

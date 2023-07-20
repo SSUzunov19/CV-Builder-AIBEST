@@ -160,6 +160,15 @@ export const Modal = ({ isOpen, onClose, data }) => {
 
 export const useBuilderLogic = () => {
   const [cv, setCv] = useState(cvData);
+
+  const [aboutYou, setAboutYou] = useState(null);
+  const [education, setEducation] = useState(null);
+  const [experience, setExperience] = useState(null);
+  const [skills, setSkills] = useState(null);
+  const [projects, setProjects] = useState(null);
+  const [languages, setLanguages] = useState(null);
+  const [industryKnowledge, setIndustryKnowledge] = useState(null);
+
   const [scale, setScale] = useState(1);
   const { id } = useParams();
   const [resume, setResume] = useState(null);
@@ -233,6 +242,53 @@ export const useBuilderLogic = () => {
     setCv(emptyCv);
     LS.set({ key: "cv", payload: emptyCv });
   };
+
+  useEffect(() => {
+    let about = [
+      cv.name,
+      cv.image,
+      cv.jobTitle,
+      cv.phone,
+      cv.location,
+      cv.email,
+      cv.linkedin,
+      cv.instagram,
+      cv.facebook,
+      cv.twitter,
+      cv.github,
+      cv.website,
+      cv.about,
+      cv.displayImage,
+      cv.displayMail,
+      cv.displayWebSite,
+      cv.displayLinkedIn,
+      cv.displayInstagram,
+      cv.displayFacebook,
+      cv.displayGithub,
+      cv.displayTwitter
+    ].join("|");
+  
+    let education = cv.education.map((edu) => `${edu.title}|${edu.school}|${edu.startDate}|${edu.endDate}`).join("|");
+    let experience = cv.experiences.map((exp) => `${exp.title}|${exp.company}|${exp.startDate}|${exp.endDate}|${exp.summary}`).join("|");
+    let skills = cv.toolsAndTechSkills.join("|");
+    let projects = cv.projects.map((project) => `${project.title}|${project.link}|${project.summary}`).join("|");
+    let languages = cv.languages.join("|");
+    let industryKnowledge = cv.industryKnowledge.join("|");
+  
+    setAboutYou(about);
+    setEducation(education);
+    setExperience(experience);
+    setSkills(skills);
+    setProjects(projects);
+    setLanguages(languages);
+    setIndustryKnowledge(industryKnowledge);
+  
+    console.log(about);
+    
+    // Assuming LS.set() is a function for saving to local storage
+    LS.set({ key: "about", payload: about });
+ 
+  }, [cv]);
 
   const updateCv = (key, value) => {
     const newCv = { ...cv, [key]: value };
@@ -446,5 +502,6 @@ export const useBuilderLogic = () => {
     isModalOpen,
     setIsModalOpen,
     loading,
+    aboutYou
   };
 };

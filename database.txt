@@ -18,7 +18,7 @@ CREATE TABLE resumes (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE about (
+CREATE TABLE abouts(
     id UUID PRIMARY KEY,
     resume_id UUID REFERENCES resumes(id),
     name VARCHAR(100),
@@ -41,7 +41,6 @@ CREATE TABLE about (
     display_facebook BOOLEAN,
     display_github BOOLEAN,
     display_twitter BOOLEAN,
-    active_color VARCHAR(7),
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

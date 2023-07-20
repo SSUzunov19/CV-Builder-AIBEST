@@ -1,18 +1,15 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('./sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = require('../database');
 
 const Experience = sequelize.define('Experience', {
     id: {
         type: DataTypes.UUID,
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
-        allowNull: false,
     },
     user_id: {
         type: DataTypes.UUID,
-        references: {
-            model: 'users',
-            key: 'id'
-        }
+        allowNull: true,
     },
     company: {
         type: DataTypes.STRING,
@@ -34,16 +31,15 @@ const Experience = sequelize.define('Experience', {
     },
     created_at: {
         type: DataTypes.DATE,
-        allowNull: false,
+        defaultValue: Sequelize.NOW,
     },
     updated_at: {
         type: DataTypes.DATE,
-        allowNull: false,
-    }
+        defaultValue: Sequelize.NOW,
+    },
 }, {
     timestamps: false,
     underscored: true,
 });
-
 
 module.exports = Experience;

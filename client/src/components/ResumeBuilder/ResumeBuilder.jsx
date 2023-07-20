@@ -4,25 +4,14 @@ import PageButtons from '../PageButtons';
 import { CvContext } from '../../hooks/CvContext';
 import { Box } from '@mui/material';
 import { CssBaseline } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import StyledContainer from './StyledContainer';
 import { LoadingScreen } from '../LoadingScreen';
 import CV from '../CV';
+import './s.css';
 
 import { useNavigate } from 'react-router-dom';
 import { useBuilderLogic, Modal } from '../../services/BuilderLogic';
 import { updateResumeTemplate, saveResumeData } from '../../services/api';
-
-const theme = createTheme({
-    palette: {
-        secondary: {
-            main: 'rgba(255,255,255,1)',
-        },
-        tertiary: {
-            main: 'rgba(51,140,201,0.4289915795419731)',
-        }
-    },
-});
 
 export default function Home({ userId, templateId, resumeId }) {
 
@@ -31,10 +20,9 @@ export default function Home({ userId, templateId, resumeId }) {
 
     useEffect(() => {
         if (templateId) { // if template is not null or undefined
-            console.log('Updating resume template:', templateId);
             updateResumeTemplate(resumeId, templateId)
                 .then(updatedResume => {
-                    console.log('Updated resume:', updatedResume);
+
                 })
                 .catch(error => {
                     console.error('Error updating resume template:', error);
@@ -57,8 +45,18 @@ export default function Home({ userId, templateId, resumeId }) {
         };
     }, []);
 
+    useEffect(() => {
+        // Add the unique class to the body
+        document.body.classList.add('unique-body-class');
+    
+        // Clean up function
+        return () => {
+            document.body.classList.remove('unique-body-class');
+        };
+    }, []);  // Empty array ensures this runs on mount and unmount
+    
+
     const templateSwitch = () => {
-        console.log(templateId);
         switch (templateId) {
             case 1:
                 return <CV color={"rgba(0, 0, 0, 0)"} gradientColor={"rgba(0, 0, 0, 0)"} />;  // white
@@ -107,6 +105,7 @@ export default function Home({ userId, templateId, resumeId }) {
         setIsModalOpen,
         loading,
         setLoading,
+        aboutYou
     } = useBuilderLogic();
 
     const handleBack = () => {
@@ -118,15 +117,38 @@ export default function Home({ userId, templateId, resumeId }) {
     };
 
     const handleSave = () => {
-        // Get all the necessary data from your resume variable (or cv variable)
-        const aboutData = resume.about;
-        const skillsData = resume.skills;
-        const projectsData = resume.projects;
-        const educationData = resume.education;
-        const experiencesData = resume.experiences;
-    
+
+        const aboutDataArray = aboutYou.split('|');
+
+        const aboutData = {
+            name: aboutDataArray[0],
+            image: aboutDataArray[1],
+            jobTitle: aboutDataArray[2],
+            phone: aboutDataArray[3],
+            location: aboutDataArray[4],
+            email: aboutDataArray[5],
+            linkedin: aboutDataArray[6],
+            instagram: aboutDataArray[7],
+            facebook: aboutDataArray[8],
+            twitter: aboutDataArray[9],
+            github: aboutDataArray[10],
+            website: aboutDataArray[11],
+            about: aboutDataArray[12],
+            displayImage: aboutDataArray[13],
+            displayMail: aboutDataArray[14],
+            displayWebsite: aboutDataArray[15],
+            displayLinkedIn: aboutDataArray[16],
+            displayInstagram: aboutDataArray[17],
+            displayFacebook: aboutDataArray[18],
+            displayGithub: aboutDataArray[19],
+            displayTwitter: aboutDataArray[20],
+        };
+
+        console.log(aboutData);
+
         // Call the saveResumeData function
-        saveResumeData(resumeId, aboutData, skillsData, projectsData, educationData, experiencesData)
+        console.log("resumeid: ", resumeId)
+        saveResumeData(resumeId, aboutData/*, skillsData, projectsData, educationData, experiencesData*/)
             .then(response => {
                 console.log('Successfully saved resume:', response);
             })
@@ -134,10 +156,9 @@ export default function Home({ userId, templateId, resumeId }) {
                 console.error('Error saving resume:', error);
             });
     };
-    
 
     return (
-        <ThemeProvider theme={theme}>
+        <>
             <CssBaseline />
 
             <Modal
@@ -180,9 +201,6 @@ export default function Home({ userId, templateId, resumeId }) {
                         height="100vh"
                         padding="4rem 2rem"
                         position="relative"
-                        sx={{
-                            background: `linear-gradient(90deg, ${theme.palette.secondary.main} 0%, ${theme.palette.tertiary.main} 45%)`
-                        }}
                     >
                         <Box display="flex" justifyContent="center" width="50%" height="100%">
                             <Box component="section" className="settings">
@@ -294,6 +312,6 @@ export default function Home({ userId, templateId, resumeId }) {
                     </>
                 )}
             </CvContext.Provider>
-        </ThemeProvider>
+        </>
     );
 }
