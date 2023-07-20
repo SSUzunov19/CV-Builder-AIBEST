@@ -150,7 +150,7 @@ export default function Home({ userId, templateId, setTemplateId, resumeId, prem
         const aboutData = {
             name: aboutDataArray[0],
             image: aboutDataArray[1],
-            jobTitle: aboutDataArray[2],
+            jobtitle: aboutDataArray[2],
             phone: aboutDataArray[3],
             location: aboutDataArray[4],
             email: aboutDataArray[5],
@@ -161,14 +161,14 @@ export default function Home({ userId, templateId, setTemplateId, resumeId, prem
             github: aboutDataArray[10],
             website: aboutDataArray[11],
             about: aboutDataArray[12],
-            displayImage: aboutDataArray[13],
-            displayMail: aboutDataArray[14],
-            displayWebsite: aboutDataArray[15],
-            displayLinkedIn: aboutDataArray[16],
-            displayInstagram: aboutDataArray[17],
-            displayFacebook: aboutDataArray[18],
-            displayGithub: aboutDataArray[19],
-            displayTwitter: aboutDataArray[20],
+            displayimage: aboutDataArray[13],
+            displaymail: aboutDataArray[14],
+            displaywebsite: aboutDataArray[15],
+            displaylinkedin: aboutDataArray[16],
+            displayinstagram: aboutDataArray[17],
+            displayfacebook: aboutDataArray[18],
+            displaygithub: aboutDataArray[19],
+            displaytwitter: aboutDataArray[20],
         };
 
         console.log(aboutData);

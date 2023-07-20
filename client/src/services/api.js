@@ -180,6 +180,7 @@ export const updateResumeTemplate = (resumeId, templateId) => {
 
 export const saveResumeData = async (resumeId, aboutData/*, skillsData, projectsData, educationData, experiencesData*/) => {
   // The actual structure of your API calls may vary depending on your backend setup
+
   await api.post('/api/about', { resume_id: resumeId, ...aboutData });
   /*
   await api.post('/api/skills', { resume_id: resumeId, ...skillsData });
