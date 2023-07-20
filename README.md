@@ -1,5 +1,3 @@
-# AIBEST-project
-
 <h1 align="center">Team Wonder Woman</h1>
 
 <p align = "center">
@@ -44,16 +42,11 @@ Pasting this line of code in **your Terminal**:
 
 <h3><B>Running the Web App:</B></h3>
 
-  <li>From the cloned project, go to the web folder and run it with the commands:</li>
+  <li>From the cloned project, go to the client folder and server folder run it with the commands:</li>
 </ul> 
 <pre>
-     - npx create-react-app client
-     - npx express-generator server
-     - npm install
-     - npm run dev
-     - npm install sequelize
-     - npm install pg
-     - npm install @grammarly/editor-sdk-react
+     - npm i
+     - npm start
 </pre>
 
 <p>You have successfully accessed our website! 👏👏👏</p>
