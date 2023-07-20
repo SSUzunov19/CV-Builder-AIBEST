@@ -11,7 +11,7 @@ import { useContext } from "react";
 import { CvContext } from "../hooks/CvContext";
 import { websiteLinkCreator, resolvedWebsiteLink } from "../utils/link.utils";
 
-const CV = () => {
+const CV = ({color}) => {
   const socialLinkStyles = {
     display: 'flex',
     alignItems: 'center',
@@ -49,7 +49,7 @@ const CV = () => {
   const cv = useContext(CvContext);
 
   return (
-    <Box sx={{ display: 'flex', height: '100%', overflowY: 'auto' }} id="cv">
+    <Box sx={{ display: 'flex', height: '100%', overflowY: 'auto', backgroundColor: color }} id="cv">
       <Box sx={{ position: 'relative', flex: '0 0 20%', height: '100%' }}>
         {[cv.cv].map((item, index) => {
           return (

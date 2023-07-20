@@ -12,7 +12,7 @@ function ResumeForm({userId}) {
     
     const newResume = { 
       title: title, 
-      user_id: userId.userId,
+      user_id: userId,
     };
 
     createResume(newResume).then((resume) => {

@@ -4,7 +4,7 @@ import confirmButton from "../../../images/buttons/confirm.svg"
 import { useNavigate } from "react-router-dom";
 import "./TargetTemplate.css"
 
-export default function TargetTemplate({ selectedTemplate, id, setTemplate }) {
+export default function TargetTemplate({ selectedTemplate, id, setTemplateId }) {
     
     const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ export default function TargetTemplate({ selectedTemplate, id, setTemplate }) {
 
     const handleConfirmClick = () => {
         navigate(`/builder/${id}`);
-        setTemplate(selectedTemplate);
+        setTemplateId(selectedTemplate);
     };
 
     const handleBackClick = () => {

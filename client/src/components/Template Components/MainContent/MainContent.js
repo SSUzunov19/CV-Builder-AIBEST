@@ -7,7 +7,7 @@ import TargetTemplate from "../TargetTemplate/TargetTemplate"
 import "./MainContent.css"
 import "../../../images/searchIcon.svg"
 
-export default function MainContent({setTemplate}) {
+export default function MainContent({setTemplateId}) {
     const [selectedTemplate, setSelectedTemplate] = useState(1);
     const [tData, setTData] = useState(templateData);
     const [selectedTags, setSelectedTags] = useState([]);
@@ -15,7 +15,7 @@ export default function MainContent({setTemplate}) {
 
     return (
         <div className="main-content">
-            <TargetTemplate selectedTemplate={selectedTemplate} id={id} setTemplate={setTemplate}/>
+            <TargetTemplate selectedTemplate={selectedTemplate} id={id} setTemplateId={setTemplateId}/>
             <div className="search-segment" style={{ position: "relative" }}>
                 <SearchBar
                     tData={tData}

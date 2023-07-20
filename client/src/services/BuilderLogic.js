@@ -6,7 +6,6 @@ import { FILE_NOT_SELECTED, FILE_READ_ERROR, UNSUPPORTED_FILE_TYPE } from "../co
 import LS from "../utils/browser.utils";
 import { getResumeById, analyseResume } from './api';
 
-import CV from "../components/CV";
 import styled, { keyframes, css } from 'styled-components';
 
 const fadeIn = keyframes`
@@ -164,7 +163,7 @@ export const useBuilderLogic = () => {
   const [scale, setScale] = useState(1);
   const { id } = useParams();
   const [resume, setResume] = useState(null);
-  const [template, setTemplate] = useState('1'); // define template as a state variable
+  const [template, setTemplate] = useState(1); // define template as a state variable
 
   const [analysisData, setAnalysisData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -326,12 +325,28 @@ export const useBuilderLogic = () => {
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
 
-    pageStyle:
-      "body { transform-origin: top left; margin: auto; transform: scale(1); -webkit-print-color-adjust: exact !important;  color-adjust: exact !important; print-color-adjust: exact !important; }",
+    pageStyle: `
+        @page {
+            size: auto;
+            margin: 0;
+        }
+
+        body { 
+            transform-origin: top left; 
+            margin: 0; 
+            transform: scale(1); 
+            -webkit-print-color-adjust: exact !important;  
+            color-adjust: exact !important; 
+            print-color-adjust: exact !important; 
+            width: 100%;  /* Set width to 100% */
+            height: 100%; /* Set height to 100% */
+        }
+    `,
 
     documentTitle: cv.name,
     onAfterPrint: () => console.log("printed"),
   });
+
 
   const ifScaleUpOrDown = () => {
     if (scale > 1 || scale < 1) {
@@ -344,19 +359,6 @@ export const useBuilderLogic = () => {
 
   const selectTemplate = (newTemplate) => {
     setTemplate(newTemplate);
-  };
-
-  const templateSwitch = () => {
-    switch (template) {
-      case "1":
-        return <CV />;
-      case "2":
-        return <CV />;
-      case "3":
-        return <CV />;
-      default:
-        return <CV />;
-    }
   };
 
   function cvToString(cv) {
@@ -433,7 +435,6 @@ export const useBuilderLogic = () => {
     scaleUp,
     scaleDown,
     ifScaleUpOrDown,
-    templateSwitch,
     template,
     setTemplate,
     handlePrint,

@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Box, Container, Typography, Card, CardActions, CardContent, Button, IconButton } from '@mui/material';
+import { Box, Typography, Card, CardActions, CardContent, Button, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ShareIcon from '@mui/icons-material/Share';
 import { fetchResumes, deleteResume } from '../../services/api';
 import ResumeForm from '../ResumeForm';
 import './ResumeDashboard.css';
 
-export const ResumeDashboard = ( userId ) => {
+import Navbar from '../Homepage Components/Navbar/Navbar';
+import Footer from '../Homepage Components/Footer/Footer';
+
+export const ResumeDashboard = ({ userId, setUserId, userName, setUserName, setResumeId} ) => {
   const [resumes, setResumes] = useState([]);
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (userId.userId !== null && userId.userId !== "") {
-      console.log("Fetching resumes for user:", userId.userId);
-      fetchResumes(userId.userId)
+    if (userId !== null && userId !== "") {
+      console.log("Fetching resumes for user:", userId);
+      fetchResumes(userId)
         .then(setResumes)
         .catch((error) => {
           console.error("Error fetching resumes:", error);
@@ -24,7 +27,7 @@ export const ResumeDashboard = ( userId ) => {
     } else {
       setError("You need to create an account to view this page.");
     }
-  }, [userId]);
+  }, [userId]);  
 
   const handleDelete = (id) => {
     deleteResume(id).then(() => {
@@ -60,6 +63,7 @@ export const ResumeDashboard = ( userId ) => {
 
   return (
     <div>
+      <Navbar userId={userId} setUserId={setUserId} userName={userName} setUserName={setUserName}/>
       <ResumeForm userId={userId}/>
       <div className="cards-wrapper">
         {resumes.map((resume) => (
@@ -70,7 +74,7 @@ export const ResumeDashboard = ( userId ) => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small" component={Link} to={`/builder/${resume.id}`} className="action-button">Open</Button>
+              <Button size="small" component={Link} to={`/builder/${resume.id}`} onClick={() => setResumeId(resume.id)} className="action-button">Open</Button>
               <IconButton size="small" color="primary" onClick={() => handleShare(resume.id)} className="action-button">
                 <ShareIcon />
               </IconButton>
@@ -81,6 +85,7 @@ export const ResumeDashboard = ( userId ) => {
           </Card>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }

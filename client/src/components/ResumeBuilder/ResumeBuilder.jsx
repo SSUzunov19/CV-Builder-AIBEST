@@ -7,6 +7,7 @@ import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import StyledContainer from './StyledContainer';
 import { LoadingScreen } from '../LoadingScreen';
+import CV from '../CV';
 
 import { useNavigate } from 'react-router-dom';
 import { useBuilderLogic, Modal } from '../../services/BuilderLogic';
@@ -14,24 +15,24 @@ import { updateResumeTemplate } from '../../services/api';
 
 const theme = createTheme({
     palette: {
-        background: {
-            default: '#edf0ee',
+        secondary: {
+            main: 'rgba(255,255,255,1)',
         },
+        tertiary: {
+            main: 'rgba(51,140,201,0.4289915795419731)',
+        }
     },
 });
 
-export default function Home({ userId, template, setTemplate }) {
+export default function Home({ userId, templateId, resumeId }) {
 
     const navigate = useNavigate();
-
     const cvRef = useRef(null);
 
-    const id = "5cf8271d-c904-4eb2-9fe8-092587dca8bd"; // get this from somewhere
-
     useEffect(() => {
-        if (template) { // if template is not null or undefined
-            console.log('Updating resume template:', template);
-            updateResumeTemplate(id, template)
+        if (templateId) { // if template is not null or undefined
+            console.log('Updating resume template:', templateId);
+            updateResumeTemplate(resumeId, templateId)
                 .then(updatedResume => {
                     console.log('Updated resume:', updatedResume);
                 })
@@ -39,7 +40,7 @@ export default function Home({ userId, template, setTemplate }) {
                     console.error('Error updating resume template:', error);
                 });
         }
-    }, [template]); // this effect runs every time 'template' changes
+    }, [templateId]); // this effect runs every time 'template' changes
 
     useEffect(() => {
         const handleScroll = () => {
@@ -56,6 +57,33 @@ export default function Home({ userId, template, setTemplate }) {
         };
     }, []);
 
+    const templateSwitch = () => {
+        console.log(templateId);
+        switch (templateId) {
+            case 1:
+                return <CV color={"rgba(0, 0, 0, 0)"} />;  // white
+            case 2:
+                return <CV color={"rgba(0, 0, 255, 0.5)"} />;  // half transparent blue
+            case 3:
+                return <CV color={"rgba(0, 255, 0, 0.5)"} />;  // half transparent green
+            case 4:
+                return <CV color={"rgba(255, 255, 0, 0.5)"} />;  // half transparent yellow
+            case 5:
+                return <CV color={"rgba(128, 0, 128, 0.5)"} />;  // half transparent purple
+            case 6:
+                return <CV color={"rgba(255, 165, 0, 0.5)"} />;  // half transparent orange
+            case 7:
+                return <CV color={"rgba(0, 128, 128, 0.5)"} />;  // half transparent teal
+            case 8:
+                return <CV color={"rgba(128, 0, 0, 0.5)"} />;  // half transparent maroon
+            case 9:
+                return <CV color={"rgba(0, 128, 0, 0.5)"} />;  // half transparent dark green
+            default:
+                return <CV color={"rgba(0, 0, 0, 0)"} />;  // half transparent red as a default
+        }
+    };
+    
+
     const {
         cv,
         resume,
@@ -71,7 +99,6 @@ export default function Home({ userId, template, setTemplate }) {
         scaleUp,
         scaleDown,
         ifScaleUpOrDown,
-        templateSwitch,
         handlePrint,
         scale,
         componentRef,
@@ -117,13 +144,12 @@ export default function Home({ userId, template, setTemplate }) {
                     scaleDown,
                     ifScaleUpOrDown,
                     addEducation,
-                    templateSwitch,
                     analyseTheResume,
                     analysisData,
                     isModalOpen,
                     setIsModalOpen,
                     loading,
-                    setLoading
+                    setLoading,
                 }}
             >
                 {loading && <LoadingScreen />}
@@ -136,6 +162,9 @@ export default function Home({ userId, template, setTemplate }) {
                         height="100vh"
                         padding="4rem 2rem"
                         position="relative"
+                        sx={{
+                            background: `linear-gradient(90deg, ${theme.palette.secondary.main} 0%, ${theme.palette.tertiary.main} 45%)`
+                        }}
                     >
                         <Box display="flex" justifyContent="center" width="50%" height="100%">
                             <Box component="section" className="settings">
