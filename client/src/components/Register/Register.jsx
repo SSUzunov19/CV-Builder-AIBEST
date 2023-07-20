@@ -159,7 +159,6 @@ export const Register = ({ props, setUserId, setUserName }) => {
             id="name"
             placeholder="Username"
           />{" "}
-          <br /> <br />
 
           <input
             className="Emailinput"
@@ -170,7 +169,6 @@ export const Register = ({ props, setUserId, setUserName }) => {
             id="email"
             name="email"
           />{" "}
-          <br /> <br />
           <input
             className="Passwordinput"
             value={pass}
@@ -180,11 +178,9 @@ export const Register = ({ props, setUserId, setUserName }) => {
             id="password"
             name="password"
           />{" "}
-          <br /> <br />
           <button className="title-btn" type="submit">
             Create Account
           </button>{" "}
-          <br /> <br />
           <p id="register-subtext">
             {" "}
             Already have an account? Click here to{" "}

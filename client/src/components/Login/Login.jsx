@@ -76,7 +76,6 @@ export const Login = ({ props, setUserId, setUserName }) => {
             id="email"
             name="email"
           />{" "}
-          <br /> <br />
           <input
             value={pass}
             onChange={(e) => setPass(e.target.value)}
@@ -86,7 +85,6 @@ export const Login = ({ props, setUserId, setUserName }) => {
             id="password"
             name="password"
           />{" "}
-          <br /> <br />
           <div className="bth-container">
             <button className="title-btn" type="submit">
               Log In
@@ -95,7 +93,6 @@ export const Login = ({ props, setUserId, setUserName }) => {
               Forgot Password
             </button>{" "}
           </div>
-          <br /> <br />
           <p>
             {" "}
             Don't have an account? Click here to{" "}
