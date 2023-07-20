@@ -7,7 +7,7 @@ router.get('/:id', resumesController.getResumeById);
 router.post('/', resumesController.createResume);
 router.put('/:id', resumesController.updateResume);
 router.put('/:id/template', resumesController.updateTemplate);
-router.get('/:id/template', resumesController.getTemplateIdByResumeId);
+router.get('/:id/template', resumesController.fetchTemplateofResume);
 router.delete('/:id', resumesController.deleteResume);
 
 module.exports = router;

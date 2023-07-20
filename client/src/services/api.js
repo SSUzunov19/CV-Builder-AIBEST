@@ -192,8 +192,8 @@ export const saveResumeData = async (resumeId, aboutData/*, skillsData, projects
 export const fetchTemplateofResume = (resumeId) => {
   return api.get(`/api/resumes/${resumeId}/template`)
     .then((res) => {
-      console.log('Received templateId in api.js fetchTemplateofResume: ', res.data);
-      return res.data;
+      console.log('Received templateId in api.js fetchTemplateofResume: ', res.data.templateId);
+      return res.data.templateId; // return the id directly, not the object
     })
     .catch((error) => {
       console.error('Error fetching template of resume:', error);

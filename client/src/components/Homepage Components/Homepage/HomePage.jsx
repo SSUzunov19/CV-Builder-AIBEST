@@ -9,7 +9,9 @@ import Summary from "../Summary/Summary";
 import Footer from "../Footer/Footer";
 import "./Homepage.css";
 
-const HomePage = ({userId, setUserId, userName, setUserName}) => {
+const HomePage = ({userId, setUserId, userName, setUserName, setTemplateId}) => {
+  setTemplateId(null)
+
   return (
     <Layout>
 

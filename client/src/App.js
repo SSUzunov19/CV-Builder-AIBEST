@@ -25,7 +25,7 @@ function App() {
   const [userId, setUserId] = useState(localStorage.getItem('userId') || null);
   const [userName, setUserName] =  useState(localStorage.getItem('userName') || null);
   const [resumeId, setResumeId] = useState("");
-  const [templateId, setTemplateId] = useState(1);
+  const [templateId, setTemplateId] = useState(null);
   const [premiumAccount, setPremiumAccount] = useState(false);
 
   console.log('premiumAccount:', premiumAccount);
@@ -41,19 +41,18 @@ function App() {
     }
   }, [userId]);
 
-  console.log('App.js userId:', userId);
-  console.log('App.js userName:', userName);
+  console.log('App.js templateId:', templateId);
 
   return (
     <Router>
       <ThemeProvider theme={theme}>
         <div className="App">
           <Routes>
-            <Route path="/" element={<Home userId={userId} setUserId={setUserId} userName={userName} setUserName={setUserName}/>} />
+            <Route path="/" element={<Home userId={userId} setUserId={setUserId} userName={userName} setUserName={setUserName} setTemplateId={setTemplateId}/>} />
             <Route path="/login" element={<Login setUserId={setUserId} setUserName={setUserName}/>} />
             <Route path="/register" element={<Register setUserId={setUserId} setUserName={setUserName}/>} />
             <Route path="/settings" element={<Settings userId={userId} userName={userName} setUserName={setUserName} premiumAccount={premiumAccount} setPremiumAccount={setPremiumAccount}/>} />
-            <Route path="/dashboard" element={<Dashboard userId={userId} setUserId={setUserId} userName={userName} setUserName={setUserName} setResumeId={setResumeId}/>} />
+            <Route path="/dashboard" element={<Dashboard userId={userId} setUserId={setUserId} userName={userName} setUserName={setUserName} setResumeId={setResumeId} setTemplateId={setTemplateId}/>} />
             <Route path="/builder/:id" element={<ResumeBuilder userId={userId} templateId={templateId} setTemplateId={setTemplateId} resumeId={resumeId} premiumAccount={premiumAccount} />} />
             <Route path="/builder/:id/template" element={<TemplateSwitcher userId={userId} setTemplateId={setTemplateId}/>} />
           </Routes>

@@ -11,24 +11,43 @@ import './s.css';
 
 import { useNavigate } from 'react-router-dom';
 import { useBuilderLogic, Modal } from '../../services/BuilderLogic';
-import { updateResumeTemplate, saveResumeData } from '../../services/api';
+import { updateResumeTemplate, saveResumeData, fetchTemplateofResume } from '../../services/api';
 
-export default function Home({ userId, templateId, resumeId, premiumAccount}) {
+export default function Home({ userId, templateId, setTemplateId, resumeId, premiumAccount }) {
 
     const navigate = useNavigate();
     const cvRef = useRef(null);
+    const [templateForThePage, setTemplateForThePage] = React.useState(1);
+
+    console.log("templateForThePage", templateForThePage);
 
     useEffect(() => {
         if (templateId) { // if template is not null or undefined
+            console.log("AAAAAAAAAAAAAAAAAAAAAAAAA");
             updateResumeTemplate(resumeId, templateId)
                 .then(updatedResume => {
-
+                    
                 })
                 .catch(error => {
                     console.error('Error updating resume template:', error);
                 });
+        } else {
+            console.log("BEEEEEEEEEEEEEEEEEE");
+            // if template is null or undefined, call the api to get the template id
+            // and then set the templateId
+            console.log("resumeIdblq: ", resumeId)
+            fetchTemplateofResume(resumeId)
+                .then(fetchedTemplateId => {
+                    console.log('Fetched templateIdblq: ', fetchedTemplateId);
+                    setTemplateForThePage(fetchedTemplateId); // here fetchedTemplateId is just a string, not an object
+                })
+                .catch(error => {
+                    console.error('Error fetching template id:', error);
+                });
+
         }
-    }, [templateId]); // this effect runs every time 'template' changes
+    }, [templateId, userId]); // 'userId' is also a dependency now
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -48,36 +67,38 @@ export default function Home({ userId, templateId, resumeId, premiumAccount}) {
     useEffect(() => {
         // Add the unique class to the body
         document.body.classList.add('unique-body-class');
-    
+
         // Clean up function
         return () => {
             document.body.classList.remove('unique-body-class');
         };
     }, []);  // Empty array ensures this runs on mount and unmount
-    
+
 
     const templateSwitch = () => {
-        switch (templateId) {
-            case 1:
+        console.log("templateForThePagetemplateSwitch", typeof templateForThePage)
+        switch (templateForThePage) {
+            case '1':
                 return <CV color={"rgba(0, 0, 0, 0)"} gradientColor={"rgba(0, 0, 0, 0)"} />;  // white
-            case 2:
+            case '2':
                 return <CV color={"rgba(173, 216, 230, 0.2)"} gradientColor={"rgba(135, 206, 250, 0.3)"} />; // light blue to sky blue
-            case 3:
+            case '3':
                 return <CV color={"rgba(144, 238, 144, 0.2)"} gradientColor={"rgba(60, 179, 113, 0.3)"} />; // light green to medium sea green
-            case 4:
+            case '4':
                 return <CV color={"rgba(255, 255, 224, 0.2)"} gradientColor={"rgba(255, 250, 205, 0.3)"} />; // light yellow to lemon chiffon
-            case 5:
+            case '5':
                 return <CV color={"rgba(219, 112, 219, 0.2)"} gradientColor={"rgba(238, 130, 238, 0.3)"} />; // orchid to violet
-            case 6:
+            case '6':
                 return <CV color={"rgba(255, 192, 203, 0.2)"} gradientColor={"rgba(255, 105, 180, 0.3)"} />; // pink to hot pink
-            case 7:
+            case '7':
                 return <CV color={"rgba(176, 224, 230, 0.2)"} gradientColor={"rgba(70, 130, 180, 0.3)"} />; // powder blue to steel blue
-            case 8:
+            case '8':
                 return <CV color={"rgba(233, 150, 122, 0.2)"} gradientColor={"rgba(255, 99, 71, 0.3)"} />; // dark salmon to tomato
-            case 9:
+            case '9':
                 return <CV color={"rgba(173, 255, 47, 0.2)"} gradientColor={"rgba(50, 205, 50, 0.3)"} />; // green-yellow to lime green
             default:
-                return <CV color={"rgba(220, 220, 220, 0.1)"} gradientColor={"rgba(255, 255, 255, 0.2)"} />; // light gray to white
+                console.log("default");
+                return <CV color={"rgba(0, 0, 0, 0)"} gradientColor={"rgba(0, 0, 0, 0)"} />; // light gray to white
         }
     };
 
@@ -218,7 +239,7 @@ export default function Home({ userId, templateId, resumeId, premiumAccount}) {
                         </Box>
 
 
-                        <PageButtons onPrint={handlePrint} premiumAccount={premiumAccount}/>
+                        <PageButtons onPrint={handlePrint} premiumAccount={premiumAccount} />
 
                         <button
                             className="back-button"

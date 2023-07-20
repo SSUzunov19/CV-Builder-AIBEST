@@ -172,7 +172,7 @@ export const useBuilderLogic = () => {
   const [scale, setScale] = useState(1);
   const { id } = useParams();
   const [resume, setResume] = useState(null);
-  const [template, setTemplate] = useState(1); // define template as a state variable
+  const [template, setTemplate] = useState(5); // define template as a state variable
 
   const [analysisData, setAnalysisData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Box, Typography, Card, CardActions, CardContent, Button, IconButton, SvgIcon } from '@mui/material';
-import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ShareIcon from '@mui/icons-material/Share';
 import { fetchResumes, deleteResume } from '../../services/api';
@@ -21,10 +20,12 @@ import template7 from '../../images/templates/templatee7.png';
 import template8 from '../../images/templates/templatee8.png';
 import template9 from '../../images/templates/templatee9.png';
 
-export const ResumeDashboard = ({ userId, setUserId, userName, setUserName, setResumeId }) => {
+export const ResumeDashboard = ({ userId, setUserId, userName, setUserName, setResumeId, setTemplateId }) => {
   const [resumes, setResumes] = useState([]);
   const [error, setError] = useState(null);
-  const [templateId, setTemplateId] = useState(1);
+  const [templateId, setTemplateId2] = useState([]);
+
+  setTemplateId(null)
 
   const navigate = useNavigate();
 
@@ -46,7 +47,7 @@ export const ResumeDashboard = ({ userId, setUserId, userName, setUserName, setR
       fetchResumes(userId)
         .then((resumes) => {
           setResumes(resumes);
-          resumes.forEach(resume => setTemplateId(resume.template_id));
+          resumes.forEach(resume => setTemplateId2(resume.template_id));
         })
         .catch((error) => {
           console.error("Error fetching resumes:", error);
@@ -55,9 +56,6 @@ export const ResumeDashboard = ({ userId, setUserId, userName, setUserName, setR
       setError("You need to create an account to view this page.");
     }
   }, [userId]);
-
-  console.log("templateId", templateId);
-  console.log("AAAAAAAAAAAA", resumes);
 
   const handleDelete = (id) => {
     deleteResume(id).then(() => {
@@ -101,7 +99,7 @@ export const ResumeDashboard = ({ userId, setUserId, userName, setUserName, setR
 
             <div
               className='card-image'
-              style={{ backgroundImage: `url(${templates[templateId]})` }}
+              style={{ backgroundImage: `url(${templates[resume.template_id]})` }}
             >
             </div>
 

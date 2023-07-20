@@ -42,8 +42,9 @@ exports.updateTemplate = async (req, res) => {
   }
 };
 
-exports.getTemplateIdByResumeId = async (req, res) => {
+exports.fetchTemplateofResume = async (req, res) => {
   try {
+    console.log('Received req.body in controller', req.body);
     const resume = await Resume.findByPk(req.params.id);
     if (!resume) {
       return res.status(404).json({ error: 'Resume not found' });
