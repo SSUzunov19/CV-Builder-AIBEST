@@ -3,6 +3,8 @@
     min-height: 60px;
     max-height: 60px;
     display: flex;
+    position: relative;
+    bottom: 0;
     justify-content: center;
     align-content: center;
 }
@@ -32,8 +34,4 @@
     .footer-container{
         width: 85%;
     }
-
 }
-
-
-

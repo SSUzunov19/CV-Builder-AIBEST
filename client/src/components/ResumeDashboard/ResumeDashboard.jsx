@@ -20,6 +20,7 @@ import template6 from '../../images/templates/templatee6.png';
 import template7 from '../../images/templates/templatee7.png';
 import template8 from '../../images/templates/templatee8.png';
 import template9 from '../../images/templates/templatee9.png';
+import { fontSize } from '@mui/system';
 
 export const ResumeDashboard = ({ userId, setUserId, userName, setUserName, setResumeId }) => {
   const [resumes, setResumes] = useState([]);
@@ -122,7 +123,19 @@ export const ResumeDashboard = ({ userId, setUserId, userName, setUserName, setR
 
             </div>
 
-            <IconButton size="small" component={Link} to={`/builder/${resume.id}`} onClick={() => setResumeId(resume.id)} className="open-button">
+            <IconButton
+              className="open-button"
+              size="small"
+              component={Link}
+              to={`/builder/${resume.id}`}
+              onClick={() => setResumeId(resume.id)}
+              style={{
+                borderRadius: "30px",
+                background: "linear-gradient(90deg, #4773E3 0%, #87A0DF 100%)",
+                color: "white",
+                fontSize: "30x"
+              }}
+            >
               Open
             </IconButton>
           </div>
