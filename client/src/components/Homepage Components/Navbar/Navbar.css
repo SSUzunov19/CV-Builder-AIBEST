@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-.navbar-wrapper{
+.navbar-wrapper {
     width: 100%;
     height: 60px;
     display: flex;
@@ -8,7 +8,7 @@
     align-content: center;
 }
 
-.nav-bar{
+.nav-bar {
     height: 60px;
     width: 70vw;
     display: flex;
@@ -18,23 +18,23 @@
     align-items: center;
 }
 
-.logo{
+.logo {
     font-size: 1.1em;
     font-weight: 700;
     margin-left: 0.5rem;
 }
 
-.logo > a{
+.logo>a {
     text-decoration: none;
     color: black;
 }
-  
-.account-btns{
-    display:flex;
+
+.account-btns {
+    display: flex;
     flex-direction: row;
 }
 
-.nav-btn{
+.nav-btn {
     padding: 8px 10px;
     border: none;
     border-radius: 5px;
@@ -52,6 +52,16 @@
     font-weight: 500;
 }
 
-.nav-btn:hover{
+.nav-btn:hover {
     scale: 1.1;
+}
+
+.nav-bar .greeting {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-right: 10px;
+    color: #333;
+    font-size: 1.2em;
 }

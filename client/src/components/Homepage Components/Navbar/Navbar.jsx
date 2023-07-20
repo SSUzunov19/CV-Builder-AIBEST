@@ -37,7 +37,7 @@ export default function Navbar({ userId, setUserId, userName, setUserName }) {
         <div className="account-btns">
           {userId != "null" && userId != null ? (
             <>
-              <span>Hello, {userName}</span>
+              <span className="greeting">Hello, {userName}</span>
               <button className="nav-btn" onClick={() => navigate('/dashboard')}>Dashboard</button>
               <button className="nav-btn" onClick={handleSettings}>Settings</button>
               <button className="nav-btn" onClick={handleLogout}>Logout</button>
