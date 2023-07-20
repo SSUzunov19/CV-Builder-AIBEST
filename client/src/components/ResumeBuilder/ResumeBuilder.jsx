@@ -11,7 +11,7 @@ import CV from '../CV';
 
 import { useNavigate } from 'react-router-dom';
 import { useBuilderLogic, Modal } from '../../services/BuilderLogic';
-import { updateResumeTemplate } from '../../services/api';
+import { updateResumeTemplate, saveResumeData } from '../../services/api';
 
 const theme = createTheme({
     palette: {
@@ -117,6 +117,25 @@ export default function Home({ userId, templateId, resumeId }) {
         navigate('/');
     };
 
+    const handleSave = () => {
+        // Get all the necessary data from your resume variable (or cv variable)
+        const aboutData = resume.about;
+        const skillsData = resume.skills;
+        const projectsData = resume.projects;
+        const educationData = resume.education;
+        const experiencesData = resume.experiences;
+    
+        // Call the saveResumeData function
+        saveResumeData(resumeId, aboutData, skillsData, projectsData, educationData, experiencesData)
+            .then(response => {
+                console.log('Successfully saved resume:', response);
+            })
+            .catch(error => {
+                console.error('Error saving resume:', error);
+            });
+    };
+    
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -191,8 +210,8 @@ export default function Home({ userId, templateId, resumeId }) {
                                 top: '1rem',
                                 left: '1rem',
                                 padding: '1rem',
-                                width: '100px',
-                                height: '50px',
+                                width: '80px',
+                                height: '40px',
                                 background: '#1976d2',
                                 color: '#ffffff',
                                 border: 'none',
@@ -205,6 +224,30 @@ export default function Home({ userId, templateId, resumeId }) {
                             }}
                         >
                             Back
+                        </button>
+
+                        <button
+                            className="save-button"
+                            onClick={handleSave}
+                            style={{
+                                position: 'absolute',
+                                top: '1rem',
+                                right: '1rem',
+                                padding: '1rem',
+                                width: '80px',
+                                height: '40px',
+                                background: '#1976d2',
+                                color: '#ffffff',
+                                border: 'none',
+                                borderRadius: '4px',
+                                cursor: 'pointer',
+                                fontSize: '18px',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}
+                        >
+                            Save
                         </button>
                     </Box>
                 ) : (

@@ -11,6 +11,12 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var resumesRouter = require('./routes/resumes');
+var aboutRouter = require('./routes/about');
+var educationRouter = require('./routes/education');
+var experienceRouter = require('./routes/experience');
+var skillsRouter = require('./routes/skills');
+var projectsRouter = require('./routes/projects');
+
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
