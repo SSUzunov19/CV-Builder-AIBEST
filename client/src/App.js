@@ -32,6 +32,12 @@ function App() {
     localStorage.setItem('userName', userName);
   }, [userId], [userName]);
 
+  useEffect(() => {
+    if(userId === null) {
+      setTemplateId(1);
+    }
+  }, [userId]);
+
   console.log('App.js userId:', userId);
   console.log('App.js userName:', userName);
 
