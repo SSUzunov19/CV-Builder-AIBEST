@@ -38,6 +38,7 @@ body{
     border-radius: 40px;
     margin-top: 14px;
     margin-bottom: 14px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card-title {
