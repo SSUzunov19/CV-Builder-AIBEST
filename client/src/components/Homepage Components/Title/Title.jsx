@@ -1,8 +1,11 @@
 import React from "react"
 import { motion } from "framer-motion"
+import { useNavigate } from 'react-router-dom';
 import "./Title.css"
 
-export default function Title() {
+export default function Title({userId}) {
+    const navigate = useNavigate();
+
     const heroTextAnimate = {
         hidden: {
             scale: 0.8,
@@ -29,7 +32,12 @@ export default function Title() {
                     Build <span className="gradient-text">Professional Resume</span> Fast And Stress Free
                 </motion.p>
             </div>
-            <button className="title-btn">Get Started Now</button>
+            {userId != "null" && userId != null ? (
+                <button className="title-btn" onClick={() => navigate('/dashboard')}>Get Started Now</button>
+            ) : (
+                <button className="title-btn" onClick={() => navigate('/register')}>Get Started Now</button>
+            )}
+
         </div>
     );
 }

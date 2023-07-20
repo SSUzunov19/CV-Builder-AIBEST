@@ -27,6 +27,7 @@
 .logo>a {
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 .account-btns {

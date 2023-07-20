@@ -17,15 +17,15 @@ const HomePage = ({userId, setUserId, userName, setUserName, setTemplateId}) => 
 
       <Navbar userId={userId} setUserId={setUserId} userName={userName} setUserName={setUserName}/>
 
-      <Title />
+      <Title userId={userId}/>
 
       <Features/>
 
       <ProductPreview/>
 
-      <ProductDetails />
+      <ProductDetails userId={userId}/>
 
-      <Summary />
+      <Summary userId={userId}/>
 
       <Footer/>
     </Layout>

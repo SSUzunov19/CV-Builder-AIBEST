@@ -38,7 +38,7 @@
     width: 90%;
 }
 
-.title-btn {
+.details-btn {
     display: block;
     background: #1d87d5;
     border: none;
@@ -53,7 +53,7 @@
     font-family: Catamaran, sans-serif;
 }
 
-.title-btn:hover {
+.details-btn:hover {
     cursor: pointer;
     scale: 1.2;
 }
