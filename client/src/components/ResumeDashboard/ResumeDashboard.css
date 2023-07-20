@@ -1,33 +1,53 @@
 .cards-wrapper {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    width: 80%;
-    padding: 20px 0px;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .card-container {
-    margin: 20px;
-    width: 470px;
-    height: 462px;
+    width: 30%;
+    height: 300px;
+    margin: 10px;
     border-radius: 40px;
-    flex-basis: calc(33% - 40px);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: all .2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    font-family: Catamaran;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 .card-image {
-    width: 94%;
-    height: 57%;
-    border-radius: 40px;
-    margin: 14px;
+    width: 100%;
+    height: 50%;
+    background-color: #000;
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    background-size: cover; 
-    background-position: center;
+    align-items: center;
+    overflow: hidden;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
 }
 
 .card-title {
@@ -40,28 +60,64 @@
 }
 
 .action-btn-container {
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    margin: 14px 14px 7px 14px;
-    height: 13%;
+    margin-bottom: 10px;
 }
 
 .action-button {
-    margin-right: 10px;
+    background-color: #4773E3; /* Button color */
+    color: white; /* Text color */
+    border-radius: 15px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 10px; /* Space between buttons */
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .open-button {
-    margin: 14px;
-    width: 94%;
-    height: 16%;
-    border-radius: 40px;
-    background: linear-gradient(90deg, #4773E3 0%, #87A0DF 100%);
-    color: #FFF;
+    background-color: #4773E3; /* Button color */
+    color: white; /* Text color */
+    border-radius: 15px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 10px; /* Space between buttons */
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
     text-align: center;
+    text-decoration: none;
     font-family: Catamaran;
-    font-size: 30px;
-    font-weight: 400;
-    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.open-button:hover {
+    background-color: #3b6bb3;
+    transition: all .2s ease-in-out;
+}
+
+.card-container:hover {
+    transform: scale(1.05);
+    transition: all .2s ease-in-out;
 }
