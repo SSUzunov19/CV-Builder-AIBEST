@@ -10,6 +10,7 @@ import { LoadingScreen } from '../LoadingScreen';
 
 import { useNavigate } from 'react-router-dom';
 import { useBuilderLogic, Modal } from '../../services/BuilderLogic';
+import { updateResumeTemplate } from '../../services/api';
 
 const theme = createTheme({
     palette: {
@@ -19,10 +20,26 @@ const theme = createTheme({
     },
 });
 
-export default function Home({ userId }) {
+export default function Home({ userId, template, setTemplate }) {
+
     const navigate = useNavigate();
 
     const cvRef = useRef(null);
+
+    const id = "5cf8271d-c904-4eb2-9fe8-092587dca8bd"; // get this from somewhere
+
+    useEffect(() => {
+        if (template) { // if template is not null or undefined
+            console.log('Updating resume template:', template);
+            updateResumeTemplate(id, template)
+                .then(updatedResume => {
+                    console.log('Updated resume:', updatedResume);
+                })
+                .catch(error => {
+                    console.error('Error updating resume template:', error);
+                });
+        }
+    }, [template]); // this effect runs every time 'template' changes
 
     useEffect(() => {
         const handleScroll = () => {
@@ -63,7 +80,7 @@ export default function Home({ userId }) {
         isModalOpen,
         setIsModalOpen,
         loading,
-        setLoading
+        setLoading,
     } = useBuilderLogic();
 
     const handleBack = () => {
@@ -111,7 +128,7 @@ export default function Home({ userId }) {
             >
                 {loading && <LoadingScreen />}
 
-                {userId != "null" && userId != null ? (
+                {userId !== "null" && userId !== null ? (
                     <Box
                         display="flex"
                         justifyContent="space-between"

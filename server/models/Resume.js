@@ -12,8 +12,7 @@ const Resume = sequelize.define('Resume', {
     allowNull: true,
   },
   template_id: {
-    type: DataTypes.UUID,
-    allowNull: true,
+    type: DataTypes.STRING,
   },
   title: {
     type: DataTypes.STRING,

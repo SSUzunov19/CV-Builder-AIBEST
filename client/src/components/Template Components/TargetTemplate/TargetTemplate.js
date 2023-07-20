@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import backButton from "../../../images/buttons/back.svg"
 import confirmButton from "../../../images/buttons/confirm.svg"
-import { CvContext } from "../../../hooks/CvContext";
 import { useNavigate } from "react-router-dom";
 import "./TargetTemplate.css"
 
-export default function TargetTemplate({ selectedTemplate, id }) {
+export default function TargetTemplate({ selectedTemplate, id, setTemplate }) {
     
     const navigate = useNavigate();
 
@@ -15,6 +14,7 @@ export default function TargetTemplate({ selectedTemplate, id }) {
 
     const handleConfirmClick = () => {
         navigate(`/builder/${id}`);
+        setTemplate(selectedTemplate);
     };
 
     const handleBackClick = () => {

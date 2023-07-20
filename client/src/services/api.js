@@ -166,6 +166,19 @@ export const updateResume = (id, updatedResume) => {
   return api.put(`/api/resumes/${id}`, updatedResume);
 }
 
+export const updateResumeTemplate = (resumeId, templateId) => {
+  return api.put(`/api/resumes/${resumeId}/template`, { templateId: templateId })
+  .then((res) => {
+    console.log('Resume template updated in api.js', res.data);
+    return res.data;
+  })
+  .catch((error) => {
+    console.error('Error updating resume template:', error);
+    throw error;
+  });
+};
+
+
 export const deleteResume = (id) => {
   return api.delete(`/api/resumes/${id}`);
 }

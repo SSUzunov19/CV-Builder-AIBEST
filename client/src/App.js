@@ -24,6 +24,7 @@ const theme = createTheme({
 function App() {
   const [userId, setUserId] = useState(localStorage.getItem('userId') || null);
   const [userName, setUserName] =  useState(localStorage.getItem('userName') || null);
+  const [template, setTemplate] = useState(1);
 
   useEffect(() => {
     localStorage.setItem('userId', userId);
@@ -43,8 +44,8 @@ function App() {
             <Route path="/register" element={<Register setUserId={setUserId} setUserName={setUserName}/>} />
             <Route path="/settings" element={<Settings userId={userId} userName={userName} setUserName={setUserName}/>} />
             <Route path="/dashboard" element={<Dashboard userId={userId} />} />
-            <Route path="/builder/:id" element={<ResumeBuilder userId={userId} />} />
-            <Route path="/builder/:id/template" element={<TemplateSwitcher userId={userId} />} />
+            <Route path="/builder/:id" element={<ResumeBuilder userId={userId} template={template} setTemplate={setTemplate} />} />
+            <Route path="/builder/:id/template" element={<TemplateSwitcher userId={userId} setTemplate={setTemplate}/>} />
           </Routes>
         </div>
       </ThemeProvider>

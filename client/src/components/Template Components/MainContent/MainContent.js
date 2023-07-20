@@ -6,24 +6,16 @@ import SearchBar from "../SearchBar/SearchBar";
 import TargetTemplate from "../TargetTemplate/TargetTemplate"
 import "./MainContent.css"
 import "../../../images/searchIcon.svg"
-import { getResumeById } from '../../../services/api';
 
-export default function MainContent() {
+export default function MainContent({setTemplate}) {
     const [selectedTemplate, setSelectedTemplate] = useState(1);
     const [tData, setTData] = useState(templateData);
     const [selectedTags, setSelectedTags] = useState([]);
     const { id } = useParams();
-    const [resume, setResume] = useState(null);
-    
-    useEffect(() => {
-        getResumeById(id).then((response) => {
-            setResume(response);
-        });
-    }, [id]);
 
     return (
         <div className="main-content">
-            <TargetTemplate selectedTemplate={selectedTemplate} id={id} />
+            <TargetTemplate selectedTemplate={selectedTemplate} id={id} setTemplate={setTemplate}/>
             <div className="search-segment" style={{ position: "relative" }}>
                 <SearchBar
                     tData={tData}
