@@ -4,7 +4,7 @@ import "./TemplateLibrary.css"
 
 export default function TemplateLibrary({ tData, setSelectedTemplate, selectedTags}) {
   function getImageFilePath(str) {
-    return require(`../../../images/templates/template${str}.png`);
+    return require(`../../../images/templates/templatee${str}.png`);
   }
 
   function handleImageClick(index) {
@@ -25,7 +25,7 @@ export default function TemplateLibrary({ tData, setSelectedTemplate, selectedTa
               >
                 <img
                   src={getImageFilePath(data.number.toString())}
-                  alt={"template" + data.number.toString()}
+                  alt={"templatee" + data.number.toString()}
                   className="template-image"
                   onClick={() => handleImageClick(index)}
                 />
