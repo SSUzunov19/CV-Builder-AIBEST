@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { useBuilderLogic, Modal } from '../../services/BuilderLogic';
 import { updateResumeTemplate, saveResumeData } from '../../services/api';
 
-export default function Home({ userId, templateId, resumeId }) {
+export default function Home({ userId, templateId, resumeId, premiumAccount}) {
 
     const navigate = useNavigate();
     const cvRef = useRef(null);
@@ -218,7 +218,7 @@ export default function Home({ userId, templateId, resumeId }) {
                         </Box>
 
 
-                        <PageButtons onPrint={handlePrint} />
+                        <PageButtons onPrint={handlePrint} premiumAccount={premiumAccount}/>
 
                         <button
                             className="back-button"

@@ -1,14 +1,27 @@
 import React, { useState } from 'react';
 import { changeUsername, changeEmail, changePassword, deleteUser } from '../../../services/api';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText } from '@mui/material';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import './Settings.css';
 
-export default function Settings({ userId, userName, setUserName}) {
+export default function Settings({ userId, userName, setUserName, premiumAccount, setPremiumAccount }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+
+  const [openPaymentModal, setOpenPaymentModal] = useState(false);
+
+  const handlePremium = (e) => {
+    e.preventDefault();
+
+    // Simulate the payment process
+    setTimeout(() => {
+      console.log('Payment successful');
+      setOpenPaymentModal(false);
+      setPremiumAccount(true);
+    }, 1000);
+  };
 
   const handleChangeUsername = (e) => {
     e.preventDefault();
@@ -20,7 +33,7 @@ export default function Settings({ userId, userName, setUserName}) {
       .catch((error) => {
         console.error('Error changing Username:', error);
       });
-    
+
     setUserName(username);
   };
 
@@ -64,6 +77,37 @@ export default function Settings({ userId, userName, setUserName}) {
     <>
       <Navbar userId={userId} userName={userName}></Navbar>
       <div className="settings-container">
+        {!premiumAccount && (
+          <div>
+            <Button variant="contained" color="primary" onClick={() => setOpenPaymentModal(true)}>
+              Become Premium
+            </Button>
+            <Dialog open={openPaymentModal} onClose={() => setOpenPaymentModal(false)}>
+              <DialogTitle>Become Premium</DialogTitle>
+              <DialogContent>
+                <DialogContentText>
+                  To become a premium user, please enter your payment details. The cost is 2 lv.
+                </DialogContentText>
+                <TextField
+                  margin="dense"
+                  id="cardInfo"
+                  label="Card Information"
+                  type="text"
+                  fullWidth
+                />
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={() => setOpenPaymentModal(false)} color="primary">
+                  Cancel
+                </Button>
+                <Button onClick={handlePremium} color="primary">
+                  Pay
+                </Button>
+              </DialogActions>
+            </Dialog>
+          </div>
+        )}
+
         <h1>Settings</h1>
 
         <form onSubmit={handleChangeUsername} className="settings-form">

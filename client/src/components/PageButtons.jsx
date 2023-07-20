@@ -6,8 +6,11 @@ import { CvContext } from "../hooks/CvContext";
 import { Button, ButtonGroup, Box, CircularProgress, Tooltip, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Typography } from "@mui/material";
 import { red } from "@mui/material/colors";
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import { useNavigate } from 'react-router-dom';
 
-const PageButtons = () => {
+const PageButtons = ({ premiumAccount }) => {
+  const navigate = useNavigate();
+
   const { cv, scaleUp, scaleDown, ifScaleUpOrDown, analyseTheResume, loading } = useContext(CvContext);
   const [hasError, setHasError] = useState(false);
   const [errorFields, setErrorFields] = useState([]);
@@ -20,18 +23,37 @@ const PageButtons = () => {
 
   const handleSubmit = () => {
     let errors = [];
-    if (cv.name.trim() === "") errors.push("Name");
-    if (cv.location.trim() === "") errors.push("Location");
-    if (cv.about.trim() === "") errors.push("About");
-
-    if (errors.length > 0) {
+    if (!premiumAccount) {
       setHasError(true);
-      setErrorFields(errors);
+      setErrorFields(["You need to have a premium account to download. Upgrade your account in Settings."]);
     } else {
-      setHasError(false);
-      ifScaleUpOrDown();
+      if (cv.name.trim() === "") errors.push("Name");
+      if (cv.location.trim() === "") errors.push("Location");
+      if (cv.about.trim() === "") errors.push("About");
+
+      if (errors.length > 0) {
+        setHasError(true);
+        setErrorFields(errors);
+      } else {
+        setHasError(false);
+        ifScaleUpOrDown();
+      }
     }
   };
+
+  const handleAnalyse = () => {
+    if (!premiumAccount) {
+      setHasError(true);
+      setErrorFields(["You need a premium account to use this feature."]);
+    } else {
+      analyseTheResume();
+    }
+  };
+
+  const goToSettings = () => {
+    setHasError(false);
+    navigate('/settings');
+  }
 
   return (
     <Box
@@ -65,7 +87,7 @@ const PageButtons = () => {
           </Button>
         </Tooltip>
         <Tooltip title="Analyse">
-          <Button onClick={analyseTheResume} style={{ padding: "8px 18px" }}>
+          <Button onClick={handleAnalyse} style={{ padding: "8px 18px" }}>
             {loading ? <CircularProgress color="inherit" size={24} /> : <BiAnalyse style={{ width: "20px", height: "20px" }} />}
           </Button>
         </Tooltip>
@@ -73,19 +95,23 @@ const PageButtons = () => {
       <Dialog open={hasError} onClose={() => setHasError(false)}>
         <DialogTitle>
           <Box display="flex" alignItems="center">
-            Error 
-            <SentimentVeryDissatisfiedIcon fontSize="large" style={{ marginLeft: '8px' }}/>
+            Error
+            <SentimentVeryDissatisfiedIcon fontSize="large" style={{ marginLeft: '8px' }} />
           </Box>
         </DialogTitle>
         <DialogContent>
           {errorFields.map(field => (
             <DialogContentText key={field}>
-              {`${field} is empty. ${fieldJokes[field]}`}
+              {field}
             </DialogContentText>
           ))}
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setHasError(false)}>Got it!</Button>
+          {!premiumAccount ? (
+            <Button onClick={goToSettings}>Go to Settings</Button>
+          ) : (
+            <Button onClick={() => setHasError(false)}>Got it!</Button>
+          )}
         </DialogActions>
       </Dialog>
     </Box>

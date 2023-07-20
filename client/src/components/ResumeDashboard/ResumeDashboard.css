@@ -39,16 +39,16 @@
 }
 
 .card-image {
-    width: 100%;
-    height: 50%;
-    background-color: #000;
+    width: 110%;
+    height: 60%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    overflow: hidden;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-}
+    justify-content: center;
+    text-align: center;
+    background-size: cover; 
+    background-position: center;
+    position: relative;
+  }
 
 .card-title {
     color: #000;

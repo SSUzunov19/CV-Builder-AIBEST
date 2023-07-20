@@ -26,6 +26,9 @@ function App() {
   const [userName, setUserName] =  useState(localStorage.getItem('userName') || null);
   const [resumeId, setResumeId] = useState("");
   const [templateId, setTemplateId] = useState(1);
+  const [premiumAccount, setPremiumAccount] = useState(false);
+
+  console.log('premiumAccount:', premiumAccount);
 
   useEffect(() => {
     localStorage.setItem('userId', userId);
@@ -49,9 +52,9 @@ function App() {
             <Route path="/" element={<Home userId={userId} setUserId={setUserId} userName={userName} setUserName={setUserName}/>} />
             <Route path="/login" element={<Login setUserId={setUserId} setUserName={setUserName}/>} />
             <Route path="/register" element={<Register setUserId={setUserId} setUserName={setUserName}/>} />
-            <Route path="/settings" element={<Settings userId={userId} userName={userName} setUserName={setUserName}/>} />
+            <Route path="/settings" element={<Settings userId={userId} userName={userName} setUserName={setUserName} premiumAccount={premiumAccount} setPremiumAccount={setPremiumAccount}/>} />
             <Route path="/dashboard" element={<Dashboard userId={userId} setUserId={setUserId} userName={userName} setUserName={setUserName} setResumeId={setResumeId}/>} />
-            <Route path="/builder/:id" element={<ResumeBuilder userId={userId} templateId={templateId} setTemplateId={setTemplateId} resumeId={resumeId} />} />
+            <Route path="/builder/:id" element={<ResumeBuilder userId={userId} templateId={templateId} setTemplateId={setTemplateId} resumeId={resumeId} premiumAccount={premiumAccount} />} />
             <Route path="/builder/:id/template" element={<TemplateSwitcher userId={userId} setTemplateId={setTemplateId}/>} />
           </Routes>
         </div>
