@@ -20,13 +20,14 @@
 .card-image {
     width: 94%;
     height: 57%;
-    background-color: #A8E1C2;
     border-radius: 40px;
     margin: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    background-size: cover; 
+    background-position: center;
 }
 
 .card-title {

@@ -11,7 +11,17 @@ import './ResumeDashboard.css';
 import Navbar from '../Homepage Components/Navbar/Navbar';
 import Footer from '../Homepage Components/Footer/Footer';
 
-function GradientIcon({colorShades}) {
+import template1 from '../../images/templates/templatee1.png';
+import template2 from '../../images/templates/templatee2.png';
+import template3 from '../../images/templates/templatee3.png';
+import template4 from '../../images/templates/templatee4.png';
+import template5 from '../../images/templates/templatee5.png';
+import template6 from '../../images/templates/templatee6.png';
+import template7 from '../../images/templates/templatee7.png';
+import template8 from '../../images/templates/templatee8.png';
+import template9 from '../../images/templates/templatee9.png';
+
+function GradientIcon({ colorShades }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="79" height="78" viewBox="0 0 79 78" fill="none">
       <g clip-path="url(#clip0_182_306)">
@@ -38,27 +48,40 @@ function GradientIcon({colorShades}) {
 export const ResumeDashboard = ({ userId, setUserId, userName, setUserName, setResumeId }) => {
   const [resumes, setResumes] = useState([]);
   const [error, setError] = useState(null);
+  const [templateId, setTemplateId] = useState(1);
 
   const navigate = useNavigate();
+
+  const templates = {
+    1: template1,
+    2: template2,
+    3: template3,
+    4: template4,
+    5: template5,
+    6: template6,
+    7: template7,
+    8: template8,
+    9: template9,
+  };
 
   useEffect(() => {
     if (userId !== null && userId !== "") {
       console.log("Fetching resumes for user:", userId);
       fetchResumes(userId)
-        .then(setResumes)
+        .then((resumes) => {
+          setResumes(resumes);
+          resumes.forEach(resume => setTemplateId(resume.template_id));
+        })
         .catch((error) => {
           console.error("Error fetching resumes:", error);
         });
     } else {
       setError("You need to create an account to view this page.");
     }
-
-    console.log("AAAAAAAAAAAA", resumes);
   }, [userId]);
 
-  useEffect(() => {
-
-  })
+  console.log("templateId", templateId);
+  console.log("AAAAAAAAAAAA", resumes);
 
   const handleDelete = (id) => {
     deleteResume(id).then(() => {
@@ -92,7 +115,6 @@ export const ResumeDashboard = ({ userId, setUserId, userName, setUserName, setR
     );
   }
 
-
   return (
     <>
       <Navbar userId={userId} setUserId={setUserId} userName={userName} setUserName={setUserName} />
@@ -100,9 +122,12 @@ export const ResumeDashboard = ({ userId, setUserId, userName, setUserName, setR
       <div className="cards-wrapper">
         {resumes.map((resume) => (
           <div key={resume.id} className="card-container">
-        
-            <div className='card-image' style={{backgroundColor: resume.templateID}}>
-                <GradientIcon />
+
+            <div
+              className='card-image'
+              style={{ backgroundImage: `url(${templates[templateId]})` }}
+            >
+              <GradientIcon />
             </div>
 
             <div className='action-btn-container'>
@@ -122,7 +147,7 @@ export const ResumeDashboard = ({ userId, setUserId, userName, setUserName, setR
 
             </div>
 
-            <button size="small" component={Link} to={`/builder/${resume.id}`} onClick={() => setResumeId(resume.id)} className="open-button">Open</button>
+            <IconButton size="small" component={Link} to={`/builder/${resume.id}`} onClick={() => setResumeId(resume.id)} className="open-button">Open</IconButton>
           </div>
         ))}
       </div>
