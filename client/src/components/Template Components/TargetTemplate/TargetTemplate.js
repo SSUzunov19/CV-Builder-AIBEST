@@ -9,7 +9,7 @@ export default function TargetTemplate({ selectedTemplate, id, setTemplateId }) 
     const navigate = useNavigate();
 
     function getImageFilePath(){
-        return require(`../../../images/templates/template${selectedTemplate.toString()}.png`);
+        return require(`../../../images/templates/templatee${selectedTemplate.toString()}.png`);
     }
 
     const handleConfirmClick = () => {
