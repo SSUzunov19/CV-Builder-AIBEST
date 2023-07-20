@@ -1,14 +1,14 @@
 <h1 align="center">Team Wonder Woman</h1>
 
 <p align = "center">
-    <img src="https://cdn.discordapp.com/attachments/1125828347415511040/1131701432756740228/githubBanner.png" />
+    <img src="https://cdn.discordapp.com/attachments/1125828347415511040/1131705401658847292/githubBanner.png" />
 </p>
 
 <p align = "center">
-    <img alt="GitHub license" src="https://img.shields.io/github/license/SSUzunov19/AIBEST-project?style=for-the-badge">
-    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/SSUzunov19/AIBEST-project?style=for-the-badge">
-    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/SSUzunov19/AIBEST-project?style=for-the-badge">
-    <img src="https://img.shields.io/github/languages/count/SSUzunov19/AIBEST-project?style=for-the-badge">
+    <img alt="GitHub license" src="https://img.shields.io/github/license/SSUzunov19/CV-Builder-AIBEST?style=for-the-badge">
+    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/SSUzunov19/CV-Builder-AIBEST?style=for-the-badge">
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/SSUzunov19/CV-Builder-AIBEST?style=for-the-badge">
+    <img src="https://img.shields.io/github/languages/count/SSUzunov19/CV-Builder-AIBEST?style=for-the-badge">
 </p>
 
 ## 💻 About
