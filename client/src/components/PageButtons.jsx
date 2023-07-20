@@ -5,14 +5,28 @@ import { BiAnalyse } from "react-icons/bi";
 import { CvContext } from "../hooks/CvContext";
 import { Button, ButtonGroup, Box, CircularProgress, Tooltip, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Typography } from "@mui/material";
 import { red } from "@mui/material/colors";
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
 const PageButtons = () => {
   const { cv, scaleUp, scaleDown, ifScaleUpOrDown, analyseTheResume, loading } = useContext(CvContext);
   const [hasError, setHasError] = useState(false);
+  const [errorFields, setErrorFields] = useState([]);
+
+  const fieldJokes = {
+    "Name": "А resume without a name? That's like a book without a title!",
+    "Location": "Еveryone needs to be somewhere, even your resume!",
+    "About": "Тell us a little bit about yourself, your resume feels lonely!"
+  };
 
   const handleSubmit = () => {
-    if (cv.name.trim() === "" || cv.location.trim() === "" || cv.about.trim() === "") {
+    let errors = [];
+    if (cv.name.trim() === "") errors.push("Name");
+    if (cv.location.trim() === "") errors.push("Location");
+    if (cv.about.trim() === "") errors.push("About");
+
+    if (errors.length > 0) {
       setHasError(true);
+      setErrorFields(errors);
     } else {
       setHasError(false);
       ifScaleUpOrDown();
@@ -43,9 +57,7 @@ const PageButtons = () => {
         </Tooltip>
         <Tooltip title="Download">
           <Button
-            onClick={() => {
-              handleSubmit();
-            }}
+            onClick={handleSubmit}
             style={{ padding: "8px 18px", ...(hasError && { backgroundColor: red[500] }) }}
             disabled={hasError}
           >
@@ -59,12 +71,21 @@ const PageButtons = () => {
         </Tooltip>
       </ButtonGroup>
       <Dialog open={hasError} onClose={() => setHasError(false)}>
-        <DialogTitle>Error</DialogTitle>
+        <DialogTitle>
+          <Box display="flex" alignItems="center">
+            Error 
+            <SentimentVeryDissatisfiedIcon fontSize="large" style={{ marginLeft: '8px' }}/>
+          </Box>
+        </DialogTitle>
         <DialogContent>
-          <DialogContentText>Can't leave required fields blank!</DialogContentText>
+          {errorFields.map(field => (
+            <DialogContentText key={field}>
+              {`${field} is empty. ${fieldJokes[field]}`}
+            </DialogContentText>
+          ))}
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setHasError(false)}>OK</Button>
+          <Button onClick={() => setHasError(false)}>Got it!</Button>
         </DialogActions>
       </Dialog>
     </Box>
