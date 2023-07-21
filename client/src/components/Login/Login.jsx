@@ -107,14 +107,12 @@ export const Login = ({ props, setUserId, setUserName }) => {
             <button className="title-btn" type="submit">
               Log In
             </button>{" "}
-            <button className="title-btn" type="submit">
-              Forgot Password
-            </button>{" "}
+
           </div>
           <p>
             {" "}
             Don't have an account? Click here to{" "}
-            <a href="#" onClick={() => props.onFormSwitch("register")}>
+            <a href="#" onClick={() => navigate('/register')}>
               sign up
             </a>
           </p>

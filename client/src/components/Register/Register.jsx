@@ -204,7 +204,7 @@ export const Register = ({ props, setUserId, setUserName }) => {
           <p id="register-subtext">
             {" "}
             Already have an account? Click here to{" "}
-            <a href="#" onClick={() => props.onFormSwitch("login")}>
+            <a href="#" onClick={() => navigate("/login")}>
               login
             </a>
           </p>
