@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser = require('body-parser');
 const { OpenAIApi, Configuration } = require('openai');
+const config = require('./config.js');
+const API_KEY = config.API_KEY;
 
 var cors = require('cors');
 

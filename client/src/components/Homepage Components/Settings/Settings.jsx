@@ -90,14 +90,13 @@ export default function Settings({ userId, userName, setUserName, premiumAccount
     const hashedPassword = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
     return hashedPassword;
-
-    
   }
 
   return (
     <>
       <Navbar userId={userId} userName={userName}></Navbar>
       <div className="settings-container">
+        <h1>Settings</h1>
         {!premiumAccount && (
           <div>
             <Button variant="contained" color="primary" onClick={() => setOpenPaymentModal(true)}>
@@ -129,10 +128,8 @@ export default function Settings({ userId, userName, setUserName, premiumAccount
           </div>
         )}
 
-        <h1>Settings</h1>
-
         <form onSubmit={handleChangeUsername} className="settings-form">
-          <h2>Change Username</h2>
+          <h2>Change Username:</h2>
           <TextField
             variant="outlined"
             margin="normal"
@@ -152,7 +149,7 @@ export default function Settings({ userId, userName, setUserName, premiumAccount
         </form>
 
         <form onSubmit={handleChangeEmail} className="settings-form">
-          <h2>Change Email</h2>
+          <h2>Change Email:</h2>
           <TextField
             variant="outlined"
             margin="normal"
@@ -172,7 +169,7 @@ export default function Settings({ userId, userName, setUserName, premiumAccount
         </form>
 
         <form onSubmit={handleChangePassword} className="settings-form">
-          <h2>Change Password</h2>
+          <h2>Change Password:</h2>
           <TextField
             variant="outlined"
             margin="normal"
