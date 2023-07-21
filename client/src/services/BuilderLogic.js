@@ -180,7 +180,9 @@ export const useBuilderLogic = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    console.log('Received resume id:', id);
     getResumeById(id).then((response) => {
+      console.log('Received resume:', response);
       setResume(response);
     });
   }, [id]);
@@ -283,8 +285,6 @@ export const useBuilderLogic = () => {
     setLanguages(languages);
     setIndustryKnowledge(industryKnowledge);
   
-    console.log(about);
-    
     // Assuming LS.set() is a function for saving to local storage
     LS.set({ key: "about", payload: about });
  

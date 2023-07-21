@@ -44,7 +44,6 @@ export const ResumeDashboard = ({ userId, setUserId, userName, setUserName, setR
 
   useEffect(() => {
     if (userId !== null && userId !== "") {
-      console.log("Fetching resumes for user:", userId);
       fetchResumes(userId)
         .then((resumes) => {
           setResumes(resumes);

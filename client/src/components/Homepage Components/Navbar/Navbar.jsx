@@ -21,13 +21,6 @@ export default function Navbar({ userId, setUserId, userName, setUserName }) {
     navigate('/');
   };
 
-  console.log('userId navbar:', userId);
-  console.log('userName navbar: ', userName);
-
-  // console.log what is the type of userId
-  console.log('typeof userId: ', typeof userId);
-
-
   return (
     <div className="navbar-wrapper">
       <nav className="nav-bar">

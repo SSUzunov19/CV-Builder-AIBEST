@@ -144,6 +144,7 @@ export const fetchResumes = (userId) => {
 };
 
 export const getResumeById = (id) => {
+  console.log('Received resume id in api.js:', id);
   return api.get(`/api/resumes/${id}`)
     .then((res) => {
       return res.data;
@@ -157,7 +158,6 @@ export const getResumeById = (id) => {
 export const createResume = (resume) => {
   return api.post('/api/resumes', resume)
     .then((response) => {
-      LS.set({ key: 'resume', payload: response.data });
       return response.data;
     });
 };

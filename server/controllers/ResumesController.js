@@ -8,7 +8,18 @@ exports.getResumesByUserId = async (req, res) => {
 };
 
 exports.getResumeById = async (req, res) => {
-  const resume = await Resume.findByPk(req.params.id);
+  const id = req.params.id;
+  console.log('Received resume id predi:', id);
+
+  const resume = await Resume.findByPk(id);
+  console.log('Received resume:', resume);
+  console.log('Received resume id:', resume.id);
+
+  if (!resume) {
+    res.status(404).json({ error: 'Resume not found' });
+    return;
+  }
+  
   res.json(resume);
 };
 

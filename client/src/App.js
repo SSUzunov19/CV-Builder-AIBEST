@@ -28,8 +28,6 @@ function App() {
   const [templateId, setTemplateId] = useState(null);
   const [premiumAccount, setPremiumAccount] = useState(false);
 
-  console.log('premiumAccount:', premiumAccount);
-
   useEffect(() => {
     localStorage.setItem('userId', userId);
     localStorage.setItem('userName', userName);
@@ -40,8 +38,6 @@ function App() {
       setTemplateId(1);
     }
   }, [userId]);
-
-  console.log('App.js templateId:', templateId);
 
   return (
     <Router>

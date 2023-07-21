@@ -19,11 +19,8 @@ export default function Home({ userId, templateId, setTemplateId, resumeId, prem
     const cvRef = useRef(null);
     const [templateForThePage, setTemplateForThePage] = React.useState(1);
 
-    console.log("templateForThePage", templateForThePage);
-
     useEffect(() => {
         if (templateId) { // if template is not null or undefined
-            console.log("AAAAAAAAAAAAAAAAAAAAAAAAA");
             updateResumeTemplate(resumeId, templateId)
                 .then(updatedResume => {
 
@@ -32,10 +29,7 @@ export default function Home({ userId, templateId, setTemplateId, resumeId, prem
                     console.error('Error updating resume template:', error);
                 });
         } else {
-            console.log("BEEEEEEEEEEEEEEEEEE");
             // if template is null or undefined, call the api to get the template id
-            // and then set the templateId
-            console.log("resumeIdblq: ", resumeId)
             fetchTemplateofResume(resumeId)
                 .then(fetchedTemplateId => {
                     console.log('Fetched templateIdblq: ', fetchedTemplateId);
@@ -82,7 +76,6 @@ export default function Home({ userId, templateId, setTemplateId, resumeId, prem
         } else {
             template = templateForThePage;
         }
-        console.log("template: ", template);
         switch (true) {
             case ['1', 1].includes(template):
                 return <CV color={"rgba(0, 0, 0, 0)"} gradientColor={"rgba(0, 0, 0, 0)"} />;  // white

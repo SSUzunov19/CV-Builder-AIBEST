@@ -16,6 +16,7 @@ function ResumeForm({userId}) {
     };
 
     createResume(newResume).then((resume) => {
+      console.log('Created resume:', resume);
       navigate(`/builder/${resume.id}`);
     });
   };
